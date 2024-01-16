@@ -1,0 +1,143 @@
+[
+    {
+        "block": "Bloc 1",
+        "stairs": [
+            {
+                "stair": "Scara 1",
+                "apartments": [
+                    {
+                        "apartment": "Apartament 1"
+                    },
+                    {
+                        "apartment": "Apartament 2"
+                    },
+                    {
+                        "apartment": "Apartament 3"
+                    }
+                ]
+            },
+            {
+                "stair": "Scara 2",
+                "apartments": [
+                    {
+                        "apartment": "Apartament 1"
+                    },
+                    {
+                        "apartment": "Apartament 2"
+                    },
+                    {
+                        "apartment": "Apartament 3"
+                    }
+                ]
+            },
+            {
+                "stair": "Scara 3",
+                "apartments": [
+                    {
+                        "apartment": "Apartament 1"
+                    },
+                    {
+                        "apartment": "Apartament 2"
+                    },
+                    {
+                        "apartment": "Apartament 3"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "block": "Bloc 2",
+        "stairs": [
+            {
+                "stair": "Scara 1",
+                "apartments": [
+                    {
+                        "apartment": "Apartament 1"
+                    },
+                    {
+                        "apartment": "Apartament 2"
+                    },
+                    {
+                        "apartment": "Apartament 3"
+                    }
+                ]
+            },
+            {
+                "stair": "Scara 2",
+                "apartments": [
+                    {
+                        "apartment": "Apartament 1"
+                    },
+                    {
+                        "apartment": "Apartament 2"
+                    },
+                    {
+                        "apartment": "Apartament 3"
+                    }
+                ]
+            },
+            {
+                "stair": "Scara 3",
+                "apartments": [
+                    {
+                        "apartment": "Apartament 1"
+                    },
+                    {
+                        "apartment": "Apartament 2"
+                    },
+                    {
+                        "apartment": "Apartament 3"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "block": "Bloc 3",
+        "stairs": [
+            {
+                "stair": "Scara 1",
+                "apartments": [
+                    {
+                        "apartment": "Apartament 1"
+                    },
+                    {
+                        "apartment": "Apartament 2"
+                    },
+                    {
+                        "apartment": "Apartament 3"
+                    }
+                ]
+            },
+            {
+                "stair": "Scara 2",
+                "apartments": [
+                    {
+                        "apartment": "Apartament 1"
+                    },
+                    {
+                        "apartment": "Apartament 2"
+                    },
+                    {
+                        "apartment": "Apartament 3"
+                    }
+                ]
+            },
+            {
+                "stair": "Scara 3",
+                "apartments": [
+                    {
+                        "apartment": "Apartament 1"
+                    },
+                    {
+                        "apartment": "Apartament 2"
+                    },
+                    {
+                        "apartment": "Apartament 3"
+                    }
+                ]
+            }
+        ]
+    }
+]

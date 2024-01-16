@@ -1,0 +1,11 @@
+.paymentDetails {
+    /* background-color: #b62424; */
+    height: 100%;
+    flex: 1;
+}
+
+.table .header {
+    font-weight: 600;
+    color: #acacaca0;
+    border-radius: var(--smallGap) var(--smallGap) 0 0;
+}

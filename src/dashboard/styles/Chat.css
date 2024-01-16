@@ -1,0 +1,240 @@
+.chat {
+    flex: 1;
+    margin-bottom: var(--mediumGap);
+    border-radius: var(--mediumGap);
+    background-color: var(--mainBack);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.chatList {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mediumGap);
+    padding: var(--mediumGap);
+    border-right: #acacac40 solid 1px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.searchBar {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: var(--smallGap);
+    border: #acacac40 solid 1px;
+    color: #acacac;
+    padding: 0 var(--smallGap);
+    box-sizing: border-box;
+}
+
+.searchBar input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    color: #acacac;
+    font-size: 1em;
+    font-weight: 500;
+    outline: none;
+}
+
+.searchBar i {
+    font-size: 1.2em;
+    color: #acacac;
+}
+
+.conversations {
+    width: calc(100% + 12px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+    overflow-y: scroll;
+}
+
+.conversation {
+    width: calc(100% - 5px);
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    border-radius: 100px 50px 50px 100px;
+    cursor: pointer;
+}
+
+.conversation:hover {
+    background-color: #ffffff10;
+}
+
+.conversation img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+}
+
+.conversation .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 var(--smallGap);
+}
+
+.conversation .info .name {
+    color: #acacac;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.name .address {
+    font-size: 0.8em;
+    font-weight: 400;
+    color: #acacac80;
+}
+
+.conversation .info .lastMessage {
+    /* font: 400 0.8em 'Roboto', sans-serif; */
+    font-size: 0.8em;
+    font-weight: 400;
+    color: #acacac80;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lastMessage .date {
+    font-size: 1em;
+}
+
+.chatContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: var(--mediumGap);
+    gap: var(--mediumGap);
+}
+
+.chatContent .chatHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatContent .chatHeader .info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #acacac;
+    font-size: 0.8m;
+    font-weight: 400;
+}
+
+.chatContent .chatHeader .info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: var(--smallGap);
+}
+
+.chatContent .chatHeader .actions {
+    font-size: 1.2em;
+    color: #acacac;
+    display: flex;
+    flex-direction: row;
+    gap: var(--smallGap);
+}
+
+.chatContent .messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--smallGap);
+    overflow-y: scroll;
+    /* background-color: #fff; */
+}
+
+.chatContent .chatFooter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--smallGap);
+}
+
+.chatFooter i {
+    font-size: 1.2em;
+    color: #acacac;
+}
+
+.chatContent .chatInput {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: var(--smallGap);
+    border: #acacac40 solid 1px;
+    color: #acacac;
+    padding: 0 var(--smallGap);
+    box-sizing: border-box;
+}
+
+.chatInput input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    color: #acacac;
+    font-size: 1em;
+    font-weight: 500;
+    outline: none;
+}
+
+.chatInput i {
+    font-size: 1.2em;
+    color: #acacac;
+}
+
+.messageContainer {
+    width: 100%;
+    gap: var(--smallGap);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.messageContainer .message {
+    padding: calc(var(--smallGap) / 2) var(--smallGap);
+    border-radius: 50px;
+    width: fit-content;
+    background-color: #fff1;
+    color: #acacac;
+    text-align: center;
+}
+
+.messageContainer.sent {
+    justify-content: flex-end;
+}
+
+.messageContainer.sent .message {
+    background-color: var(--darkColor);
+    color: #ddd;
+    order: 2;
+}
+
+.messageContainer.received {
+    justify-content: flex-start;
+}
+
+.messageContainer .time {
+    font-size: 0.8em;
+    font-weight: 400;
+    color: #acacac80;
+}

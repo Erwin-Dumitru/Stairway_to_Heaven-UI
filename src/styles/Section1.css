@@ -1,0 +1,13 @@
+.Section1 {
+    height: calc(100vh + 50px);
+    background-color: #343434;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Section1 h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+    color: #fff;
+}

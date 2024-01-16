@@ -1,0 +1,20 @@
+header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 90vw;
+    height: calc(100vh + 50px);
+    /* background-image: radial-gradient(farthest-side, #393939, #000); */
+    -webkit-animation: scale ease both;
+            animation: scale ease both;
+    animation-timeline: view(block);
+    animation-range: entry-crossing 100% cover 100%;
+}
+
+header h1 {
+    color: white;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

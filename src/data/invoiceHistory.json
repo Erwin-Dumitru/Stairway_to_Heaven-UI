@@ -1,0 +1,454 @@
+[
+    {
+        "year": 2023,
+        "months": [
+            {
+                "month": 12,
+                "invoices": [
+                    {
+                        "invoiceID": "1043",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 11,
+                "invoices": [
+                    {
+                        "invoiceID": "1041",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 10,
+                "invoices": [
+                    {
+                        "invoiceID": "1040",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 9,
+                "invoices": [
+                    {
+                        "invoiceID": "1039",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 8,
+                "invoices": [
+                    {
+                        "invoiceID": "1038",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 7,
+                "invoices": [
+                    {
+                        "invoiceID": "1037",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 6,
+                "invoices": [
+                    {
+                        "invoiceID": "1036",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 5,
+                "invoices": [
+                    {
+                        "invoiceID": "1035",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 4,
+                "invoices": [
+                    {
+                        "invoiceID": "1034",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 3,
+                "invoices": [
+                    {
+                        "invoiceID": "1033",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 2,
+                "invoices": [
+                    {
+                        "invoiceID": "1032",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 1,
+                "invoices": [
+                    {
+                        "invoiceID": "1031",
+                        "amount": 1000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "year": 2022,
+        "months": [
+            {
+                "month": 12,
+                "invoices": [
+                    {
+                        "invoiceID": "1030",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 11,
+                "invoices": [
+                    {
+                        "invoiceID": "1029",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 10,
+                "invoices": [
+                    {
+                        "invoiceID": "1028",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 9,
+                "invoices": [
+                    {
+                        "invoiceID": "1027",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 8,
+                "invoices": [
+                    {
+                        "invoiceID": "1026",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 7,
+                "invoices": [
+                    {
+                        "invoiceID": "1025",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 6,
+                "invoices": [
+                    {
+                        "invoiceID": "1024",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 5,
+                "invoices": [
+                    {
+                        "invoiceID": "1023",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 4,
+                "invoices": [
+                    {
+                        "invoiceID": "1022",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 3,
+                "invoices": [
+                    {
+                        "invoiceID": "1021",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 2,
+                "invoices": [
+                    {
+                        "invoiceID": "1020",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 1,
+                "invoices": [
+                    {
+                        "invoiceID": "1019",
+                        "amount": 1000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "year": 2021,
+        "months": [
+            {
+                "month": 12,
+                "invoices": [
+                    {
+                        "invoiceID": "1018",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 11,
+                "invoices": [
+                    {
+                        "invoiceID": "1017",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 10,
+                "invoices": [
+                    {
+                        "invoiceID": "1016",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 9,
+                "invoices": [
+                    {
+                        "invoiceID": "1015",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 8,
+                "invoices": [
+                    {
+                        "invoiceID": "1014",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 7,
+                "invoices": [
+                    {
+                        "invoiceID": "1013",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 6,
+                "invoices": [
+                    {
+                        "invoiceID": "1012",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 5,
+                "invoices": [
+                    {
+                        "invoiceID": "1011",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 4,
+                "invoices": [
+                    {
+                        "invoiceID": "1010",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 3,
+                "invoices": [
+                    {
+                        "invoiceID": "1009",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 2,
+                "invoices": [
+                    {
+                        "invoiceID": "1008",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 1,
+                "invoices": [
+                    {
+                        "invoiceID": "1007",
+                        "amount": 1000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "year": 2020,
+        "months": [
+            {
+                "month": 12,
+                "invoices": [
+                    {
+                        "invoiceID": "1006",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 11,
+                "invoices": [
+                    {
+                        "invoiceID": "1005",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 10,
+                "invoices": [
+                    {
+                        "invoiceID": "1004",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 9,
+                "invoices": [
+                    {
+                        "invoiceID": "1003",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 8,
+                "invoices": [
+                    {
+                        "invoiceID": "1002",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 7,
+                "invoices": [
+                    {
+                        "invoiceID": "1001",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 6,
+                "invoices": [
+                    {
+                        "invoiceID": "1000",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 5,
+                "invoices": [
+                    {
+                        "invoiceID": "999",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 4,
+                "invoices": [
+                    {
+                        "invoiceID": "998",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 3,
+                "invoices": [
+                    {
+                        "invoiceID": "997",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 2,
+                "invoices": [
+                    {
+                        "invoiceID": "996",
+                        "amount": 1000
+                    }
+                ]
+            },
+            {
+                "month": 1,
+                "invoices": [
+                    {
+                        "invoiceID": "995",
+                        "amount": 1000
+                    }
+                ]
+            }
+        ]
+    }
+]

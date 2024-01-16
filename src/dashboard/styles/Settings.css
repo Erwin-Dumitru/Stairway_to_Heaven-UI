@@ -1,0 +1,125 @@
+.settings {
+    flex: 1;
+    margin-bottom: var(--mediumGap);
+    border-radius: var(--mediumGap);
+    background-color: var(--mainBack);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.settingSections {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+    padding: var(--mediumGap);
+    border-right: #acacac40 solid 1px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.sectionElement {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: var(--smallGap);
+    border: #acacac40 solid 1px;
+    color: #acacac;
+    padding: 0 var(--smallGap);
+    box-sizing: border-box;
+}
+
+.sectionElement.selected {
+    background-color: #ffffff10;
+}
+
+.settingsRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mediumGap);
+    padding: var(--mediumGap);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.settings .section {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: var(--mediumGap);
+    /* background-color: burlywood; */
+}
+
+.details {
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mediumGap);
+    font-size: 1.1em;
+    /* background-color: antiquewhite; */
+}
+
+.details h2 {
+    font-size: 1.4em;
+    font-weight: 500;
+    margin: 0;
+    line-height: 70%;
+    color: #acacac;
+    /* background-color: aqua; */
+}
+
+.detailValue {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+    color: #acacac;
+    font-size: 1.1em;
+}
+
+.detailValue span {
+    font-weight: 500;
+    line-height: 100%;
+    color: #acacac;
+    font-size: 0.8em;
+}
+
+.detailValue input {
+    width: 100%;
+    height: 40px;
+    border: #acacac40 solid 1px;
+    border-radius: var(--smallGap);
+    padding: var(--smallGap);
+    background-color: transparent;
+    color: #acacac;
+    font-size: 0.8em;
+    font-weight: 400;
+    line-height: 100%;
+    outline: none;
+    box-sizing: border-box;
+}
+
+button.save {
+    width: 50%;
+    margin: 0 auto;
+    height: 40px;
+    border: #acacac40 solid 1px;
+    border-radius: var(--smallGap);
+    background-color: transparent;
+    color: #acacac;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 100%;
+    outline: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button.save:hover {
+    background-color: #ffffff10;
+}

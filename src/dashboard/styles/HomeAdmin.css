@@ -1,0 +1,56 @@
+.homeAdmin {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-bottom: var(--mediumGap);
+    background-color: var(--mainBack);
+    border-radius: var(--mediumGap);
+    padding: var(--mediumGap);
+    overflow: hidden;
+}
+
+.create {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    /* margin-bottom: calc(var(--mediumGap) * 2); */
+    gap: var(--mediumGap);
+}
+
+.homeAdmin h2 {
+    align-items: center;
+    text-justify: center;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #acacac;
+    line-height: 70%;
+}
+
+.create button {
+    padding: var(--smallGap) var(--mediumGap);
+    border: #acacac40 solid 1px;
+    border-radius: 50px;
+    background: transparent;
+    color: #acacac;
+    /* margin-bottom: var(--mediumGap); */
+    font-size: 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.create button:hover {
+    background-color: #ffffff10;
+}
+
+.create button:active {
+    opacity: 0.8;
+}
+
+.create button:focus {
+    outline: none;
+}

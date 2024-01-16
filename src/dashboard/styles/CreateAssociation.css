@@ -1,0 +1,174 @@
+/* .createAssociation {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - var(--largeGap) * 4);
+    width: calc(100vw - var(--largeGap) * 4);
+    margin: 0;
+    border-radius: var(--mediumGap);
+    background-color: var(--mainBack);
+} */
+
+.createAssociation {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    gap: var(--mediumGap);
+}
+
+.createAssociation h3, .createAssociation i {
+    color: #acacac;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 100%;
+}
+
+.createAssociation .subsectionContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mediumGap);
+    width: 275px;
+
+    padding-right: calc(var(--mediumGap) - 12px);
+    border-right: #acacac40 solid 1px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.subsectionTitle {
+    position: relative;
+    color: #acacac;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+    /* background-color: bisque; */
+}
+
+.subsectionTitle i {
+    position: absolute;
+    right: calc(var(--smallGap) + 10px);
+
+    font-size: 1.4em;
+    color: #acacacaa;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.subsectionTitle i:hover {
+    color: #acacac;
+}
+
+.blocuri {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+}
+
+.blocuri .contentDiv {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+}
+
+.blocuri i {
+    color: #acacacaa;
+    line-height: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.blocuri i:hover {
+    color: #acacac;
+}
+
+.bloc {
+    width: 249px;
+    display: flex;
+    flex-direction: column;
+    /* gap: var(--smallGap); */
+    background-color: var(--darkBack);
+    border-radius: var(--smallGap);
+    /* height: fit-content; */
+    overflow: hidden;
+}
+
+.blocTitle {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--smallGap);
+    /* border-bottom: #acacac40 solid 1px; */
+}
+
+.stairs {
+    display: flex;
+    flex-direction: column;
+    margin-left: calc(var(--smallGap) - 1px);
+    border-left: #acacac00 solid 1px;
+    transition: all 0.2s ease;
+}
+
+.stairs:hover {
+    border-color: #acacac40;
+}
+
+.stair {
+    display: flex;
+    flex-direction: column;
+}
+
+.stairTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--smallGap);
+}
+
+.apartments {
+    display: flex;
+    flex-direction: column;
+    margin-left: calc(var(--smallGap) - 1px);
+    border-left: #acacac40 solid 1px;
+    transition: all 0.2s ease;
+}
+
+.apartments:hover {
+    border-color: #acacac80;
+}
+
+.apartment {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+    padding: var(--smallGap);
+}
+
+.apartmentTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stairTitle, .blocTitle, .apartment {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.stairTitle:hover, .blocTitle:hover, .apartment:hover {
+    background-color: #2b2b2b;
+}

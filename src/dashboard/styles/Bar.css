@@ -1,0 +1,92 @@
+.bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    /* width: 100%; */
+    margin: 0;
+    padding: 0;
+    height: 100px;
+}
+
+.notifications {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #acacac;
+    font-size: 1.5em;
+    font-weight: 500;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    /* border: rgba(0, 0, 0, 0) solid 3px; */
+    border: #acacac80 solid 1px;
+    transition: all 0.25s;
+}
+
+#barTitle {
+    flex: 1;
+    margin: 0;
+    font-size: 2em;
+    font-weight: 500;
+    color: #acacac;
+    padding-left: auto;
+}
+
+.currentAddress {
+    color: #acacac;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px 0 20px;
+    height: 40px;
+    width: 155px;
+    border-radius: 20px;
+    background-color: #343434;
+    cursor: pointer;
+}
+
+.currentAddress i {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    color: #acacac;
+}
+
+.addressList {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 45px;
+    /* padding-top: 20px; */
+    padding: calc(25px) 0 0 0;
+    width: 190px;
+    border-radius: 0 0 20px 20px;
+    background-color: #252525;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* max-height: 200px; */
+    transition: all 0.25s ease;
+}
+
+.addressList .address {
+    color: #acacac;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* padding: 0 15px 0 20px; */
+    padding-left: 20px;
+    height: 40px;
+    border-radius: 20px;
+    /* background-color: #343434; */
+    cursor: pointer;
+}

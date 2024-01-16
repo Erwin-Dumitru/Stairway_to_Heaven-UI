@@ -1,0 +1,251 @@
+.home {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-bottom: var(--mediumGap);
+    gap: var(--mediumGap);
+}
+
+.graphContainer {
+    background-color: var(--mainBack);
+    /* flex-grow: 3; */
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--mediumGap);
+    /* padding: calc(var(--mediumGap) + var(--mediumGap) / 2) calc(var(--mediumGap) + var(--mediumGap) / 2) var(--mediumGap) var(--mediumGap); */
+    padding: var(--mediumGap);
+}
+
+.barChart {
+    width: 100%;
+    height: 100%;
+}
+
+.home .left {
+    /* background-color: black; */
+    /* flex-grow: 1; */
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--mediumGap);
+}
+
+.totalToPay, .meters {
+    background-color: var(--mainBack);
+    /* flex: 1; */
+    width: 100%;
+    border-radius: var(--mediumGap);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mediumGap);
+    padding: var(--mediumGap);
+    box-sizing: border-box;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+.totalToPay {
+    justify-content: space-between;
+    align-items: space-between;
+    /* min-height: 50%;
+    max-height: 100%; */
+    flex: 1;
+    transition: all 0.25s ease;
+}
+
+/* .totalToPay:hover {
+    scale: 1.05;
+} */
+
+.meters {
+    padding-right: calc(var(--mediumGap) - 7px);
+    /* max-height: 50%;
+    min-height: 231.18px; */
+    flex: 1;
+}
+
+.graphMenu {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0 0 var(--mediumGap) 0;
+    align-items: start;
+    /* background-color: #000000; */
+}
+
+.home h2, .home h3, .home i {
+    align-items: center;
+    text-justify: center;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #acacac;
+    line-height: 70%;
+}
+
+.home h3 {
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.graphMenu .range {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.range h3 {
+    padding: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.range h3.active {
+    background-color: #acacac20;
+}
+
+.totalToPayTitle, .metersTitle {
+    color: #acacac;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.totalToPayTitle i {
+    font-size: 1.2em;
+    color: #acacac;
+}
+
+.totalToPay {
+    position: relative;
+    justify-content: start;
+}
+
+.totalToPayValue {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--mediumGap);
+    width: 100%;
+    height: calc(50% - var(--mediumGap) * 1);
+}
+  
+.doughnutChart {
+    /* height: 100%; */
+    width: calc(100% - 4 * var(--mediumGap));
+    position: absolute;
+    bottom: 0;
+    transform: translate(-50%, 25%);
+    /* visibility: hidden; */
+}
+
+.metersField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: calc(var(--mediumGap) / 2);
+    overflow-y: scroll;
+    margin: 0 0 var(--mediumGap) 0;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: var(--mediumGap); */
+    width: calc(100% - var(--mediumGap) - 7px);
+    padding: calc(var(--smallGap));
+    /* background-color: var(--darkBack); */
+    border-radius: var(--smallGap);
+    border: #acacac40 solid 1px;
+}
+
+label {
+    font: 500 1em 'Roboto', sans-serif;
+    color: #acacac;
+}
+
+span {
+    margin: 0;
+    padding: 0;
+    font-size: 0.7em;
+    font-weight: 500;
+    color: #acacac80;
+    /* line-height: 70%; */
+}
+
+.metersFieldInput {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* gap: var(--mediumGap); */
+    /* width: 100%; */
+    height: 100%;
+}
+
+.metersFieldInput input {
+    width: calc(100px - 1 * var(--smallGap));
+    height: 100%;
+    background-color: transparent;
+    font: 500 1em 'Roboto', sans-serif;
+    color: #acacac;
+    padding: 0 0 0 var(--smallGap);
+    margin: 0;
+    border: #acacac40 solid 1px;
+    border-right: none;
+    border-radius: calc(var(--smallGap) / 1) 0 0 calc(var(--smallGap) / 1);
+    outline: none;
+}
+
+.metersFieldInput button {
+    /* width: 100px; */
+    height: calc(100% + 2px);
+    background-color: transparent;
+    border: none;
+    font: 500 0.8em 'Roboto', sans-serif;
+    color: #acacac;
+    padding: 0 var(--smallGap);
+    margin: 0;
+    border: #acacac40 solid 1px;
+    border-left: none;
+    border-radius: 0 calc(var(--smallGap) / 1) calc(var(--smallGap) / 1) 0;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.metersFieldInput button:hover {
+    background-color: #acacac10;
+}
+
+.metersFieldInput button:focus-within {
+    outline: none;
+    background-color: #00000010;
+}

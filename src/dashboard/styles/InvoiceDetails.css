@@ -1,0 +1,130 @@
+.generalDetails {
+    height: 100%;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mediumGap);
+    /* background-color: #8d5050; */
+}
+
+.table {
+    color: #acacac;
+    /* height: 100%; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* border:  #acacac40 solid 1px; */
+    border-radius: var(--smallGap);
+    /* gap: var(--mediumGap); */
+    /* background-color: #508d64; */
+}
+
+.table .row {
+    /* width: calc(100% - var(--smallGap)); */
+    display: flex;
+    flex-direction: row;
+    padding: var(--smallGap) 0;
+    /* border-top: #acacac40 solid 1px; */
+}
+
+.table .row.even {
+    background-color: #ffffff05;
+}
+
+.table .row:first-child {
+    /* border-radius: 0 0 var(--smallGap) var(--smallGap); */
+    background-color: #ffffff10;
+}
+
+.table .row:last-child {
+    border-radius: 0 0 var(--smallGap) var(--smallGap);
+    background-color: #ffffff10;
+}
+
+.table .row .cell {
+    width: 50%;
+    /* flex-grow: 1; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: var(--smallGap);
+}
+
+.table .row .cell.first {
+    width: 75%;
+    padding-left: var(--smallGap);
+}
+
+.table .row .cell.second {
+    width: 75%;
+}
+
+.table .row .cell.last {
+    justify-content: flex-end;
+}
+
+.table .row .title {
+    padding: 0 var(--smallGap);
+    font-weight: 600;
+}
+
+.table .row .value {
+    padding: 0 var(--smallGap) 0 0;
+    font-weight: 300;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: var(--smallGap);
+    /* background-color: #8d5050; */
+}
+
+.grid .cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2px;
+    color: #acacac;
+    font-size: 1.1em;
+    font-weight: 600;
+    line-height: 100%;
+    /* background-color: white; */
+}
+
+.grid .cell span {
+    font-size: 0.7em;
+    font-weight: 400;
+    line-height: 100%;
+}
+
+.generalDetails .status {
+    height: 100%;
+    width: fit-content;
+    font-size: 0.6em;
+    font-weight: 700;
+    line-height: 100%;
+    margin: auto 0;
+}
+
+.generalDetails .status .green {
+    padding: 0.25em 0.5em;
+    border-radius: 50px;
+    background-color: #56F000;
+    color: #000;
+}
+
+.generalDetails .status .orange {
+    padding: 0.25em 0.5em;
+    border-radius: 50px;
+    background-color: #FFB302;
+    color: #000;
+}
+    
+.generalDetails .status .red {
+    padding: 0.25em 0.5em;
+    border-radius: 50px;
+    background-color: #FF3838;
+    color: #fff;
+}
