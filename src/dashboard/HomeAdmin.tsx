@@ -4,59 +4,77 @@ import { useState, useRef } from "react";
 import DataStructure from "../data/dataStructure.json";
 // import CreateAssociation from "./CreateAssociation";
 
-function Stair({stair}: {stair: any}) {
-    const [active, setActive] = useState(false);
-    const [maxHeight, setMaxHeight] = useState('0px');
+function Apartments({apartments}: {apartments: any}) {
+    const [active, setActive] = useState(true);
+    const [maxHeight, setMaxHeight] = useState('1000px');
     const titleRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
-
-    function renderApartments() {
-        return (
-            <div className={`apartments ${active ? '' : 'inactive'}`} style={{maxHeight: active ? maxHeight : '0px'}} ref={contentRef}>
-                {stair.apartamente.map((apartment: any, index: number) => {
-                    return (
-                        <div className="apartment" key={index}>
-                            <div className="apartmentTitle">
-                                <h3>{apartment.name}</h3>
-                                {/* <i className="ri-add-line"></i> */}
-                            </div>
-                        </div>
-                    );
-                })}
-            </div>
-        );
-    }
 
     function clickHandle() {
         setActive(!active);
     }
 
     return (
-        <div className="stair" ref={titleRef}>
-            <div className="stairTitle" onClick={clickHandle}>
-                <h3>{stair.name}</h3>
-                <i className="ri-arrow-down-s-line"></i>
+        <div className="apartments inactive" style={{maxHeight: active ? maxHeight : '0px'}} ref={contentRef}>
+            {
+                apartments.map((data: any, index: number) => {
+                    return (
+                        <div className="apartment" key={index}>
+                            <div className="apartmentTitle">
+                                <h3>{data.apartment}</h3>
+                                {/* <i className="ri-add-line"></i> */}
+                            </div>
+                        </div>
+                    );
+                })
+            }
+        </div>
+                
+    );
+}
+
+function Stairs({title, apartments}: {title: any, apartments: any[]}) {
+    const [active, setActive] = useState(true);
+    const [maxHeight, setMaxHeight] = useState('1000px');
+    const titleRef = useRef<HTMLDivElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
+
+    function clickHandle() {
+        setActive(!active);
+    }
+
+    return (
+        <div className="stairs inactive" style={{maxHeight: active ? maxHeight : '0px'}} ref={contentRef}>
+            <div className="stair">
+                <div className="stairTitle" onClick={clickHandle}>
+                    <h3>{title}</h3>
+                    <i className="ri-add-line"></i>
+                </div>
+
+                <Apartments apartments={apartments} />
             </div>
-            {renderApartments()}
         </div>
     );
 }
 
-function Bloc({bloc}: {bloc: any}) {
-    const [active, setActive] = useState(false);
-    const [maxHeight, setMaxHeight] = useState('0px');
+function Bloc({title, stairs}: {title: any, stairs: any[]}) {
+    const [active, setActive] = useState(true);
+    const [maxHeight, setMaxHeight] = useState('1000px');
     const titleRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
     function renderScari() {
         return (
-            <div className={`scari ${active ? '' : 'inactive'}`} style={{maxHeight: active ? maxHeight : '0px'}} ref={contentRef}>
-                {bloc.scari.map((scara: any, index: number) => {
+            <div className={`stairs ${active ? '' : 'inactive'}`} style={{maxHeight: active ? maxHeight : '0px'}} ref={contentRef}>
+                {stairs.map((data: any, index: any) => {
                     return (
-                        <div>
-                            <h1>Scara</h1>
+                        <div className="stair">
+                            <div className="stairTitle">
+                                <h3>{data.stair}</h3>
+                                <i className="ri-arrow-down-s-line"></i>
+                            </div>
+                            <Apartments key={index} apartments={data.apartments} />
                         </div>
-                        // <Stair key={index} stair={scara} />
                     );
                 })}
             </div>
@@ -70,10 +88,19 @@ function Bloc({bloc}: {bloc: any}) {
     return (
         <div className="bloc" ref={titleRef}>
             <div className="blocTitle" onClick={clickHandle}>
-                <h3>{bloc.name}</h3>
+                <h3>{title}</h3>
                 <i className="ri-arrow-down-s-line"></i>
             </div>
-            {renderScari()}
+            
+            {
+                // stairs.map((data: any, index: number) => {
+                //     return (
+                //         <Stairs key={index} title={data.stair} apartments={data.apartments} />
+                //     );
+                // })
+
+                renderScari()
+            }
         </div>
     );
 }
@@ -85,9 +112,9 @@ function Blocuri() {
     return (
         <div className="blocuri">
             <div className="contentDiv">
-            {dataStructure.map((bloc, index) => {
+            {dataStructure.map((bloc: any, index: any) => {
                 return (
-                    <Bloc key={index} bloc={bloc} />
+                    <Bloc key={index} title={bloc.block} stairs={bloc.stairs} />
                 );
             })}
             </div>
