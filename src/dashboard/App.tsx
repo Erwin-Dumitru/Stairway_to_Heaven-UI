@@ -6,7 +6,7 @@ import Home from "./Home";
 import History from "./History";
 import Chat from "./Chat";
 import Settings from "./Settings";
-import HomeAdmin from "./HomeAdmin";
+import HomeAdmin from "./admin/config/HomeAdmin";
 import HistoryAdmin from "./HistoryAdmin";
 import ChatAdmin from "./ChatAdmin";
 import { Route, Routes } from "react-router-dom";

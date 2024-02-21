@@ -12,7 +12,6 @@ function Bar({addresses, currentAddress, setCurrentAddress}: {addresses: string[
         if (contentRef.current !== null) {
             // set the max height of the address list to the height of the address multiplied by the number of addresses
             setMaxHeight(`${contentRef.current.scrollHeight}px`);
-            console.log(contentRef.current.scrollHeight);
         }
     }, []);
 
@@ -21,9 +20,8 @@ function Bar({addresses, currentAddress, setCurrentAddress}: {addresses: string[
         let addressesList = [];
         for (let i = 0; i < addresses.length; i++) {
             addressesList.push(
-                <div>
-
-                <div key={i} className="address" onClick={ () => { setCurrentAddress(addresses[i]); setOpenAdress(false); }}>
+                <div key={i}>
+                <div className="address" onClick={ () => { setCurrentAddress(addresses[i]); setOpenAdress(false); }}>
                     { addresses[i] }
                 </div>
                 </div>

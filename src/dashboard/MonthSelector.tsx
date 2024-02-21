@@ -12,6 +12,10 @@ function MonthSelector({year, months, selectedInvoice, setSelectedInvoice}: {yea
         }
     }, []);
 
+    function clickHandle() {
+        setActive(!active);
+    }
+
     function renderMonths() {
         return (
             <div className={`months ${active ? '' : 'inactive'}`} style={{maxHeight: active ? maxHeight : '0px'}} ref={contentRef}>
@@ -43,10 +47,6 @@ function MonthSelector({year, months, selectedInvoice, setSelectedInvoice}: {yea
                 })}
             </div>
         );
-    }
-
-    function clickHandle() {
-        setActive(!active);
     }
 
     return (

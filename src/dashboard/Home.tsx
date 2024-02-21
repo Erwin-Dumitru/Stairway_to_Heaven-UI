@@ -23,9 +23,9 @@ function Home({currentAddress}: {currentAddress: string}) {
     function renderPeriod() {
         return (
             <div className="range">
-                {Object.keys(periods).map((key) => {
+                {Object.keys(periods).map((key, index) => {
                     return (
-                        <h3
+                        <h3 key={index}
                             className={key === period ? "active" : ""}
                             onClick={() => {
                                 setPeriod(key as PeriodKey);

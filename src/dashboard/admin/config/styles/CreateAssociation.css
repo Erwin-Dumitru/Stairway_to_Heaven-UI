@@ -16,17 +16,17 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     gap: var(--mediumGap);
 }
 
 .createAssociation h3, .createAssociation i {
-    color: #acacac;
+    color: #acacaca0;
     margin: 0;
     padding: 0;
     font-size: 1.2em;
     font-weight: 300;
     line-height: 100%;
+    transition: all 0.2s ease;
 }
 
 .createAssociation .subsectionContent {
@@ -50,8 +50,6 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-
-    /* background-color: bisque; */
 }
 
 .subsectionTitle i {
@@ -73,6 +71,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--smallGap);
+    max-height: 100%;
 }
 
 .blocuri .contentDiv {
@@ -96,10 +95,8 @@
     width: 249px;
     display: flex;
     flex-direction: column;
-    /* gap: var(--smallGap); */
     background-color: var(--darkBack);
     border-radius: var(--smallGap);
-    /* height: fit-content; */
     overflow: hidden;
 }
 
@@ -110,7 +107,6 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--smallGap);
-    /* border-bottom: #acacac40 solid 1px; */
 }
 
 .stairs {
@@ -118,7 +114,25 @@
     flex-direction: column;
     margin-left: calc(var(--smallGap) - 1px);
     border-left: #acacac00 solid 1px;
-    transition: all 0.2s ease;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.stairs.active {
+    margin-bottom: var(--smallGap);
+}
+
+.wrapper {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: all 0.2s ease-in-out;
+    align-items: flex-start;
+}
+
+.wrapper.active {
+    grid-template-rows: 1fr;
 }
 
 .stairs:hover {
@@ -128,6 +142,7 @@
 .stair {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .stairTitle {
@@ -143,7 +158,8 @@
     flex-direction: column;
     margin-left: calc(var(--smallGap) - 1px);
     border-left: #acacac40 solid 1px;
-    transition: all 0.2s ease;
+    /* max-height: 100%; */
+    overflow: hidden;
 }
 
 .apartments:hover {
@@ -169,6 +185,7 @@
     transition: all 0.2s ease;
 }
 
-.stairTitle:hover, .blocTitle:hover, .apartment:hover {
-    background-color: #2b2b2b;
+.stairTitle:hover h3, .blocTitle:hover h3, .apartment:hover h3 {
+    /* background-color: #2b2b2b; */
+    color:  #acacac;
 }
