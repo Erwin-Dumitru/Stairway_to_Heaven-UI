@@ -54,3 +54,24 @@
 .create button:focus {
     outline: none;
 }
+
+.addElement {
+    padding: var(--mediumGap);
+    border-radius: var(--mediumGap);
+    display: flex;
+    flex-direction: column;
+    gap: var(--mediumGap);
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    background-color: var(--mainBack);
+}
+
+.addElement h1 {
+    margin: 0;
+    padding: 0;
+    /* font-size: 1.4em; */
+    font-weight: 500;
+    color: #acacac;
+    line-height: 70%;
+}
