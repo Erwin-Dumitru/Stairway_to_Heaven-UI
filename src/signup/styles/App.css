@@ -88,6 +88,12 @@
 
 }
 
+.signup .alternative p {
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 1;
+}
+
 .signup a {
     font-weight: 500;
     color: #1a1a1a;
