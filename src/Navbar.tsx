@@ -13,9 +13,9 @@ function Navbar() {
                 <img src="./assets/xStairs-Logo.svg" alt="Bloc Logo" />
             </Link> */}
             <a href="/">Despre</a>
-            <a href="/signin">Pachere</a>
-            <a href="/signup">Contact</a>
-            <a href="/signup" id="loginNav">Login</a>
+            <a href="./login/">Pachete</a>
+            <a href="./login/">Contact</a>
+            <a href="./login/" id="loginNav">Login</a>
         </div>
         </div>
     );
