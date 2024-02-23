@@ -63,16 +63,17 @@
     font-weight: 500;
     font-family: inherit;
     border-radius: 8px;
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
+    border: none;
     background-color: #1a1a1a;
     color: #fff;
     cursor: pointer;
-    transition: border-color 0.25s;
+    transition: all 0.25s ease;
     width: 100%;
 }
 
 .signup form button:hover {
-    border-color: #646cff;
+    background-color: #1a1a1ae6;
 }
 
 .signup form button:focus,
