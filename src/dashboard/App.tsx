@@ -5,7 +5,7 @@ import Bar from "./Bar";
 import Home from "./Home";
 import History from "./History";
 import Chat from "./Chat";
-import Settings from "./Settings";
+import Settings from "./settings/Settings";
 import HomeAdmin from "./admin/config/HomeAdmin";
 import HistoryAdmin from "./HistoryAdmin";
 import ChatAdmin from "./ChatAdmin";

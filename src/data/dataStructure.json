@@ -1,143 +1,302 @@
-[
-    {
-        "block": "Bloc 1",
-        "stairs": [
-            {
-                "stair": "Scara 1",
-                "apartments": [
-                    {
-                        "apartment": "Apartament 1"
-                    },
-                    {
-                        "apartment": "Apartament 2"
-                    },
-                    {
-                        "apartment": "Apartament 3"
-                    }
-                ]
-            },
-            {
-                "stair": "Scara 2",
-                "apartments": [
-                    {
-                        "apartment": "Apartament 1"
-                    },
-                    {
-                        "apartment": "Apartament 2"
-                    },
-                    {
-                        "apartment": "Apartament 3"
-                    }
-                ]
-            },
-            {
-                "stair": "Scara 3",
-                "apartments": [
-                    {
-                        "apartment": "Apartament 1"
-                    },
-                    {
-                        "apartment": "Apartament 2"
-                    },
-                    {
-                        "apartment": "Apartament 3"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "block": "Bloc 2",
-        "stairs": [
-            {
-                "stair": "Scara 1",
-                "apartments": [
-                    {
-                        "apartment": "Apartament 1"
-                    },
-                    {
-                        "apartment": "Apartament 2"
-                    },
-                    {
-                        "apartment": "Apartament 3"
-                    }
-                ]
-            },
-            {
-                "stair": "Scara 2",
-                "apartments": [
-                    {
-                        "apartment": "Apartament 1"
-                    },
-                    {
-                        "apartment": "Apartament 2"
-                    },
-                    {
-                        "apartment": "Apartament 3"
-                    }
-                ]
-            },
-            {
-                "stair": "Scara 3",
-                "apartments": [
-                    {
-                        "apartment": "Apartament 1"
-                    },
-                    {
-                        "apartment": "Apartament 2"
-                    },
-                    {
-                        "apartment": "Apartament 3"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "block": "Bloc 3",
-        "stairs": [
-            {
-                "stair": "Scara 1",
-                "apartments": [
-                    {
-                        "apartment": "Apartament 1"
-                    },
-                    {
-                        "apartment": "Apartament 2"
-                    },
-                    {
-                        "apartment": "Apartament 3"
-                    }
-                ]
-            },
-            {
-                "stair": "Scara 2",
-                "apartments": [
-                    {
-                        "apartment": "Apartament 1"
-                    },
-                    {
-                        "apartment": "Apartament 2"
-                    },
-                    {
-                        "apartment": "Apartament 3"
-                    }
-                ]
-            },
-            {
-                "stair": "Scara 3",
-                "apartments": [
-                    {
-                        "apartment": "Apartament 1"
-                    },
-                    {
-                        "apartment": "Apartament 2"
-                    },
-                    {
-                        "apartment": "Apartament 3"
-                    }
-                ]
-            }
-        ]
-    }
-]
+{
+    "administrator": "Dorel",
+    "name": "Asociatia de proprietari",
+    "addresses": [
+        {
+            "address": "Cerna, 18",
+            "city": "Timisoara",
+            "name": "Cerna, 18",
+            "blocks": [
+                {
+                    "block": "1",
+                    "stairs": [
+                        {
+                            "stair": "1",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "2",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "3",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "block": "2",
+                    "stairs": [
+                        {
+                            "stair": "1",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "2",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "3",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "block": "3",
+                    "stairs": [
+                        {
+                            "stair": "1",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "2",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "3",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "address": "Bradul, 4",
+            "city": "Timisoara",
+            "name": "Bradul, 4",
+            "blocks": [
+                {
+                    "block": "1",
+                    "stairs": [
+                        {
+                            "stair": "1",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "2",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "3",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "block": "2",
+                    "stairs": [
+                        {
+                            "stair": "1",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "2",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "3",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "block": "3",
+                    "stairs": [
+                        {
+                            "stair": "1",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "2",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "stair": "3",
+                            "apartments": [
+                                {
+                                    "apartment": "1"
+                                },
+                                {
+                                    "apartment": "2"
+                                },
+                                {
+                                    "apartment": "3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

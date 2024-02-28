@@ -2,19 +2,32 @@ p {
     color: #acacac;
 }
 
-.details > div {
+.detailsFrame {
+    flex: 1;
+    padding: var(--mediumGap);
+    padding-left: var(--smallGap);
+    padding-right: calc(var(--mediumGap) - 12px);
+}
+
+.detailsFrame .details {
+    box-sizing: border-box;
+    overflow-y: scroll;
+    padding-right: 5px;
+}
+
+.detailsFrame .details > div {
     display: flex;
     flex-direction: column;
     gap: var(--smallGap);
 }
 
-.details h4 {
+.detailsFrame .details h4 {
     color: #acacac;
     margin: 0;
     padding: 0;
 }
 
-.details input {
+.detailsFrame .details input {
     background-color: #2b2b2b;
     color: #acacac;
     border: 1px solid #acacac40;
@@ -22,6 +35,7 @@ p {
     padding: calc(var(--smallGap) - 1px);
     margin: 0;
     width: 100%;
+    box-sizing: border-box;
 
     font-size: 1em;
     font-weight: 400;

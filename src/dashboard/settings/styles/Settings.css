@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: row;
     overflow: hidden;
+    gap: var(--mediumGap);
 }
 
 .settingSections {
@@ -19,7 +20,7 @@
     overflow: hidden;
 }
 
-.sectionElement {
+/* .sectionElement {
     width: 100%;
     height: 40px;
     display: flex;
@@ -30,32 +31,51 @@
     color: #acacac;
     padding: 0 var(--smallGap);
     box-sizing: border-box;
+} */
+
+.sectionElement {
+    align-items: center;
+    padding: var(--smallGap);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--darkBack);
+    border-radius: var(--smallGap);
 }
 
+.sectionElement h3 {
+    color: #acacaca0;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+    /* font-weight: 600; */
+    font-weight: 300;
+    line-height: 100%;
+    transition: all 0.2s ease;
+}
+
+/* .sectionElement:hover,
 .sectionElement.selected {
     background-color: #ffffff10;
-}
+} */
 
-.settingsRight {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--mediumGap);
-    padding: var(--mediumGap);
-    box-sizing: border-box;
-    overflow: hidden;
+.sectionElement:hover h3,
+.sectionElement.selected h3 {
+    color: #acacac;
 }
 
 .settings .section {
     flex: 1;
     display: flex;
     flex-direction: row;
+    margin: var(--mediumGap) 0;
     gap: var(--mediumGap);
     /* background-color: burlywood; */
 }
 
 .details {
-    width: 250px;
+    /* width: 250px; */
+    box-sizing: border-box;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -71,6 +91,12 @@
     line-height: 70%;
     color: #acacac;
     /* background-color: aqua; */
+}
+
+.settingSections .section {
+    box-sizing: border-box;
+    overflow: hidden;
+
 }
 
 .detailValue {

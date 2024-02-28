@@ -1,8 +1,8 @@
-import "./styles/HomeAdmin.css"
+import "./styles/Admin.css"
 import "./styles/CreateAssociation.css"
-import "../../styles/Dialog.css"
-import { useState, useEffect, useRef } from "react";
-import DataStructure from "../../../data/dataStructure.json";
+import "../styles/Dialog.css"
+import { useState, useEffect } from "react";
+import DataStructure from "../../data/dataStructure.json";
 import DetailsFrame from "./DetailsFrame";
 // import CreateAssociation from "../../CreateAssociation";
 
@@ -184,10 +184,19 @@ function CreateAssociation() {
     const [dataStructure, setDataStructure] = useState(DataStructure);
     const [selectedElement, setSelectedElement] = useState([-1, -1, -1, -1]);
     const [selected, setSelected] = useState(false);
+    const [numeAsociatie, setNumeAsociatie] = useState("");
 
     useEffect(() => {
         setSelected(selectedElement[0] === -1);
-    });
+    }, [selectedElement]);
+
+    useEffect(() => {
+        if (dataStructure.administrator !== "") {
+            setNumeAsociatie(dataStructure.name);
+        } else {
+            setNumeAsociatie("Asociație");
+        }
+    }, [dataStructure]);
 
     function saveClickHandle() {
         console.log(dataStructure);
@@ -197,23 +206,21 @@ function CreateAssociation() {
 
     function removeClickHandle() {
         setDataStructure(prevDataStructure => {
-            let newDataStructure = [...prevDataStructure];
+            let newDataStructure = {...prevDataStructure};
             if (selectedElement[0] !== -1) {
                 if (selectedElement[1] !== -1) {
                     if (selectedElement[2] !== -1) {
                         if (selectedElement[3] !== -1) {
-                            newDataStructure[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.splice(selectedElement[3], 1);
+                            newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.splice(selectedElement[3], 1);
                         } else {
-                            newDataStructure[selectedElement[0]].blocks[selectedElement[1]].stairs.splice(selectedElement[2], 1);
+                            newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs.splice(selectedElement[2], 1);
                         }
                     } else {
-                        newDataStructure[selectedElement[0]].blocks.splice(selectedElement[1], 1);
+                        newDataStructure.addresses[selectedElement[0]].blocks.splice(selectedElement[1], 1);
                     }
                 } else {
-                    newDataStructure.splice(selectedElement[0], 1);
+                    newDataStructure.addresses.splice(selectedElement[0], 1);
                 }
-            } else {
-                newDataStructure.splice(selectedElement[0], 1);
             }
             return newDataStructure;
         });
@@ -221,15 +228,15 @@ function CreateAssociation() {
 
     function addClickHandle() {
         setDataStructure(prevDataStructure => {
-            let newDataStructure = [...prevDataStructure];
+            let newDataStructure = {...prevDataStructure};
             if (selectedElement[0] === -1) {
-                newDataStructure.push({address: "New address", city: "New city", name: "New address", blocks: []});
+                newDataStructure.addresses.push({address: "New address", city: "New city", name: "New address", blocks: []});
             } else if (selectedElement[1] === -1) {
-                newDataStructure[selectedElement[0]].blocks.push({block: "New block", stairs: []});
+                newDataStructure.addresses[selectedElement[0]].blocks.push({block: "New block", stairs: []});
             } else if (selectedElement[2] === -1) {
-                newDataStructure[selectedElement[0]].blocks[selectedElement[1]].stairs.push({stair: "New stair", apartments: []});
+                newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs.push({stair: "New stair", apartments: []});
             } else {
-                newDataStructure[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.push({apartment: "New apartment"});
+                newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.push({apartment: "New apartment"});
             }
             return newDataStructure;
         });
@@ -239,12 +246,13 @@ function CreateAssociation() {
         <div className="createAssociation">
             <div className="associationContent">
                 <div className={`associationTitle ${selected ? 'active' : ''}`} onClick={() => setSelectedElement([-1, -1, -1, -1])}>
+                    {/* <h3>{numeAsociatie}</h3> */}
                     <h3>Asociație</h3>
                 </div>
 
                 <div className="blocuri">
                     <div className="contentDiv">
-                        { dataStructure.map((data: any, index: any) => { return (
+                        { dataStructure.addresses.map((data: any, index: any) => { return (
                             <Address
                                 key={index}
                                 elementAddress={[index, -1, -1, -1]}

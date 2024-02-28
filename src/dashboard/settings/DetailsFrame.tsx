@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import DataStructure from "../../data/dataStructure.json";
 import "./styles/DetailsFrame.css";
 
 function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
+    const [dataStructure, setDataStructure] = useState<any>();
     const [admin, setAdmin] = useState("");
     const [association, setAssociation] = useState("");
     const [address, setAddress] = useState("");
@@ -12,8 +14,46 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
     const [apartmentNumber, setApartmentNumber] = useState("");
     const [penality, setPenality] = useState("");
 
-    function getDetails() {
-        if (selectedElement[0] === -1) {
+    function setData() {
+        if (selectedElement[0] !== -1 && dataStructure) {
+            setAdmin(dataStructure.administrator);
+            setAssociation(dataStructure.name);
+            if (dataStructure.addresses[selectedElement[0]]) {
+                setAddress(dataStructure.addresses[selectedElement[0]].address);
+                setCity(dataStructure.addresses[selectedElement[0]].city);
+                setName(dataStructure.addresses[selectedElement[0]].name);
+                if (dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]]) {
+                    setBlockNumber(dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].block);
+                    if (dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]]) {
+                        setStairNumber(dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].stair);
+                        if (dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments[selectedElement[3]]) {
+                            setApartmentNumber(dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments[selectedElement[3]].apartment);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // useEffect(() => {
+    //     Promise.resolve(setDataStructure(DataStructure))
+    //         .then(() => {
+    //             setData();
+    //         });
+    // }, [selectedElement]);
+
+    useEffect(() => {
+        setDataStructure(DataStructure);
+    }, []);
+
+    useEffect(() => {
+        setData();
+    }, [selectedElement, dataStructure]);
+
+    function Details() {
+        if (dataStructure === undefined) {
+            return <div></div>;
+        } else if (selectedElement[0] === -1) {
             return (
                 <div className="details">
                     <div>
@@ -87,9 +127,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
 
     return (
         <div className="detailsFrame">
-            {
-                getDetails()
-            }
+            <Details />
         </div>
     );
 }

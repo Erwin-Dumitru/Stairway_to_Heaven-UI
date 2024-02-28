@@ -1,3 +1,4 @@
+import Admin from "./Admin";
 import "./styles/Settings.css";
 import { useState } from "react";
 
@@ -13,7 +14,7 @@ function Settings({currentAddress}: {currentAddress: string}) {
         let elements = [];
         elements = sectionElements.map(element => (
             <div className={`sectionElement ${section === element ? "selected" : ""}`} key={element} onClick={() => setSection(element)}>
-                {element}
+                <h3>{element}</h3>
             </div>
         ));
 
@@ -28,7 +29,13 @@ function Settings({currentAddress}: {currentAddress: string}) {
                         <h1>Profil</h1>
                     </div>
                 );
-            case "Administrație":
+            case "Notificări":
+                return (
+                    <div className="section">
+                        <h1>Notificări</h1>
+                    </div>
+                );
+            case "Cont":
                 return (
                     <div className="section">
                         <div className="details">
@@ -48,6 +55,13 @@ function Settings({currentAddress}: {currentAddress: string}) {
                         </div>
                     </div>
                 );
+            case "Administrație":
+                return (
+                    // <div className="section">
+                    //     <h1>Administrație</h1>
+                    // </div>
+                    <Admin currentAddress={currentAddress} />
+                );
             default:
                 return (
                     <div className="section">
@@ -60,12 +74,10 @@ function Settings({currentAddress}: {currentAddress: string}) {
     return (
         <div className="settings">
             <div className="settingSections">
-                { RenderSectionElements() }
+                <RenderSectionElements />
             </div>
 
-            <div className="settingsRight">
-                { RenderSection() }
-            </div>
+            <RenderSection />
         </div>
     );
 }
