@@ -42,11 +42,21 @@ function Settings({currentAddress}: {currentAddress: string}) {
                             <h2>Setări Administrație</h2>
                             <div className="detailValue">
                                 <span>Nume asociație</span>
-                                <input type="text" value={details[0]} onChange={(e) => setDetails([e.target.value])} />
+                                <input 
+                                    type="text" 
+                                    key={"AssociationName"}
+                                    value={details[0]} 
+                                    onChange={(e) => setDetails([e.target.value])} 
+                                />
                             </div>
                             <div className="detailValue">
                                 <span>Adresă</span>
-                                <input type="text" value={details[1]} onChange={(e) => setDetails([e.target.value])} />
+                                <input 
+                                    type="text" 
+                                    key={"Address"}
+                                    value={details[1]} 
+                                    onChange={(e) => setDetails([e.target.value])} 
+                                />
                             </div>
 
                             <button className="save">Salvează</button>
