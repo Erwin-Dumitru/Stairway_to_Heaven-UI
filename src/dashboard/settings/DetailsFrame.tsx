@@ -15,7 +15,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
     const [penality, setPenality] = useState("");
 
     function setData() {
-        if (selectedElement[0] !== -1 && dataStructure) {
+        if (dataStructure) {
             setAdmin(dataStructure.administrator);
             setAssociation(dataStructure.name);
             if (dataStructure.addresses[selectedElement[0]]) {
@@ -35,13 +35,6 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
         }
     }
 
-    // useEffect(() => {
-    //     Promise.resolve(setDataStructure(DataStructure))
-    //         .then(() => {
-    //             setData();
-    //         });
-    // }, [selectedElement]);
-
     useEffect(() => {
         setDataStructure(DataStructure);
     }, []);
@@ -58,12 +51,26 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                 <div className="details">
                     <div>
                         <h4>Admin</h4>
-                        <input type="text" placeholder="Admin" value={admin} onChange={(e) => setAdmin(e.target.value)} />
+                        <input 
+                            id="Admin"
+                            type="text" 
+                            key="Admin"
+                            placeholder="Admin" 
+                            value={admin} 
+                            onChange={(e) => setAdmin(e.target.value)} 
+                        />
                     </div>
 
                     <div>
                         <h4>Name</h4>
-                        <input type="text" placeholder="Name" value={association} onChange={(e) => setAssociation(e.target.value)} />
+                        <input 
+                            id="AssociationName"
+                            type="text" 
+                            key="AssociationName"
+                            placeholder="Name" 
+                            value={association} 
+                            onChange={(e) => setAssociation(e.target.value)} 
+                        />
                     </div>
                 </div>
             );
@@ -72,17 +79,40 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                 <div className="details">
                     <div>
                         <h4>Adresă</h4>
-                        <input type="text" placeholder="Adresă" value={address} onChange={(e) => setAddress(e.target.value)} />
+                        <input 
+                            id="Address"
+                            type="text"
+                            key="Address"
+                            placeholder="Adresă" 
+                            value={address} 
+                            onChange={(e) => setAddress(e.target.value)} 
+                        />
                     </div>
 
                     <div>
                         <h4>Oraș</h4>
-                        <input type="text" placeholder="Oraș" value={city} onChange={(e) => setCity(e.target.value)} />
+                        <input 
+                            id="City"
+                            type="text" 
+                            key="City"
+                            placeholder="Oraș" 
+                            value={city} 
+                            onChange={(e) => 
+                            setCity(e.target.value)} 
+                        />
                     </div>
 
                     <div>
                         <h4>Nume</h4>
-                        <input type="text" placeholder="Nume" value={name} onChange={(e) => setName(e.target.value)} />
+                        <input
+                            id="AddressName"
+                            type="text"
+                            key="AddressName"
+                            placeholder="Nume"
+                            value={name}
+                            onChange={(e) =>
+                            setName(e.target.value)}
+                        />
                     </div>
                 </div>
             );
@@ -91,7 +121,15 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                 <div className="details">
                     <div>
                         <h4>Număr bloc</h4>
-                        <input type="text" placeholder="Număr bloc" value={blockNumber} onChange={(e) => setBlockNumber(e.target.value)} />
+                        <input
+                            id="BlockNumber"
+                            type="text"
+                            key="BlockNumber"
+                            placeholder="Număr bloc"
+                            value={blockNumber}
+                            onChange={(e) =>
+                            setBlockNumber(e.target.value)}
+                        />
                     </div>
                 </div>
             );
@@ -100,16 +138,52 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                 <div className="details">
                     <div>
                         <h4>Număr scară</h4>
-                        <input type="text" placeholder="Număr scară" value={stairNumber} onChange={(e) => setStairNumber(e.target.value)} />
+                        <input
+                            id="StairNumber"
+                            type="text"
+                            key="StairNumber"
+                            placeholder="Număr scară"
+                            value={stairNumber}
+                            onChange={(e) => setStairNumber(e.target.value)}
+                        />
                     </div>
 
                     <div>
                         <h4>Penalizări</h4>
-                        <input type="decimal" placeholder="Penalități" value={penality} onChange={(e) => {
+                        <input
+                            id="Penality"
+                            type="decimal"
+                            key="Penality"
+                            placeholder="Penalizări"
+                            value={penality}
+                            onChange={(e) => {
                             if (e.target.value.match(/^[0-9]*$/)) {
                                 setPenality(e.target.value);
                             }
                         }} />
+                    </div>
+
+                    <div className="listaCheltuieli">
+                        <h4>Cheltuieli</h4>
+
+                        <div className="cheltuieli">
+                            <div className="cheltuiala">
+                                <span>Întreținere</span>
+                                <input type="decimal" />
+                            </div>
+                            <div className="cheltuiala">
+                                <span>Fund de reparații</span>
+                                <input type="decimal" />
+                            </div>
+                            <div className="cheltuiala">
+                                <span>Salarii</span>
+                                <input type="decimal" />
+                            </div>
+                            <div className="cheltuiala">
+                                <span>Altele</span>
+                                <input type="decimal" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             );
@@ -118,7 +192,14 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                 <div className="details">
                     <div>
                         <h4>Număr apartament</h4>
-                        <input type="text" placeholder="Număr apartament" value={apartmentNumber} onChange={(e) => setApartmentNumber(e.target.value)} />
+                        <input
+                            id="ApartmentNumber"
+                            type="text"
+                            key="ApartmentNumber"
+                            placeholder="Număr apartament"
+                            value={apartmentNumber}
+                            onChange={(e) => setApartmentNumber(e.target.value)}
+                        />
                     </div>
                 </div>
             );
