@@ -180,7 +180,7 @@ function AddElementModal({dialogRef, selectedElement, setSelectedElement}: {dial
     );
 }
 
-function CreateAssociation() {
+function CreateAssociation({currentAddress}: {currentAddress: string}) {
     const [dataStructure, setDataStructure] = useState(DataStructure);
     const [selectedElement, setSelectedElement] = useState([-1, -1, -1, -1]);
     const [selected, setSelected] = useState(false);
@@ -287,36 +287,4 @@ function CreateAssociation() {
     );
 }
 
-function HomeAdmin({currentAddress}: {currentAddress: string}) {
-    if (true) { // TODO: verifica daca administratia nu a fost creata
-        // const dialogRef = useRef<HTMLDialogElement>(null);
-        const [isClicked, setIsClicked] = useState(true);
-
-        if (isClicked) {
-            return (
-                <div className="homeAdmin">
-                    <CreateAssociation />
-                </div>
-            );
-        }
-
-        return (
-            <div className="homeAdmin">
-                <div className="create">
-                    {/* <CreateAssociation dialogRef={dialogRef} /> */}
-                    <h2>Administrația nu a fost creată</h2>
-                    {/* <button onClick={() => dialogRef.current?.showModal()}>Creează</button> */}
-                    <button onClick={() => setIsClicked(true)}>Creează</button>
-                </div>
-            </div>
-        );
-    }
-
-    return (
-        <div className="homeAdmin">
-            <h1>Home admin</h1>
-        </div>
-    );
-}
-
-export default HomeAdmin;
+export default CreateAssociation;

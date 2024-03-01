@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import DataStructure from "../../data/dataStructure.json";
 import "./styles/DetailsFrame.css";
+import Expenses from "./Expenses";
+import Indexes from "./Indexes";
 
 function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
     const [dataStructure, setDataStructure] = useState<any>();
@@ -51,7 +53,8 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                 <div className="details">
                     <div>
                         <h4>Admin</h4>
-                        <input 
+                        <input
+                            className="inputDetails"
                             id="Admin"
                             type="text" 
                             key="Admin"
@@ -63,7 +66,8 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
 
                     <div>
                         <h4>Name</h4>
-                        <input 
+                        <input
+                            className="inputDetails"
                             id="AssociationName"
                             type="text" 
                             key="AssociationName"
@@ -79,7 +83,8 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                 <div className="details">
                     <div>
                         <h4>Adresă</h4>
-                        <input 
+                        <input
+                            className="inputDetails"
                             id="Address"
                             type="text"
                             key="Address"
@@ -92,6 +97,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                     <div>
                         <h4>Oraș</h4>
                         <input 
+                            className="inputDetails"
                             id="City"
                             type="text" 
                             key="City"
@@ -105,6 +111,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                     <div>
                         <h4>Nume</h4>
                         <input
+                            className="inputDetails"
                             id="AddressName"
                             type="text"
                             key="AddressName"
@@ -122,6 +129,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                     <div>
                         <h4>Număr bloc</h4>
                         <input
+                            className="inputDetails"
                             id="BlockNumber"
                             type="text"
                             key="BlockNumber"
@@ -139,6 +147,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                     <div>
                         <h4>Număr scară</h4>
                         <input
+                            className="inputDetails"
                             id="StairNumber"
                             type="text"
                             key="StairNumber"
@@ -150,7 +159,9 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
 
                     <div>
                         <h4>Penalizări</h4>
+
                         <input
+                            className="inputDetails"
                             id="Penality"
                             type="decimal"
                             key="Penality"
@@ -163,28 +174,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                         }} />
                     </div>
 
-                    <div className="listaCheltuieli">
-                        <h4>Cheltuieli</h4>
-
-                        <div className="cheltuieli">
-                            <div className="cheltuiala">
-                                <span>Întreținere</span>
-                                <input type="decimal" />
-                            </div>
-                            <div className="cheltuiala">
-                                <span>Fund de reparații</span>
-                                <input type="decimal" />
-                            </div>
-                            <div className="cheltuiala">
-                                <span>Salarii</span>
-                                <input type="decimal" />
-                            </div>
-                            <div className="cheltuiala">
-                                <span>Altele</span>
-                                <input type="decimal" />
-                            </div>
-                        </div>
-                    </div>
+                    <Expenses />
                 </div>
             );
         } else {
@@ -193,6 +183,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                     <div>
                         <h4>Număr apartament</h4>
                         <input
+                            className="inputDetails"
                             id="ApartmentNumber"
                             type="text"
                             key="ApartmentNumber"
@@ -201,6 +192,8 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                             onChange={(e) => setApartmentNumber(e.target.value)}
                         />
                     </div>
+
+                    <Indexes />
                 </div>
             );
         }

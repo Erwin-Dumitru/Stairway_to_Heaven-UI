@@ -27,7 +27,7 @@ p {
     padding: 0;
 }
 
-.detailsFrame .details input {
+.inputDetails {
     background-color: #2b2b2b;
     color: #acacac;
     border: 1px solid #acacac40;
