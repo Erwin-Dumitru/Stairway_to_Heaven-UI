@@ -1,8 +1,8 @@
-import Admin from "./Admin";
-import "./styles/Settings.css";
+import Admin from "./admin/Admin";
+import "./Settings.scss";
 import { useState } from "react";
 
-function Settings({currentAddress}: {currentAddress: string}) {
+function Settings() {
     const sectionElements = ["Administrație", "Cont", "Notificări", "Profil"];
     const [section, setSection] = useState(sectionElements[0]);
     const [details, setDetails] = useState([
@@ -70,7 +70,10 @@ function Settings({currentAddress}: {currentAddress: string}) {
                     // <div className="section">
                     //     <h1>Administrație</h1>
                     // </div>
-                    <Admin currentAddress={currentAddress} />
+
+                    <div className="section">
+                        <Admin />
+                    </div>
                 );
             default:
                 return (

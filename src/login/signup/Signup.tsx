@@ -1,23 +1,31 @@
 // import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './Login.scss'
+import './Signup.scss'
 
-function Login() {
+function Signup() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = event.target;
         if (name === 'email') {
             setEmail(value);
-        } else {
+        } else if (name === 'password') {
             setPassword(value);
+        } else {
+            setConfirmPassword(value);
         }
     }
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
+        
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
 
         // TODO: Send the email and password to the server
         console.log('Email:', email);
@@ -27,7 +35,7 @@ function Login() {
     return (
         <div className='loginContainer'>
             <div className="login">
-                <h1>Welcome back</h1>
+                <h1>Create an account</h1>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="email"
@@ -43,36 +51,43 @@ function Login() {
                         value={password}
                         onChange={handleChange}
                     />
-                    <button>Login</button>
+                    <input
+                        type='password'
+                        name="confirmPassword"
+                        placeholder="Confirm password"
+                        value={confirmPassword}
+                        onChange={handleChange}
+                    />
+                    <button>Sign up</button>
                 </form>
 
                 <div className="alternative">
-                    {/* <a href="./login/">Forgot password?</a>
-                    <a href="../signup/">Sign up</a> */}
+                    <p>Already have an account?</p>
+                    {/* <a href="../login/">Login</a> */}
 
-                    <Link to="/login" id="forgotPassword">Forgot password?</Link>
-                    <Link to="/signup" id="signUp">Sign up</Link>
+                    <Link to="/login/" id="login">Login</Link>
                 </div>
 
                 <div className="loginSocial">
                     <div className="strike"><span>Or with</span></div>
                     
-                    {/* <a href="./login/">
+                    {/* <a href="./signup/">
                         <img src="../assets/facebook.svg" alt="Facebook" />
-                        Sign in with Facebook
+                        Sign up with Facebook
                     </a>
-                    <a href="./login/">
+                    <a href="./signup/">
                         <img src="../assets/google.svg" alt="Google" />
-                        Sign in with Google
+                        Sign up with Google
                     </a> */}
 
-                    <Link to="/login">
+                    <Link to="/signup">
                         <img src="/src/assets/facebook.svg" alt="Facebook" />
-                        Sign in with Facebook
+                        Sign up with Facebook
                     </Link>
-                    <Link to="/login">
+
+                    <Link to="/signup">
                         <img src="/src/assets/google.svg" alt="Google" />
-                        Sign in with Google
+                        Sign up with Google
                     </Link>
                 </div>
             </div>
@@ -80,4 +95,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Signup;

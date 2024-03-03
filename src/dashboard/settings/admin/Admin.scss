@@ -1,0 +1,273 @@
+/* .createAssociation {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - var(--largeGap) * 4);
+    width: calc(100vw - var(--largeGap) * 4);
+    margin: 0;
+    border-radius: var(--mediumGap);
+    background-color: var(--mainBack);
+} */
+
+.createAssociation {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* gap: var(--mediumGap); */
+}
+
+.createAssociation h3, .createAssociation i {
+    color: #acacaca0;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 100%;
+    transition: all 0.2s ease;
+}
+
+.createAssociation .associationContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+    width: 275px;
+
+    padding-right: calc(var(--mediumGap) - 12px);
+    padding-right: calc(var(--mediumGap) - 11px);
+    /* border-right: #acacac40 solid 1px; */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.associationTitle {
+    width: calc(100% - 12px);
+    box-sizing: border-box;
+    align-items: center;
+    padding: var(--smallGap);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--darkBack);
+    border-radius: var(--smallGap);
+}
+
+.blocuri {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+    height: 100%;
+    /* margin-top: var(--smallGap); */
+    /* padding: var(--smallGap) 0; */
+}
+
+.blocuri .contentDiv {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+    /* margin: var(--mediumGap) 0; */
+}
+
+.blocuri i {
+    color: #acacacaa;
+    line-height: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.blocuri i:hover {
+    color: #acacac;
+}
+
+.bloc {
+    /* width: 249px; */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--mainBack);
+    border-radius: var(--smallGap);
+    overflow: hidden;
+}
+
+.blocTitle {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--smallGap);
+}
+
+.createAssociation .address {
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease-in-out;
+    /* gap: var(--smallGap); */
+    background-color: var(--darkBack);
+    border-radius: calc(var(--smallGap) + var(--smallGap) / 2);
+    /* border-radius: var(--mediumGap); */
+    border-radius: calc(var(--mediumGap) - 2px);
+    /* padding: var(--smallGap); */
+}
+
+.addressTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--smallGap);
+    padding: calc(var(--smallGap) / 2 + var(--smallGap));
+    padding-bottom: calc(var(--smallGap));
+    border-radius: calc(var(--mediumGap) - 2px) calc(var(--mediumGap) - 2px) 0 0;
+    /* padding: 0; */
+    /* padding-left: 0; */
+    /* padding: calc(var(--smallGap) * 1.5) var(--smallGap); */
+    cursor: pointer;
+}
+
+.addressTitle h3, .associationTitle h3 {
+    font-weight: 600;
+}
+
+.address .blocks {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+    margin: var(--smallGap);
+    margin-top: calc(var(--smallGap) / 2);
+    /* margin-top: 0; */
+    transition: all 0.2s ease-in-out;
+}
+
+.stairs {
+    display: flex;
+    flex-direction: column;
+    margin-left: calc(var(--smallGap) - 1px);
+    border-left: #acacac00 solid 1px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.stairs.active {
+    margin-bottom: var(--smallGap);
+}
+
+.wrapper {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: all 0.2s ease-in-out;
+    align-items: flex-start;
+}
+
+.wrapper.active {
+    grid-template-rows: 1fr;
+}
+
+.stairs:hover {
+    border-color: #acacac40;
+}
+
+.stair {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.stairTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--smallGap);
+}
+
+.apartments {
+    display: flex;
+    flex-direction: column;
+    margin-left: calc(var(--smallGap) - 1px);
+    border-left: #acacac40 solid 1px;
+    /* max-height: 100%; */
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.apartments:hover {
+    border-color: #acacac80;
+}
+
+.apartment {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+}
+
+.apartmentTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--smallGap);
+}
+
+.stairTitle, .blocTitle, .apartmentTitle {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.associationTitle:hover h3, .addressTitle:hover h3, .stairTitle:hover h3, .blocTitle:hover h3, .apartmentTitle:hover h3,
+.associationTitle.active h3, .addressTitle.active h3, .stairTitle.active h3, .blocTitle.active h3, .apartmentTitle.active h3 {
+    color: #acacac;
+}
+
+.actionButtons {
+    display: flex;
+    flex-direction: row;
+    gap: var(--smallGap);
+    margin-right: calc(var(--mediumGap) - 12px);
+}
+
+.actionButtons button {
+    padding: var(--smallGap);
+    border: none;
+    background-color: var(--darkBack);
+    color: #acacacaa;
+    border-radius: var(--smallGap);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    /* font: inherit; */
+    flex: 1;
+}
+
+.actionButtons button:hover {
+    background-color: #2b2b2b;
+    color: #acacac;
+}
+
+.actionButtons button:last-child {
+    flex: 0;
+    /* width: 24px; */
+}
+
+.actionButtons button h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 100%;
+    transition: all 0.2s ease;
+}
+
+.actionButtons button .icon {
+    width: 19px;
+}
+
+.actionButtons button i {
+    font-size: 1.4em;
+    /* color: #acacacaa; */
+    cursor: pointer;
+    transition: all 0.2s ease;
+}

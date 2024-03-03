@@ -1,17 +1,19 @@
-// import React from 'react'
-import Header from './Header'
-import Navbar from './Navbar'
-import Section1 from './Section1'
-import Section2 from './Section2'
-import './styles/App.css'
+import { Route, Routes } from 'react-router-dom';
+import Home from './home/Home';
+import Login from './login/Login';
+import Signup from './login/signup/Signup';
+import Dashboard from './dashboard/Dashboard';
+import './App.scss';
 
 function App() {
   return (
     <div className='App'>
-      <Navbar />
-      <Header />
-      <Section1 />
-      <Section2 />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/dashboard/*' element={<Dashboard />} />
+      </Routes>
     </div>
   )
 }

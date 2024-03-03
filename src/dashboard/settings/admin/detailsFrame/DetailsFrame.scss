@@ -1,0 +1,42 @@
+p {
+    color: #acacac;
+}
+
+.detailsFrame {
+    flex: 1;
+    padding-left: var(--smallGap);
+    padding-right: calc(var(--mediumGap) - 12px);
+}
+
+.detailsFrame .details {
+    box-sizing: border-box;
+    overflow-y: scroll;
+    padding-right: 5px;
+}
+
+.detailsFrame .details > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+}
+
+.detailsFrame .details h4 {
+    color: #acacac;
+    margin: 0;
+    padding: 0;
+}
+
+.inputDetails {
+    background-color: #2b2b2b;
+    color: #acacac;
+    border: 1px solid #acacac40;
+    border-radius: var(--smallGap);
+    padding: calc(var(--smallGap) - 1px);
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1;
+}
