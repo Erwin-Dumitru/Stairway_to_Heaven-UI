@@ -1,29 +1,29 @@
-import { useState, useEffect, useRef } from "react";
+// import { useState, useEffect, useRef } from "react";
 import InvoiceChart from "./invoiceChart/InvoiceChart";
 import "./InvoiceDetails.scss";
 
-function DetailRow({ title, value }: { title: string; value: string }) {
-    return (
-        <div className="row">
-            <div className="cell title">
-                {title}
-            </div>
-            <div className="cell value">
-                {value}
-            </div>
-        </div>
-    );
-}
+// function DetailRow({ title, value }: { title: string; value: string }) {
+//     return (
+//         <div className="row">
+//             <div className="cell title">
+//                 {title}
+//             </div>
+//             <div className="cell value">
+//                 {value}
+//             </div>
+//         </div>
+//     );
+// }
 
-function DetailTable({ details }: { details: { title: string; value: string }[] }) {
-    return (
-        <div className="table">
-            {details.map((detail) => {
-                return <DetailRow title={detail.title} value={detail.value} />;
-            })}
-        </div>
-    );
-}
+// function DetailTable({ details }: { details: { title: string; value: string }[] }) {
+//     return (
+//         <div className="table">
+//             {details.map((detail) => {
+//                 return <DetailRow title={detail.title} value={detail.value} />;
+//             })}
+//         </div>
+//     );
+// }
 
 function InvoiceDetails({selectedInvoice}: {selectedInvoice: {month: number, year: number}}) {
 
@@ -42,7 +42,8 @@ function InvoiceDetails({selectedInvoice}: {selectedInvoice: {month: number, yea
                 </div>
             </div> */}
 
-            <InvoiceChart selectedInvoice={selectedInvoice} />
+            {/* <InvoiceChart selectedInvoice={selectedInvoice} /> */}
+            <InvoiceChart />
 
             <div className="grid">
                 <div className="cell">

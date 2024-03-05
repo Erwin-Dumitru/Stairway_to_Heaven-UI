@@ -15,7 +15,8 @@ ChartJS.register(
     Legend,
 );
 
-function InvoiceChart({selectedInvoice}: {selectedInvoice: {month: number, year: number}}) {
+// function InvoiceChart({selectedInvoice}: {selectedInvoice: {month: number, year: number}}) {
+function InvoiceChart() {
     const chartRef = useRef<HTMLDivElement>(null);
     const mainColor = getComputedStyle(document.documentElement)
         .getPropertyValue('--mainBack')

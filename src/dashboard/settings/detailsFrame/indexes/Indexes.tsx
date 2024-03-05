@@ -1,14 +1,15 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import './Indexes.scss';
 
-type Index = {
-    name: string;
-    value: boolean;
-    contors?: { name: string }[];
-};
+// type Index = {
+//     name: string;
+//     value: boolean;
+//     contors?: { name: string }[];
+// };
 
 function Indexes() {
-    const [indexes, setIndexes] = useState<Index[]>([
+    // const [indexes, setIndexes] = useState<Index[]>([
+    const indexes = [
         {
             name: "Apa caldă",
             value: false,
@@ -52,7 +53,7 @@ function Indexes() {
             name: "Întreținere",
             value: false
         }
-    ]);
+    ];
 
     return (
         <div className="indexesWrapper">

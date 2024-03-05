@@ -49,7 +49,8 @@ function HistoryClient() {
 
             <div className="details">
                 <InvoiceDetails selectedInvoice={selectedInvoice} />
-                <PaymentDetails selectedInvoice={selectedInvoice} />
+                {/* <PaymentDetails selectedInvoice={selectedInvoice} /> */}
+                <PaymentDetails />
             </div>
         </div>
     );

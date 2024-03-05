@@ -3,6 +3,7 @@ import Home from './home/Home';
 import Login from './login/Login';
 import Signup from './login/signup/Signup';
 import Dashboard from './dashboard/Dashboard';
+import NotFound from './notFound/NotFound';
 import './App.scss';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/dashboard/*' element={<Dashboard />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   )

@@ -43,9 +43,8 @@ function DetailTable({ header, data }: { header: any[], data: any[][] }) {
     );
 }
 
-function PaymentDetails({selectedInvoice}: {selectedInvoice: {month: number, year: number}}) {
-    
-
+// function PaymentDetails({selectedInvoice}: {selectedInvoice: {month: number, year: number}}) {
+function PaymentDetails() {
     return (
         <div className="paymentDetails">
             <div className="columns">

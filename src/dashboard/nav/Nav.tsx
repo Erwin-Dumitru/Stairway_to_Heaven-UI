@@ -1,14 +1,14 @@
 // import React from "react";
 // import { AiOutlinePieChart } from "react-icons/ri";
 // import Link from "@/components/Link";
-import "./Nav.scss";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import "./Nav.scss";
 
 interface CustomLinkProps {
     to: string;
     children: any;
     className?: string;
-    id?: string; // Add this line
+    id?: string;
 }
 
 function CustomLink({ to, children, ...props }: CustomLinkProps) {
@@ -26,9 +26,6 @@ function CustomLink({ to, children, ...props }: CustomLinkProps) {
 function Nav() {
     return (
         <div className="nav">
-            {/* <a href="../" className="imgNav" id="logoNav">
-                <img src="../assets/xStairs-Logo.svg" alt="Bloc Logo" />
-            </a> */}
 
             <Link to="/" className="imgNav">
                 <img src="/src/assets/xStairs-Logo.svg" alt="Bloc Logo" />
@@ -37,11 +34,9 @@ function Nav() {
             <div className="navLinks">
                 <CustomLink to="/dashboard"><i className="ri-home-4-line" /></CustomLink>
                 <CustomLink to="/dashboard/history"><i className="ri-history-line" /></CustomLink>
-                <CustomLink to="/dashboard/news"><i className="ri-message-3-line" /></CustomLink>
-                <CustomLink to="/dashboard/admin"><i className="ri-home-4-line" /></CustomLink>
-                <CustomLink to="/dashboard/history-admin"><i className="ri-history-line" /></CustomLink>
-                <CustomLink to="/dashboard/news-admin"><i className="ri-message-3-line" /></CustomLink>
+                <CustomLink to="/dashboard/chat"><i className="ri-message-3-line" /></CustomLink>
             </div>
+            
             <div className="navLinks" id="settingsButton">
                 <CustomLink to="/dashboard/settings"><i className="ri-settings-line" /></CustomLink>
             </div>

@@ -1,39 +1,34 @@
-// import React from "react"; 
-import { useState, useEffect, useRef, useContext } from "react";
-import { Link } from "react-router-dom";
-import { AddressContext } from "../Dashboard";
+import { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Bar.scss";
+import { AddressContextType } from "@/components/Interfaces";
+import { AddressContext } from "@/components/Context";
 
 function Bar() {
     const [maxHeight, setMaxHeight] = useState('0px');
     const [openAdress, setOpenAdress] = useState(false);
     const contentRef = useRef<HTMLDivElement>(null);
     
-    // const { addresses, setAddresses, currentAddress, setCurrentAddress } = useContext(AddressContext);
-    // const addresses = useContext<tAddressContext>(AddressContext).addresses;
-    const addressContext = useContext(AddressContext);
-    
     useEffect(() => {
         if (contentRef.current !== null) {
-            // set the max height of the address list to the height of the address multiplied by the number of addresses
             setMaxHeight(`${contentRef.current.scrollHeight}px`);
         }
     }, []);
 
-    // a function that recive the adresses list and return a list of divs with the adresses
-    function RenderAdresses() {
+    function RenderAdresses(addressContext: AddressContextType | undefined) {
         if (!addressContext) return null;
 
         let addressesList = [];
         for (let i = 0; i < addressContext.addresses.length; i++) {
             addressesList.push(
                 <div key={i}>
-                <div className="address" onClick={ () => {
-                    addressContext.setCurrentAddress(addressContext.addresses[i]); 
-                    setOpenAdress(false);
-                }}>
-                    { addressContext.addresses[i] }
-                </div>
+                    <div className="address" onClick={ () => {
+                        addressContext.setCurrentAddress(addressContext.addresses[i]); 
+                        setOpenAdress(false);
+                    }}>
+                        { addressContext.addresses[i].name }
+                        <span>{ addressContext.addresses[i].type }</span>
+                    </div>
                 </div>
             );
         }
@@ -61,18 +56,44 @@ function Bar() {
         }
     }, []);
 
+    const location = useLocation();
+
+    let title;
+    switch (location.pathname) {
+        case '/dashboard':
+            title = 'Home';
+            break;
+        case '/dashboard/history':
+            title = 'History';
+            break;
+        case '/dashboard/chat':
+            title = 'Chat';
+            break;
+        case '/dashboard/settings':
+            title = 'Settings';
+            break;
+        default:
+            title = '';
+    }
+
     return (
         <div className="bar">
-            <h1 id="barTitle">Home</h1>
+            <h1 id="barTitle">
+                {title}
+            </h1>
             
-            <div className="addressSelector" ref={addressRef}>
-                <div className="currentAddress" onClick={() => { setOpenAdress(!openAdress); }}>
-                    { addressContext ? addressContext.currentAddress : '' }
-                    <i className="ri-arrow-down-s-line"></i>
-                </div>
+            <AddressContext.Consumer>
+                {(context) => (
+                    <div className="addressSelector" ref={addressRef}>
+                        <div className="currentAddress" onClick={() => { setOpenAdress(!openAdress); }}>
+                            { context ? context.currentAddress.name : '' }
+                            <i className="ri-arrow-down-s-line"></i>
+                        </div>
 
-                <RenderAdresses />
-            </div>
+                        { RenderAdresses(context) }
+                    </div>
+                )}
+            </AddressContext.Consumer>
 
             <div className="notifications">
                 <i className="ri-notification-3-line"></i>

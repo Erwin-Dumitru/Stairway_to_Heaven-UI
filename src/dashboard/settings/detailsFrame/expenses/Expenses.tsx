@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import DataStructure from '@/data/dataStructure.json';
+import { useState } from 'react';
+// import DataStructure from '@/data/dataStructure.json';
 import './Expenses.scss';
 
 function Name({name, setName}: {name: string, setName: (name: string) => void}) {
@@ -17,9 +17,10 @@ function Name({name, setName}: {name: string, setName: (name: string) => void}) 
     );
 }
 
-function Kind({kind, setKind}: {kind: number, setKind: (kind: number) => void}) {
+// function Kind({kind, setKind}: {kind: number, setKind: (kind: number) => void}) {
+function Kind() {
     const kinds = ["Contorizat", "Distribuit", "Fix"];
-    const [selectedKind, setSelectedKind] = useState(kinds[kind]);
+    // const [selectedKind, setSelectedKind] = useState(kinds[kind]);
 
     return (
         <div className="element">
@@ -88,7 +89,7 @@ function Rows({cheltuieli, setCheltuieli}: {cheltuieli: any, setCheltuieli: (che
         setCheltuieli((prevCheltuieli: any) => prevCheltuieli.filter((_: any, i: number) => i !== index));
     }
 
-    let isPair = cheltuieli.length % 2 === 0;
+    // let isPair = cheltuieli.length % 2 === 0;
 
     return (
         <div>
@@ -113,7 +114,7 @@ function Rows({cheltuieli, setCheltuieli}: {cheltuieli: any, setCheltuieli: (che
 
                     }} />
 
-                    <Kind kind={cheltuiala.kind} setKind={(kind) => {
+                    {/* <Kind kind={cheltuiala.kind} setKind={(kind) => {
                         setCheltuieli((prevCheltuieli: any) =>
                             prevCheltuieli.map((cheltuiala: any, i: number) => {
                                 if (i === index) {
@@ -128,7 +129,9 @@ function Rows({cheltuieli, setCheltuieli}: {cheltuieli: any, setCheltuieli: (che
                                 }
                             })
                         );
-                    }} />
+                    }} /> */}
+
+                    <Kind />
 
                     <Division division={cheltuiala.division} setDivision={(division) => {
                         setCheltuieli((prevCheltuieli: any) =>

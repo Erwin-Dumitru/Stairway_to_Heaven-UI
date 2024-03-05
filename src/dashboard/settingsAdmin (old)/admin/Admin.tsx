@@ -119,85 +119,85 @@ function Address({elementAddress, title, blocks, selectedElement, setSelectedEle
     );
 }
 
-function AddElementModal({dialogRef, selectedElement, setSelectedElement}: {dialogRef: any, selectedElement: any, setSelectedElement: any}) {
-    useEffect(() => {
-        const dialog = dialogRef.current;
-        if (dialog) {
-            dialog.addEventListener("click", (event: any) => {
-                if (event.target === dialog) {
-                    dialog.classList.add("isClosing");
-                    dialog.addEventListener("webkitAnimationEnd", function handleAnimationEnd() {
-                        dialog.classList.remove("isClosing");
-                        dialog.close();
-                        dialog.removeEventListener("webkitAnimationEnd", handleAnimationEnd, false);
-                    }, false);
-                }
-            });
-        }
-    }, [dialogRef]);
+// function AddElementModal({dialogRef, selectedElement, setSelectedElement}: {dialogRef: any, selectedElement: any, setSelectedElement: any}) {
+//     useEffect(() => {
+//         const dialog = dialogRef.current;
+//         if (dialog) {
+//             dialog.addEventListener("click", (event: any) => {
+//                 if (event.target === dialog) {
+//                     dialog.classList.add("isClosing");
+//                     dialog.addEventListener("webkitAnimationEnd", function handleAnimationEnd() {
+//                         dialog.classList.remove("isClosing");
+//                         dialog.close();
+//                         dialog.removeEventListener("webkitAnimationEnd", handleAnimationEnd, false);
+//                     }, false);
+//                 }
+//             });
+//         }
+//     }, [dialogRef]);
     
-    function AddElement() {
-        if (selectedElement[0] === -1) {
-            return (
-                <div className="addElement">
-                    <h1>Adaugă bloc</h1>
+//     function AddElement() {
+//         if (selectedElement[0] === -1) {
+//             return (
+//                 <div className="addElement">
+//                     <h1>Adaugă bloc</h1>
 
-                    <form>
-                        <input type="text" placeholder="Bloc" />
-                        <button type="submit">Adaugă</button>
-                    </form>
+//                     <form>
+//                         <input type="text" placeholder="Bloc" />
+//                         <button type="submit">Adaugă</button>
+//                     </form>
 
-                    <button onClick={() => dialogRef.current?.close()}>Închide</button>
-                </div>
-            );
-        } else if (selectedElement[1] === -1) {
-            return (
-                <div className="addElement">
-                    <h1>Adaugă scară</h1>
-                    <button onClick={() => dialogRef.current?.close()}>Închide</button>
-                </div>
-            );
-        } else if (selectedElement[2] === -1) {
-            return (
-                <div className="addElement">
-                    <h1>Adaugă apartament</h1>
-                    <button onClick={() => dialogRef.current?.close()}>Închide</button>
-                </div>
-            );
-        } else {
-            return (
-                <div className="addElement">
-                    <h1>Adaugă element</h1>
-                    <button onClick={() => dialogRef.current?.close()}>Închide</button>
-                </div>
-            );
-        }
-    }
+//                     <button onClick={() => dialogRef.current?.close()}>Închide</button>
+//                 </div>
+//             );
+//         } else if (selectedElement[1] === -1) {
+//             return (
+//                 <div className="addElement">
+//                     <h1>Adaugă scară</h1>
+//                     <button onClick={() => dialogRef.current?.close()}>Închide</button>
+//                 </div>
+//             );
+//         } else if (selectedElement[2] === -1) {
+//             return (
+//                 <div className="addElement">
+//                     <h1>Adaugă apartament</h1>
+//                     <button onClick={() => dialogRef.current?.close()}>Închide</button>
+//                 </div>
+//             );
+//         } else {
+//             return (
+//                 <div className="addElement">
+//                     <h1>Adaugă element</h1>
+//                     <button onClick={() => dialogRef.current?.close()}>Închide</button>
+//                 </div>
+//             );
+//         }
+//     }
 
-    return (
-        <dialog className="addElementModal" ref={dialogRef}>
-            <AddElement />
-        </dialog>
-    );
-}
+//     return (
+//         <dialog className="addElementModal" ref={dialogRef}>
+//             <AddElement />
+//         </dialog>
+//     );
+// }
 
 function CreateAssociation() {
     const [dataStructure, setDataStructure] = useState(DataStructure);
     const [selectedElement, setSelectedElement] = useState([-1, -1, -1, -1]);
     const [selected, setSelected] = useState(false);
-    const [numeAsociatie, setNumeAsociatie] = useState("");
+    // const [numeAsociatie, setNumeAsociatie] = useState("");
+
+    // useEffect(() => {
+    //     if (dataStructure.administrator !== "") {
+    //         setNumeAsociatie(dataStructure.name);
+    //     } else {
+    //         setNumeAsociatie("Asociație");
+    //     }
+    // }, [dataStructure]);
 
     useEffect(() => {
         setSelected(selectedElement[0] === -1);
     }, [selectedElement]);
-
-    useEffect(() => {
-        if (dataStructure.administrator !== "") {
-            setNumeAsociatie(dataStructure.name);
-        } else {
-            setNumeAsociatie("Asociație");
-        }
-    }, [dataStructure]);
 
     function saveClickHandle() {
         console.log(dataStructure);
