@@ -5,8 +5,8 @@ header {
     width: 90vw;
     height: calc(100vh + 50px);
     /* background-image: radial-gradient(farthest-side, #393939, #000); */
-    -webkit-animation: scale ease both;
-            animation: scale ease both;
+    -webkit-animation: scale linear both;
+            animation: scale linear both;
     animation-timeline: view(block);
     animation-range: entry-crossing 100% cover 100%;
 }

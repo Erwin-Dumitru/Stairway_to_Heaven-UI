@@ -24,7 +24,7 @@ function Indexes() {
                 },
                 {
                     name: "Baie"
-                }
+                },
             ]
         },
         {
@@ -69,7 +69,8 @@ function Indexes() {
 
                             {index.value && (
                                 <div className='contorBox'>
-                                    <h5>Contor +</h5>
+                                    {/* <h5>Contor +</h5> */}
+                                    <button className='addContor'>Contor +</button>
                                     {/* <div className="icon">
                                         <i className="ri-add-line"></i>
                                     </div> */}

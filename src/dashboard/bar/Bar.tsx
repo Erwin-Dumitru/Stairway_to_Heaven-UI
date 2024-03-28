@@ -1,51 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Bar.scss";
-import { AddressContextType } from "@/components/Interfaces";
+// import { AddressContextType } from "@/components/Interfaces";
 import { AddressContext } from "@/components/Context";
 
-function Bar() {
-    const [maxHeight, setMaxHeight] = useState('0px');
-    const [openAdress, setOpenAdress] = useState(false);
-    const contentRef = useRef<HTMLDivElement>(null);
-    
-    useEffect(() => {
-        if (contentRef.current !== null) {
-            setMaxHeight(`${contentRef.current.scrollHeight}px`);
-        }
-    }, []);
-
-    function RenderAdresses(addressContext: AddressContextType | undefined) {
-        if (!addressContext) return null;
-
-        let addressesList = [];
-        for (let i = 0; i < addressContext.addresses.length; i++) {
-            addressesList.push(
-                <div key={i}>
-                    <div className="address" onClick={ () => {
-                        addressContext.setCurrentAddress(addressContext.addresses[i]); 
-                        setOpenAdress(false);
-                    }}>
-                        { addressContext.addresses[i].name }
-                        <span>{ addressContext.addresses[i].type }</span>
-                    </div>
-                </div>
-            );
-        }
-
-        return (
-            <div className={`addressList ${openAdress? '' : 'inactive'}`} style={{maxHeight: openAdress ? maxHeight : '0px'}} ref={contentRef}>
-                {addressesList}
-            </div>
-        );
-    }
+export default function Bar() {
+    const [openAddress, setOpenAddress] = useState(false);
 
     let addressRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handler = (event: any) => {
             if (addressRef.current && !addressRef.current.contains(event.target)) {
-                setOpenAdress(false);
+                setOpenAddress(false);
             }
         }
 
@@ -56,10 +23,9 @@ function Bar() {
         }
     }, []);
 
-    const location = useLocation();
-
+    const location = useLocation().pathname;
     let title;
-    switch (location.pathname) {
+    switch (location) {
         case '/dashboard':
             title = 'Home';
             break;
@@ -81,16 +47,16 @@ function Bar() {
             <h1 id="barTitle">
                 {title}
             </h1>
-            
+
             <AddressContext.Consumer>
                 {(context) => (
                     <div className="addressSelector" ref={addressRef}>
-                        <div className="currentAddress" onClick={() => { setOpenAdress(!openAdress); }}>
+                        <div className="currentAddress" onClick={() => { setOpenAddress(!openAddress); }}>
                             { context ? context.currentAddress.name : '' }
                             <i className="ri-arrow-down-s-line"></i>
                         </div>
-
-                        { RenderAdresses(context) }
+            
+                        <AdressList addressContext={context || null} setOpenAddress={setOpenAddress} openAddress={openAddress} />
                     </div>
                 )}
             </AddressContext.Consumer>
@@ -106,4 +72,44 @@ function Bar() {
     );
 }
 
-export default Bar;
+function AdressList(props: any) {
+    if (!props.addressContext) return null;
+
+    function clientClick(address: any) {
+        props.addressContext.setCurrentAddress(address);
+        props.setOpenAddress(false);
+    }
+
+    function adminClick() {
+        props.addressContext.setCurrentAddress(props.addressContext.addresses[1]);
+        props.setOpenAddress(false);
+    }
+
+    return (
+        <div className={`wrapper1 ${props.openAddress ? 'active' : ''}`}>
+            <div className="addressList">
+                { props.addressContext.addresses.map((address: any, index: number) => (
+                    <div key={index} className="address" onClick={() => {
+                            address.type === 'client' ? clientClick(address) : adminClick();
+                        }}>
+                            
+                        <div className="addressName">
+                            { address.name }
+                            <span>{ address.type }</span>
+                        </div>
+
+                        { address.type === 'admin' ? <i className="ri-arrow-right-s-line"></i> : null}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function AdminList(props: any) {
+    return (
+        <div className="adminList">
+
+        </div>
+    );
+}

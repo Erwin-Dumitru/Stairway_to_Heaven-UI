@@ -14,18 +14,51 @@ import "./Dashboard.scss";
 
 function App() {
   const [addresses, setAddresses] = useState<Address[]>([
-    { name: "Apartamentul 5", type: "client" },
-    { name: "Apartamentul 6", type: "client" },
-    { name: "Asociatie", type: "admin" },
+    {
+      type: "client",
+      name: "Apartamentul 5"
+    },
+    {
+      type: "client",
+      name: "Apartamentul 6"
+    },
+    {
+      type: "admin",
+      name: "Administrație",
+      addresses: [
+        {
+          address: "TM, Mihai Viteazu, 1",
+          stairs: [
+            {
+              name: "Scara A"
+            },
+            {
+              name: "Scara B"
+            }
+          ]
+        },
+        {
+          address: "TM, Mihai Viteazu, 2",
+          stairs: [
+            {
+              name: "Scara A"
+            },
+            {
+              name: "Scara B"
+            }
+          ]
+        }
+      ]
+    },
   ]);
 
   const [currentAddress, setCurrentAddress] = useState<Address>(addresses[0]);
 
   return (
-    <div className="app">
+    <div className="dashboard">
       <AddressContext.Provider value={{ addresses, setAddresses, currentAddress, setCurrentAddress }}>
         <Nav />
-        <div className="appContent">
+        <div className="dashboard-content">
             <Bar />
 
             <Routes>

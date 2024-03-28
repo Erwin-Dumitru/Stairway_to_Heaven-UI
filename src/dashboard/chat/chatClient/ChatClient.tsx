@@ -30,12 +30,16 @@ function ChatClient() {
             </div>
         ));
     
-        return chats;
+        return (
+            <div className="conversations">
+                {chats}
+            </div>
+        );
     }
 
-    function Message({ message, time, part }: { message: string, time: string, part: boolean }) {
+    function Message({ message, time, isMine }: { message: string, time: string, isMine: boolean }) {
         return (
-            <div className={`messageContainer ${part ? "sent" : "received"}`}>
+            <div className={`messageContainer ${isMine ? "sent" : "received"}`}>
                 <div className="message">
                     {message}
                 </div>
@@ -47,19 +51,17 @@ function ChatClient() {
     }
 
     return (
-        <div className="chat">
-            <div className="chatList">
+        <div className="chat dashboard-page dashboard-container">
+            <div className="dashboard-left"> {/* chatList */}
                 <div className="searchBar">
                     <input type="text" placeholder="Caută" />
                     <i className="ri-search-line"></i>
                 </div>
 
-                <div className="conversations">
-                    <RenderChats />
-                </div>
+                <RenderChats />
             </div>
 
-            <div className="chatContent">
+            <div className="dashboard-right"> {/* chatContent */}
                 <div className="chatHeader">
                     <div className="info">
                         <img src="https://doodleipsum.com/100x100/avatar?bg=63C8D9&i=f09941a6f1650d51929781a86c6a8411" alt="avatar" />
@@ -76,12 +78,12 @@ function ChatClient() {
                 </div>
 
                 <div className="messages">
-                    <Message message="Bă! Ai chef să mai mergem la Cluj?" time="12:00" part={true} />
-                    <Message message="Și mie ce-mi iese?" time="12:00" part={false} />
-                    <Message message="Poate dai și tu de o gagică, ceva" time="12:01" part={true} />
-                    <Message message="Am destule" time="12:01" part={false} />
-                    <Message message="Da' ce vrei?" time="12:01" part={true} />
-                    <Message message="51%? 🥺" time="12:02" part={false} />
+                    <Message message="Bă! Ai chef să mai mergem la Cluj?" time="12:00" isMine={true} />
+                    <Message message="Și mie ce-mi iese?" time="12:00" isMine={false} />
+                    <Message message="Poate dai și tu de o gagică, ceva" time="12:01" isMine={true} />
+                    <Message message="Am destule" time="12:01" isMine={false} />
+                    <Message message="Da' ce vrei?" time="12:01" isMine={true} />
+                    <Message message="51%? 🥺" time="12:02" isMine={false} />
                 </div>
 
                 <div className="chatFooter">

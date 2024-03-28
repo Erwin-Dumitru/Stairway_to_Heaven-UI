@@ -7,8 +7,8 @@
     /* width: 100%; */
     margin: 0;
     padding: 0;
-    height: 100px;
-    overflow: hidden;
+    // height: 100px;
+    // overflow: hidden;
 }
 
 .notifications {
@@ -39,8 +39,13 @@
     padding-left: auto;
 }
 
+.addressSelector {
+    position: relative;
+}
+
 .currentAddress {
-    color: #acacac;
+    position: relative;
+    color: #acacacac;
     text-overflow: ellipsis;
     position: relative;
     z-index: 2;
@@ -48,63 +53,114 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px 0 20px;
-    height: 40px;
+    padding: var(--smallGap);
     width: 155px;
-    border-radius: 20px;
-    background-color: #343434;
+    height: 19px;
+    border-radius: var(--smallGap);
+    background-color: var(--mainBack);
+    transition: all 0.2s ease;
+    // background-color: var(--mainBack);
     cursor: pointer;
 }
 
+.currentAddress:hover {
+    color: #acacac;
+    background-color: #333;
+}
+
 .currentAddress i {
+    position: absolute;
+    right: 10px;
     margin: 0;
     padding: 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #acacac;
 }
 
 .wrapper1 {
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-rows: 1fr;
-    transition: all 0.2s ease-in-out;
-    align-items: flex-start;
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    opacity: 0;
+    filter: blur(2px);
+    border-radius: var(--smallGap);
+    transition: all 0.25s ease;
     overflow: hidden;
+    box-shadow: 0 0 10px 0px #0001;
+    pointer-events: none;
 }
 
 .wrapper1.active {
-    grid-template-rows: 1fr;
+    top: calc(100% + var(--smallGap));
+    display: block;
+    opacity: 1;
+    filter: blur(0);
+    pointer-events: auto;
 }
 
 .addressList {
-    z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    position: absolute;
-    top: 45px;
-    padding: var(--mediumGap) 0 0 0;
-    width: 190px;
-    border-radius: 0 0 20px 20px;
-    background-color: #252525;
+    gap: var(--smallGap);
+    // padding: var(--mediumGap) 0 0 0;
+    width: calc(155px + var(--smallGap) * 2);
+    background-color: #333;
     // box-sizing: border-box;
     overflow: hidden;
+    // height: 100000%;
     /* max-height: 200px; */
-    transition: all 0.25s ease;
+
+    // transition: all 0.25s ease;
+}
+
+.addressList:first-child {
+    padding-top: var(--smallGap);
+}
+
+.addressList:last-child {
+    padding-bottom: var(--smallGap);
 }
 
 .addressList .address {
-    color: #acacac;
+    color: #acacacc0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--smallGap);
+    cursor: pointer;
+    transition: all 0.2s;
+
+    i, span {
+        color: #acacacc0;
+        transition: all 0.2s;
+    }
+
+    &:hover {
+        color: #acacac;
+        i, span {
+            color: #acacac;
+        }
+    }
+}
+
+// .addressList .address:hover {
+//     color: #acacac;
+//     i {
+//         color: #acacac;
+//     }
+// }
+
+.addressList .addressName {
     text-overflow: ellipsis;
     display: flex;
     flex-direction: column;
+    gap: 5px;
     align-items: flex-start;
     justify-content: center;
-    /* padding: 0 15px 0 20px; */
-    padding-left: 20px;
-    height: 40px;
-    border-radius: 20px;
-    /* background-color: #343434; */
-    cursor: pointer;
+    line-height: 1;
+}
+
+.addressList .address i {
+    font-size: 1.2em;
+    // color: #acacacc0;
 }

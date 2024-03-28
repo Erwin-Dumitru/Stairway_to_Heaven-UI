@@ -40,7 +40,7 @@ function HomeClient() {
     }
 
     return (
-        <div className="home">
+        <div className="home dashboard-page medium-gap">
             <div className="graphContainer">
                 <div className="graphMenu">
                     <h2>Expenses</h2>
@@ -53,9 +53,13 @@ function HomeClient() {
                 <div className="totalToPay">
                     <div className="totalToPayTitle">
                         <h2>Invoice Total</h2>
-                        <div className="totalToPayButton">
+                        {/* <div className="totalToPayButton">
                             <i className="ri-arrow-right-line"></i>
-                        </div>
+                        </div> */}
+                        <button className="totalToPayButton">
+                            PAY
+                            <i className="ri-arrow-right-line"></i>
+                        </button>
                     </div>
                     <div className="content">
                         <div className="doughnutChart">

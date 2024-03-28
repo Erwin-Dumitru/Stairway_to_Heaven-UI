@@ -86,16 +86,31 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
             return (
                 <div className="details">
                     <div>
-                        <h4>Adresă</h4>
+                        <h4>Nume</h4>
                         <input
                             className="inputDetails"
-                            id="Address"
+                            id="AddressName"
                             type="text"
-                            key="Address"
-                            placeholder="Adresă" 
-                            value={address} 
-                            onChange={(e) => setAddress(e.target.value)} 
+                            key="AddressName"
+                            placeholder="Nume"
+                            value={name}
+                            onChange={(e) =>
+                            setName(e.target.value)}
                         />
+                    </div>
+
+                    <div>
+                        <h4>Județ</h4>
+                        <div className="inputDetailsSelect">
+                            <select name="judet" id="judet">
+                                <option value="TM">Timiș</option>
+                                <option value="AR">Arad</option>
+                                <option value="CJ">Cluj</option>
+                                <option value="BH">Bihor</option>
+                            </select>
+
+                            <i className="ri-arrow-down-s-line"></i>
+                        </div>
                     </div>
 
                     <div>
@@ -113,16 +128,15 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                     </div>
 
                     <div>
-                        <h4>Nume</h4>
+                        <h4>Adresă</h4>
                         <input
                             className="inputDetails"
-                            id="AddressName"
+                            id="Address"
                             type="text"
-                            key="AddressName"
-                            placeholder="Nume"
-                            value={name}
-                            onChange={(e) =>
-                            setName(e.target.value)}
+                            key="Address"
+                            placeholder="Adresă" 
+                            value={address} 
+                            onChange={(e) => setAddress(e.target.value)} 
                         />
                     </div>
                 </div>

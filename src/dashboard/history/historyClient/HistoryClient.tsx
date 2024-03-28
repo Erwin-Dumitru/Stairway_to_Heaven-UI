@@ -38,8 +38,8 @@ function HistoryClient() {
     }
 
     return (
-        <div className="history">
-            <div className="monthSelector">
+        <div className="history dashboard-page dashboard-container">
+            <div className="dashboard-left"> {/* monthSelector */}
                 <div className="subsectionTitle">
                     <h2>Factura</h2>
                 </div>
@@ -47,7 +47,7 @@ function HistoryClient() {
                 { renderMonthSelector() }
             </div>
 
-            <div className="details">
+            <div className="dashboard-right-row"> {/* details */}
                 <InvoiceDetails selectedInvoice={selectedInvoice} />
                 {/* <PaymentDetails selectedInvoice={selectedInvoice} /> */}
                 <PaymentDetails />

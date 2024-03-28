@@ -1,10 +1,9 @@
-.home {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    margin-bottom: var(--mediumGap);
-    gap: var(--mediumGap);
-}
+// .home {
+//     display: flex;
+//     flex-direction: row;
+//     flex: 1;
+//     gap: var(--mediumGap);
+// }
 
 .graphContainer {
     background-color: var(--mainBack);
@@ -51,23 +50,12 @@
     overflow: hidden;
 }
 
-.totalToPay {
-    justify-content: space-between;
-    align-items: space-between;
-    /* min-height: 50%;
-    max-height: 100%; */
-    flex: 1;
-    transition: all 0.25s ease;
-}
-
 /* .totalToPay:hover {
     scale: 1.05;
 } */
 
 .meters {
     padding-right: calc(var(--mediumGap) - 7px);
-    /* max-height: 50%;
-    min-height: 231.18px; */
     flex: 1;
 }
 
@@ -85,20 +73,8 @@
     /* background-color: #000000; */
 }
 
-.home h2, .home h3, .home i {
-    align-items: center;
-    text-justify: center;
-    margin: 0;
-    padding: 0;
+.meters i {
     font-size: 1.4em;
-    font-weight: 500;
-    color: #acacac;
-    line-height: 70%;
-}
-
-.home h3 {
-    font-size: 0.8em;
-    font-weight: 500;
 }
 
 .graphMenu .range {
@@ -132,14 +108,56 @@
     align-items: start;
 }
 
-.totalToPayTitle i {
-    font-size: 1.2em;
-    color: #acacac;
-}
+// .totalToPayTitle i {
+//     font-size: 1.2em;
+//     color: var(--darkColor);
+// }
 
 .totalToPay {
     position: relative;
     justify-content: start;
+    // padding-bottom: var(--smallGap);
+    gap: var(--largeGap);
+    transition: all 0.25s ease;
+}
+
+.totalToPayButton {
+    position: absolute;
+    top: calc(var(--smallGap) * 1.5);
+    right: calc(var(--smallGap) * 1.5);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: calc(var(--smallGap) / 2) var(--smallGap);
+    border-radius: var(--smallGap);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: var(--darkColor) solid 2px;
+    background-color: #eee;
+    // background-color: var(--lightColor);
+
+    font-size: 1em;
+    font-weight: 600;
+    color: #333;
+    color: var(--darkColor);
+
+    i {
+        font-size: 1.2em;
+        color: var(--darkColor);
+        transition: all 0.2s ease;
+    }
+
+    &:hover {
+        // background-color: #eeee;
+        border-color: var(--mainColor);
+        color: var(--mainColor);
+
+        i {
+            color: var(--mainColor);
+        }
+    }
 }
 
 .totalToPayValue {
@@ -152,14 +170,42 @@
     width: 100%;
     height: calc(50% - var(--mediumGap) * 1);
 }
-  
+
 .doughnutChart {
-    /* height: 100%; */
-    width: calc(100% - 4 * var(--mediumGap));
-    position: absolute;
-    bottom: 0;
-    transform: translate(-50%, 25%);
+    // height: 100%;
+    width: 100%;
+    // position: relative;
+    bottom: 3px;
+    // transform: translate(-50%);
+    // cursor: pointer;
     /* visibility: hidden; */
+}
+
+// .doughnutChart canvas {
+//     width: 100% !important;
+//     height: 100% !important;
+// }
+
+.halfChatText {
+    position: absolute;
+    top: 33%;
+    left: 12.5%;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font: 2.3em 'Roboto', sans-serif;
+    font-weight: 600;
+    color: #acacac;
+    pointer-events: none;
+}
+
+.halfChatText span {
+    font-size: 0.5em;
+    font-weight: 400;
 }
 
 .metersField {

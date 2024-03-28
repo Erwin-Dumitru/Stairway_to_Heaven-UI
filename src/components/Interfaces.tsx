@@ -1,7 +1,17 @@
 
+export interface Stair {
+    name: string;
+}
+  
+export interface AddressDetail {
+    address: string;
+    stairs: Stair[];
+}
+  
 export interface Address {
     name: string;
     type: string;
+    addresses?: AddressDetail[];
 }
 
 export interface AddressContextType {
