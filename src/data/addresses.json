@@ -1,0 +1,76 @@
+[
+    {
+        "id": 1,
+        "name": "Apartamentul 5"
+    },
+    {
+        "id": 2,
+        "name": "Apartamentul 6"
+    },
+    {
+        "id": 3,
+        "name": "Administrație",
+        "administrations": [
+            {
+                "id": 1,
+                "name": "Asociația 1",
+                "done": true,
+                "notifications": 7
+            },
+            {
+                "id": 2,
+                "name": "Asociația 2",
+                "done": false,
+                "notifications": 5
+            },
+            {
+                "id": 3,
+                "name": "Asociația 3",
+                "done": true,
+                "notifications": 0
+            },
+            {
+                "id": 4,
+                "name": "Asociația 4",
+                "done": false,
+                "notifications": 0
+            },
+            {
+                "id": 5,
+                "name": "Asociația 5",
+                "done": false,
+                "notifications": 0
+            },
+            {
+                "id": 6,
+                "name": "Asociația 6",
+                "done": false,
+                "notifications": 0
+            },
+            {
+                "id": 7,
+                "name": "Asociația 7",
+                "done": false,
+                "notifications": 0
+            },
+            {
+                "id": 8,
+                "name": "Asociația 8",
+                "done": false,
+                "notifications": 0
+            },
+            {
+                "id": 9,
+                "name": "Asociația 9",
+                "done": false,
+                "notifications": 0
+            },
+            {
+                "id": 10,
+                "name": "Asociația 10",
+                "done": false,
+                "notifications": 0
+            }
+        ]
+    }
+]

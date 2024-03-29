@@ -1,3 +1,6 @@
+$width: 200px;
+$height: 387px;
+
 .bar {
     display: flex;
     flex-direction: row;
@@ -41,6 +44,72 @@
 
 .addressSelector {
     position: relative;
+    display: flex;
+    justify-content: center;
+
+    .addressElement {
+        position: relative;
+        width: $width;
+        color: #acacacac;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 var(--smallGap);
+        cursor: pointer;
+        transition: all 0.2s;
+        background-color: var(--mainBack);
+        border-radius: var(--smallGap);
+        padding: var(--smallGap);
+        margin-right: 2.5px;
+        text-overflow: ellipsis;
+        line-height: 1;
+    
+        i {
+            position: absolute;
+            right: var(--smallGap);
+            font-size: 1.2em;
+        }
+    
+        i {
+            color: #acacacac;
+            transition: all 0.2s;
+        }
+    
+        &:hover {
+            color: #acacac;
+            i {
+                color: #acacac;
+            }
+        }
+    
+        &.green {
+            color: #07d407ac;
+    
+            &:hover {
+                color: #07d407;
+            }
+        }
+    
+        &.notify::after {
+            content: '';
+            position: absolute;
+            left: calc(var(--smallGap) / 1.5);
+            top: calc(var(--smallGap) / 1.5);
+            width: 5px;
+            height: 5px;
+            background-color: #ff2c10ca;
+            border-radius: 50%;
+        }
+    }
+
+    > .addressElement {
+        margin-right: 0;
+        
+        &:hover {
+            color: #acacac;
+            background-color: #333;
+        }
+    }
 }
 
 .currentAddress {
@@ -54,7 +123,7 @@
     align-items: center;
     justify-content: space-between;
     padding: var(--smallGap);
-    width: 155px;
+    width: $width;
     height: 19px;
     border-radius: var(--smallGap);
     background-color: var(--mainBack);
@@ -77,20 +146,21 @@
     color: #acacac;
 }
 
-.wrapper1 {
-    z-index: 1;
+.addressSelector .dropdown {
     position: absolute;
+    z-index: 1;
     top: 100%;
     opacity: 0;
     filter: blur(2px);
-    border-radius: var(--smallGap);
-    transition: all 0.25s ease;
+    background-color: #333;
+    border-radius: var(--mediumGap);
+    transition: all 0.2s ease;
     overflow: hidden;
     box-shadow: 0 0 10px 0px #0001;
     pointer-events: none;
 }
 
-.wrapper1.active {
+.addressSelector .dropdown.active {
     top: calc(100% + var(--smallGap));
     display: block;
     opacity: 1;
@@ -98,69 +168,216 @@
     pointer-events: auto;
 }
 
+.addressSelector .dropdownWrapper {
+    position: relative;
+}
+
 .addressList {
+    position: absolute;
+    width: calc($width + var(--smallGap) * 2);
+    padding: var(--smallGap);
+    overflow: hidden;
+    transition: all 0.2s ease;
+    opacity: 0;
+    filter: blur(2px);
+    pointer-events: none;
+    transform: translateX(-10px);
+    max-height: calc($height - var(--mediumGap));
+}
+
+.addressListScroll {
+    max-height: calc($height - var(--mediumGap));
     display: flex;
     flex-direction: column;
     gap: var(--smallGap);
-    // padding: var(--mediumGap) 0 0 0;
-    width: calc(155px + var(--smallGap) * 2);
-    background-color: #333;
-    // box-sizing: border-box;
-    overflow: hidden;
-    // height: 100000%;
-    /* max-height: 200px; */
-
-    // transition: all 0.25s ease;
+    margin-right: -9.5px;
+    overflow-y: scroll;
 }
 
-.addressList:first-child {
-    padding-top: var(--smallGap);
-}
-
-.addressList:last-child {
-    padding-bottom: var(--smallGap);
-}
-
-.addressList .address {
-    color: #acacacc0;
+.dropdown .address {
+    position: relative;
+    color: #acacacac;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 0 var(--smallGap);
     cursor: pointer;
     transition: all 0.2s;
+    background-color: var(--mainBack);
+    border-radius: var(--smallGap);
+    padding: var(--smallGap);
+    margin-right: 2.5px;
+    text-overflow: ellipsis;
+    line-height: 1;
 
-    i, span {
-        color: #acacacc0;
+    i {
+        font-size: 1.2em;
+        margin-left: auto;
+    }
+
+    i {
+        color: #acacacac;
         transition: all 0.2s;
     }
 
     &:hover {
         color: #acacac;
-        i, span {
+        i {
             color: #acacac;
+        }
+    }
+
+    &.green {
+        color: #07d407ac;
+
+        &:hover {
+            color: #07d407;
+        }
+    }
+
+    &.notify::after {
+        content: '';
+        position: absolute;
+        left: calc(var(--smallGap) / 1.5);
+        top: calc(var(--smallGap) / 1.5);
+        width: 5px;
+        height: 5px;
+        background-color: #ff2c10ca;
+        border-radius: 50%;
+        
+    }
+}
+
+.adminList {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+    width: calc($width + var(--smallGap) * 2);
+    max-height: calc($height - var(--mediumGap));
+    padding: var(--smallGap);
+    overflow: hidden;
+
+    transition: all 0.2s ease;
+    opacity: 0;
+    filter: blur(2px);
+    pointer-events: none;
+    transform: translateX(10px);
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: calc(var(--smallGap) / 2);
+
+        .backButton {
+            color: #acacacac;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: var(--smallGap);
+            border-radius: var(--smallGap);
+            background-color: var(--mainBack);
+
+            &:hover {
+                color: #acacac;
+            }
+        }
+
+        .backButton {
+            color: #acacacac;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: var(--smallGap);
+            border-radius: var(--smallGap);
+            background-color: var(--mainBack);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(41px - var(--smallGap) * 2);
+            height: calc(41px - var(--smallGap) * 2);
+
+            i {
+                position: absolute;
+                transform: translateX(-1px);
+                font-size: 1.3em;
+                color: #acacacac;
+                transition: all 0.2s ease;
+            }
+
+            &:hover {
+                color: #acacac;
+
+                i {
+                    color: #acacac;
+                }
+            }
+        }
+
+        > .addressElement {
+            flex: 1;
+            margin-right: 0;
+            font-weight: 600;
+            // justify-content: center;
+        }
+    }
+
+    .search {
+        position: relative;
+        // height: 40px;
+        // box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        // gap: 5px;
+        // padding: var(--smallGap);
+        // border-radius: var(--smallGap);
+        // border: 1px solid #acacac40;
+        // background-color: var(--mainBack);
+
+        transition: all 0.2s ease;
+
+        input {
+            // position: absolute;
+            left: 0;
+            background-color: transparent;
+            height: 37px;
+            width: calc(100% - var(--smallGap) * 4);
+            color: #acacac;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            padding-left: var(--smallGap);
+            padding-right: calc(var(--smallGap) * 3);
+            margin: 0;
+            border-radius: var(--smallGap);
+            border: 1px solid #acacac40;
+
+            &::placeholder {
+                color: #acacacac;
+            }
+
+            &:focus {
+                color: #acacac;
+            }
+        }
+
+        i {
+            position: absolute;
+            right: var(--smallGap);
+            font-size: 1.3em;
+            color: #acacacac;
+            pointer-events: none;
         }
     }
 }
 
-// .addressList .address:hover {
-//     color: #acacac;
-//     i {
-//         color: #acacac;
-//     }
-// }
-
-.addressList .addressName {
-    text-overflow: ellipsis;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: flex-start;
-    justify-content: center;
-    line-height: 1;
-}
-
-.addressList .address i {
-    font-size: 1.2em;
-    // color: #acacacc0;
+.adminList.active, .addressList.active {
+    position: static;
+    opacity: 1;
+    filter: blur(0);
+    pointer-events: auto;
+    transform: translateX(0);
 }

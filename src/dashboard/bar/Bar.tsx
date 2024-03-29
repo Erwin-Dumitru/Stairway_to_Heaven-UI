@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Bar.scss";
 // import { AddressContextType } from "@/components/Interfaces";
 import { AddressContext } from "@/components/Context";
+import adminData from "@/data/administration.json";
 
 export default function Bar() {
     const [openAddress, setOpenAddress] = useState(false);
@@ -51,7 +52,7 @@ export default function Bar() {
             <AddressContext.Consumer>
                 {(context) => (
                     <div className="addressSelector" ref={addressRef}>
-                        <div className="currentAddress" onClick={() => { setOpenAddress(!openAddress); }}>
+                        <div className="1currentAddress addressElement" onClick={() => { setOpenAddress(!openAddress); }}>
                             { context ? context.currentAddress.name : '' }
                             <i className="ri-arrow-down-s-line"></i>
                         </div>
@@ -73,6 +74,9 @@ export default function Bar() {
 }
 
 function AdressList(props: any) {
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [administration, setAdministration] = useState<any>('');
+
     if (!props.addressContext) return null;
 
     function clientClick(address: any) {
@@ -80,27 +84,28 @@ function AdressList(props: any) {
         props.setOpenAddress(false);
     }
 
-    function adminClick() {
-        props.addressContext.setCurrentAddress(props.addressContext.addresses[1]);
-        props.setOpenAddress(false);
+    function adminClick(address: any) {
+        setIsAdmin(true);
+        setAdministration(address.name);
     }
 
     return (
-        <div className={`wrapper1 ${props.openAddress ? 'active' : ''}`}>
-            <div className="addressList">
-                { props.addressContext.addresses.map((address: any, index: number) => (
-                    <div key={index} className="address" onClick={() => {
-                            address.type === 'client' ? clientClick(address) : adminClick();
-                        }}>
-                            
-                        <div className="addressName">
-                            { address.name }
-                            <span>{ address.type }</span>
-                        </div>
-
-                        { address.type === 'admin' ? <i className="ri-arrow-right-s-line"></i> : null}
+        <div className={`dropdown ${props.openAddress ? 'active' : ''}`}>
+            <div className="dropdownWrapper">
+                <div className={`addressList ${isAdmin ? '' : 'active'}`}>
+                    <div className="addressListScroll">
+                        { props.addressContext.addresses.map((address: any, index: number) => (
+                            <div key={index} className={`addressElement ${address.type === 'admin' ? 'notify' : ''}`} onClick={() => {
+                                    address.type === 'client' ? clientClick(address) : adminClick(address);
+                                }}>
+                                { address.name }
+                                { address.type === 'admin' ? <i className="ri-arrow-right-s-line"></i> : null}
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </div>
+
+                <AdminList active={isAdmin} setIsAdmin={setIsAdmin} administration={administration} />
             </div>
         </div>
     );
@@ -108,8 +113,32 @@ function AdressList(props: any) {
 
 function AdminList(props: any) {
     return (
-        <div className="adminList">
+        <div className={`adminList ${props.active ? 'active' : ''}`}>
+            <div className="title">
+                <div className="backButton" onClick={() => { props.setIsAdmin(false); }}>
+                    <i className="ri-arrow-left-s-line"></i>
+                </div>
+                <div className="addressElement">
+                    { props.administration }
+                </div>
+            </div>
 
+            <div className="search">
+                <input type="text" placeholder="Caută" />
+                <i className="ri-search-line"></i>
+            </div>
+
+            <div className="addressListScroll">
+                { adminData.map((address: any, index: number) => (
+                    <div key={index} className={
+                        `addressElement 
+                        ${address.notifications ? 'notify' : ''} 
+                        ${address.done ? 'green' : ''}`
+                    }>
+                        { address.name }
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

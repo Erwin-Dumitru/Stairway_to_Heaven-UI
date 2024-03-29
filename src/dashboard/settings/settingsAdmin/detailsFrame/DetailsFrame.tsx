@@ -115,16 +115,16 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
 
                     <div>
                         <h4>Oraș</h4>
-                        <input 
-                            className="inputDetails"
-                            id="City"
-                            type="text" 
-                            key="City"
-                            placeholder="Oraș" 
-                            value={city} 
-                            onChange={(e) => 
-                            setCity(e.target.value)} 
-                        />
+                        <div className="inputDetailsSelect">
+                            <select name="city" id="city">
+                                <option value="TM">Timișoara</option>
+                                <option value="AR">Arad</option>
+                                <option value="CJ">Cluj</option>
+                                <option value="BH">Oradea</option>
+                            </select>
+
+                            <i className="ri-arrow-down-s-line"></i>
+                        </div>
                     </div>
 
                     <div>
