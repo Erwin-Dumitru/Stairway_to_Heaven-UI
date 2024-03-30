@@ -100,6 +100,16 @@ $height: 387px;
             background-color: #ff2c10ca;
             border-radius: 50%;
         }
+
+        .addressName {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+
+            span {
+                font-size: 10.5px;
+            }
+        }
     }
 
     > .addressElement {
@@ -154,18 +164,18 @@ $height: 387px;
     filter: blur(2px);
     background-color: #333;
     border-radius: var(--mediumGap);
-    transition: all 0.2s ease;
+    transition: all 0.2s ease-in-out;
     overflow: hidden;
     box-shadow: 0 0 10px 0px #0001;
     pointer-events: none;
-}
 
-.addressSelector .dropdown.active {
-    top: calc(100% + var(--smallGap));
-    display: block;
-    opacity: 1;
-    filter: blur(0);
-    pointer-events: auto;
+    &.active {
+        top: calc(100% + var(--smallGap));
+        display: block;
+        opacity: 1;
+        filter: blur(0);
+        pointer-events: auto;
+    }
 }
 
 .addressSelector .dropdownWrapper {
@@ -175,14 +185,15 @@ $height: 387px;
 .addressList {
     position: absolute;
     width: calc($width + var(--smallGap) * 2);
+    max-height: calc($height - var(--mediumGap));
     padding: var(--smallGap);
     overflow: hidden;
     transition: all 0.2s ease;
     opacity: 0;
     filter: blur(2px);
     pointer-events: none;
-    transform: translateX(-10px);
-    max-height: calc($height - var(--mediumGap));
+    transform: translateX(calc(var(--smallGap) * -1));
+    transform: translateX(calc(-100% - var(--smallGap)));
 }
 
 .addressListScroll {
@@ -263,7 +274,8 @@ $height: 387px;
     opacity: 0;
     filter: blur(2px);
     pointer-events: none;
-    transform: translateX(10px);
+    transform: translateX(var(--smallGap));
+    transform: translateX(calc(100% + var(--smallGap)));
 
     .title {
         display: flex;
@@ -372,12 +384,20 @@ $height: 387px;
             pointer-events: none;
         }
     }
+
+    .noAssociations {
+        color: #acacacac;
+        padding: calc(var(--smallGap) / 2) var(--smallGap);
+    }
 }
 
 .adminList.active, .addressList.active {
     position: static;
     opacity: 1;
     filter: blur(0);
-    pointer-events: auto;
     transform: translateX(0);
+
+    &.open {
+        pointer-events: auto;
+    }
 }

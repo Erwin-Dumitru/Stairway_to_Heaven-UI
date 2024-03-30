@@ -1,7 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import { Address } from "@/components/Interfaces";
+import { Address, SelectedAddress } from "@/components/Interfaces";
 import { AddressContext } from "@/components/Context";
+import { AddressContextType } from "@/components/Interfaces";
+import addressesData from "@/data/addresses.json";
 
 import Nav from "./nav/Nav";
 import Bar from "./bar/Bar";
@@ -13,50 +15,19 @@ import Settings from "./settings/Settings";
 import "./Dashboard.scss";
 
 function App() {
-  const [addresses, setAddresses] = useState<Address[]>([
-    {
-      type: "client",
-      name: "Apartamentul 5"
-    },
-    {
-      type: "client",
-      name: "Apartamentul 6"
-    },
-    {
-      type: "admin",
-      name: "Administrație",
-      addresses: [
-        {
-          address: "TM, Mihai Viteazu, 1",
-          stairs: [
-            {
-              name: "Scara A"
-            },
-            {
-              name: "Scara B"
-            }
-          ]
-        },
-        {
-          address: "TM, Mihai Viteazu, 2",
-          stairs: [
-            {
-              name: "Scara A"
-            },
-            {
-              name: "Scara B"
-            }
-          ]
-        }
-      ]
-    },
-  ]);
+  const [addresses, setAddresses] = useState<Address[]>(addressesData);
 
-  const [currentAddress, setCurrentAddress] = useState<Address>(addresses[0]);
+  const [currentAddress, setCurrentAddress] = useState<SelectedAddress>(
+    {
+      id: addresses[0].id,
+      name: addresses[0].name,
+      type: addresses[0].administrations ? "admin" : "client"
+    }
+  );
 
   return (
     <div className="dashboard">
-      <AddressContext.Provider value={{ addresses, setAddresses, currentAddress, setCurrentAddress }}>
+      <AddressContext.Provider value={{ addresses, setAddresses, currentAddress, setCurrentAddress } as AddressContextType}>
         <Nav />
         <div className="dashboard-content">
             <Bar />

@@ -1,75 +1,99 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "name": "Apartamentul 5"
     },
     {
-        "id": 2,
-        "name": "Apartamentul 6"
+        "id": "2",
+        "name": "Apartamentul 6",
+        "notifications": 1
     },
     {
-        "id": 3,
+        "id": "3",
         "name": "Administrație",
+        "notifications": 2,
         "administrations": [
             {
-                "id": 1,
+                "id": "1",
                 "name": "Asociația 1",
                 "done": true,
-                "notifications": 7
+                "notifications": 7,
+                "county": "Cluj",
+                "countyCode": "CJ",
+                "city": "Cluj-Napoca"
             },
             {
-                "id": 2,
+                "id": "2",
                 "name": "Asociația 2",
                 "done": false,
-                "notifications": 5
+                "notifications": 5,
+                "county": "Cluj",
+                "countyCode": "CJ",
+                "city": "Cluj-Napoca"
             },
             {
-                "id": 3,
+                "id": "3",
                 "name": "Asociația 3",
                 "done": true,
-                "notifications": 0
+                "county": "Timiș",
+                "countyCode": "TM",
+                "city": "Timișoara"
             },
             {
-                "id": 4,
+                "id": "4",
                 "name": "Asociația 4",
                 "done": false,
-                "notifications": 0
+                "county": "Timiș",
+                "countyCode": "TM",
+                "city": "Timișoara"
             },
             {
-                "id": 5,
+                "id": "5",
                 "name": "Asociația 5",
                 "done": false,
-                "notifications": 0
+                "county": "Timiș",
+                "countyCode": "TM",
+                "city": "Timișoara"
             },
             {
-                "id": 6,
+                "id": "6",
                 "name": "Asociația 6",
                 "done": false,
-                "notifications": 0
+                "county": "Arad",
+                "countyCode": "AR",
+                "city": "Arad"
             },
             {
-                "id": 7,
+                "id": "7",
                 "name": "Asociația 7",
                 "done": false,
-                "notifications": 0
+                "county": "Arad",
+                "countyCode": "AR",
+                "city": "Arad"
             },
             {
-                "id": 8,
+                "id": "8",
                 "name": "Asociația 8",
                 "done": false,
-                "notifications": 0
+                "county": "Arad",
+                "countyCode": "AR",
+                "city": "Arad"
             },
             {
-                "id": 9,
+                "id": "9",
                 "name": "Asociația 9",
                 "done": false,
-                "notifications": 0
+                "county": "Alba",
+                "countyCode": "AB",
+                "city": "Alba Iulia"
             },
             {
-                "id": 10,
+                "id": "10",
                 "name": "Asociația 10",
                 "done": false,
-                "notifications": 0
+                "county": "Alba",
+                "countyCode": "AB",
+                "city": "Alba Iulia"
             }
         ]
     }

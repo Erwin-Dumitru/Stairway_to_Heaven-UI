@@ -1,5 +1,6 @@
-import HomeClient from './homeClient/HomeClient';
 import HomeAdmin from './homeAdmin/HomeAdmin';
+import HomeAssoc from './homeAssoc/HomeAssoc';
+import HomeClient from './homeClient/HomeClient';
 import { AddressContext } from '@/components/Context';
 
 function Home() {
@@ -11,6 +12,8 @@ function Home() {
                         return <HomeClient />;
                     } else if (context && context.currentAddress.type === "admin") {
                         return <HomeAdmin />;
+                    } else if (context && context.currentAddress.type === "association") {
+                        return <HomeAssoc />;
                     }
                 })();
             }}
