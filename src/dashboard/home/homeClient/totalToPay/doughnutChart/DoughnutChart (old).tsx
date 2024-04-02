@@ -170,6 +170,7 @@ const DoughnutChart = () => {
                 <span>Total</span>
                 <h4>127.64</h4>
             </div>
+            
             <div className="halfChartChild">
                 <div ref={ref} className="halfChartText inactive" style={{backgroundColor: finalColorText}}>
                     <div className="halfChartTextChild">

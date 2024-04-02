@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import DataStructure from "@/data/dataStructure.json";
 import DetailsFrame from "./detailsFrame/DetailsFrame";
 import "./SettingsAdmin.scss";
+import { count } from "console";
 // import "./CreateAssociation.scss"
 // import "../Dialog.scss"
 
-function Apartment({elementAddress, data, selectedElement, setSelectedElement}: {elementAddress: number[], data: any, selectedElement: any[], setSelectedElement: any}) {
+function Apartment({elementAddress, data, selectedElement, setSelectedElement, removeClickHandle}: {elementAddress: number[], data: any, selectedElement: any[], setSelectedElement: any, removeClickHandle: any}) {
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -16,12 +17,18 @@ function Apartment({elementAddress, data, selectedElement, setSelectedElement}: 
         <div className="apartment">
             <div className={`apartmentTitle ${active ? 'active' : ''}`} onClick={() => setSelectedElement(elementAddress)}>
                 <h3>{`Apartament ${data.apartment}`}</h3>
+
+                <div className="buttons">
+                    <div className={`button ${active ? 'active' : ''}`} onClick={removeClickHandle}>
+                        <i className="ri-delete-bin-line"></i>
+                    </div>
+                </div>
             </div>
         </div>
     );
 }
 
-function Stair({elementAddress, title, apartments, selectedElement, setSelectedElement}: {elementAddress: number[], title: any, apartments: any[], selectedElement: any[], setSelectedElement: any}) {
+function Stair({elementAddress, title, apartments, selectedElement, setSelectedElement, addClickHandle, removeClickHandle}: {elementAddress: number[], title: any, apartments: any[], selectedElement: any[], setSelectedElement: any, addClickHandle: any, removeClickHandle: any}) {
     const [active, setActive] = useState(false);
     const [selected, setSelected] = useState(false);
 
@@ -34,7 +41,18 @@ function Stair({elementAddress, title, apartments, selectedElement, setSelectedE
         <div className="stair">
             <div className={`stairTitle ${selected ? 'active' : ''}`} onClick={() => setSelectedElement(elementAddress)}>
                 <h3>{`Scara ${title}`}</h3>
-                <i className="ri-arrow-down-s-line" ></i>
+
+                <div className="buttons">
+                    <div className={`button ${selected ? 'active' : ''}`} onClick={removeClickHandle}>
+                        <i className="ri-delete-bin-line"></i>
+                    </div>
+
+                    <div className={`button ${selected ? 'active' : ''}`} onClick={addClickHandle}>
+                        <i className="ri-add-line"></i>
+                    </div>
+                </div>
+
+                <i className="ri-arrow-down-s-line arrow-down" ></i>
             </div>
 
             <div className={`wrapper ${active ? 'active' : ''}`}>
@@ -46,6 +64,7 @@ function Stair({elementAddress, title, apartments, selectedElement, setSelectedE
                             data={data}
                             selectedElement={selectedElement}
                             setSelectedElement={setSelectedElement}
+                            removeClickHandle={removeClickHandle}
                         />
                     );})}
                 </div>
@@ -54,7 +73,7 @@ function Stair({elementAddress, title, apartments, selectedElement, setSelectedE
     );
 }
 
-function Bloc({elementAddress, title, stairs, selectedElement, setSelectedElement}: {elementAddress: number[], title: any, stairs: any[], selectedElement: any[], setSelectedElement: any}) {
+function Bloc({elementAddress, title, stairs, selectedElement, setSelectedElement, addClickHandle, removeClickHandle}: {elementAddress: number[], title: any, stairs: any[], selectedElement: any[], setSelectedElement: any, addClickHandle: any, removeClickHandle: any}) {
     const [active, setActive] = useState(false);
     const [selected, setSelected] = useState(false);
 
@@ -67,7 +86,18 @@ function Bloc({elementAddress, title, stairs, selectedElement, setSelectedElemen
         <div className="bloc">
             <div className={`blocTitle ${selected ? 'active' : ''}`} onClick={() => setSelectedElement(elementAddress)}>
                 <h3>{`Bloc ${title}`}</h3>
-                <i className="ri-arrow-down-s-line" ></i>
+
+                <div className="buttons">
+                    <div className={`button ${selected ? 'active' : ''}`} onClick={removeClickHandle}>
+                        <i className="ri-delete-bin-line"></i>
+                    </div>
+                    
+                    <div className={`button ${selected ? 'active' : ''}`} onClick={addClickHandle}>
+                        <i className="ri-add-line"></i>
+                    </div>
+                </div>
+                
+                <i className="ri-arrow-down-s-line arrow-down" ></i>
             </div>
             
             <div className={`wrapper ${active ? 'active' : ''}`}>
@@ -80,6 +110,8 @@ function Bloc({elementAddress, title, stairs, selectedElement, setSelectedElemen
                             apartments={data.apartments} 
                             selectedElement={selectedElement} 
                             setSelectedElement={setSelectedElement}
+                            addClickHandle={addClickHandle}
+                            removeClickHandle={removeClickHandle}
                         />
                     )})}
                 </div>
@@ -88,7 +120,7 @@ function Bloc({elementAddress, title, stairs, selectedElement, setSelectedElemen
     );
 }
 
-function Address({elementAddress, title, blocks, selectedElement, setSelectedElement}: {elementAddress: number[], title: any, blocks: any[], selectedElement: any[], setSelectedElement: any}) {
+function Address({elementAddress, title, blocks, selectedElement, setSelectedElement, addClickHandle, removeClickHandle}: {elementAddress: number[], title: any, blocks: any[], selectedElement: any[], setSelectedElement: any, addClickHandle: any, removeClickHandle: any}) {
     const [selected, setSelected] = useState(false);
 
     useEffect(() => {
@@ -99,6 +131,16 @@ function Address({elementAddress, title, blocks, selectedElement, setSelectedEle
         <div className="address">
             <div className={`addressTitle ${selected ? 'active' : ''}`} onClick={() => setSelectedElement(elementAddress)}>
                 <h3>{title}</h3>
+
+                <div className="buttons">
+                    <div className={`button ${selected ? 'active' : ''}`} onClick={removeClickHandle}>
+                        <i className="ri-delete-bin-line"></i>
+                    </div>
+                    
+                    <div className={`button ${selected ? 'active' : ''}`} onClick={addClickHandle}>
+                        <i className="ri-add-line"></i>
+                    </div>
+                </div>
             </div>
 
             <div className="blocks">
@@ -110,6 +152,8 @@ function Address({elementAddress, title, blocks, selectedElement, setSelectedEle
                         stairs={data.stairs}
                         selectedElement={selectedElement}
                         setSelectedElement={setSelectedElement}
+                        addClickHandle={addClickHandle}
+                        removeClickHandle={removeClickHandle}
                     />
                 );})}
             </div>
@@ -164,16 +208,38 @@ function SettingsAdmin() {
     }
 
     function addClickHandle() {
+        var newElement = {
+            address: "New",
+            county: '',
+            city: '',
+            name: "New",
+            blocks: [
+                {
+                    block: "New",
+                    stairs: [
+                        {
+                            stair: "New",
+                            apartments: [
+                                {
+                                    apartment: "New"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
         setDataStructure(prevDataStructure => {
-            let newDataStructure = {...prevDataStructure};
+            let newDataStructure = JSON.parse(JSON.stringify(prevDataStructure));
             if (selectedElement[0] === -1) {
-                newDataStructure.addresses.push({address: "New address", city: "New city", name: "New address", blocks: []});
+                newDataStructure.addresses.push(newElement);
             } else if (selectedElement[1] === -1) {
-                newDataStructure.addresses[selectedElement[0]].blocks.push({block: "New block", stairs: []});
+                newDataStructure.addresses[selectedElement[0]].blocks.push(newElement.blocks[0]);
             } else if (selectedElement[2] === -1) {
-                newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs.push({stair: "New stair", apartments: []});
+                newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs.push(newElement.blocks[0].stairs[0]);
             } else {
-                newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.push({apartment: "New apartment"});
+                newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.push(newElement.blocks[0].stairs[0].apartments[0]);
             }
             return newDataStructure;
         });
@@ -186,7 +252,13 @@ function SettingsAdmin() {
                     <div className="associationContent">
                         <div className={`associationTitle ${selected ? 'active' : ''}`} onClick={() => setSelectedElement([-1, -1, -1, -1])}>
                             {/* <h3>{numeAsociatie}</h3> */}
-                            <h3>Administrație</h3>
+                            <h3>{dataStructure.name}</h3>
+                            
+                            <div className="buttons">
+                                <div className={`button ${selected ? 'active' : ''}`} onClick={addClickHandle}>
+                                    <i className="ri-add-line"></i>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="blocuri">
@@ -199,12 +271,14 @@ function SettingsAdmin() {
                                         blocks={data.blocks}
                                         selectedElement={selectedElement} 
                                         setSelectedElement={setSelectedElement}
+                                        addClickHandle={addClickHandle}
+                                        removeClickHandle={removeClickHandle}
                                     />
                                 );})}
                             </div>
                         </div>
 
-                        <div className="actionButtons">
+                        {/* <div className="actionButtons">
                             <button onClick={saveClickHandle}>
                                 <h3>Salvează</h3>
                             </button>
@@ -218,7 +292,7 @@ function SettingsAdmin() {
                                     <i className="ri-delete-bin-line"></i>
                                 </div>
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                                 
                     <DetailsFrame selectedElement={selectedElement} />

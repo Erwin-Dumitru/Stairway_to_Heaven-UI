@@ -1,0 +1,189 @@
+@import '/src/_variables.scss';
+
+.home-admin {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: $medium-gap;
+    color: $light-text;
+
+    .left {
+        background-color: var(--mainBack);
+        flex-grow: 2;
+        display: flex;
+        flex-direction: column;
+        gap: $small-gap;
+        padding: $medium-gap;
+        border-radius: $medium-gap;
+
+        .top {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: $small-gap;
+
+            .search {
+                position: relative;
+                flex-grow: 1;
+                display: flex;
+                align-content: center;
+
+                > i {
+                    position: absolute;
+                    left: $small-gap;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: transparentize($light-text, 0.3);
+                    font-size: 1.4em;
+                    pointer-events: none;
+                }
+
+                input {
+                    flex-grow: 1;
+                    height: calc($small-gap * 3 - 2px);
+                    padding-left: calc($small-gap * 3.5);
+                    border-radius: $small-gap;
+                    background-color: transparentize($light-text, 0.9);
+                    border: 1px solid transparentize($light-text, 0.8);
+                    color: $light-text;
+                    transition: all 0.2s ease;
+                    font-size: 1.2em;
+                    line-height: 1.2;
+
+                    &:focus {
+                        outline: none;
+                        border-color: transparentize($light-text, 0.6);
+                    }
+                }
+            }
+
+            .button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: $small-gap;
+                height: $small-gap;
+                width: $small-gap;
+                border-radius: $small-gap;
+                background-color: transparentize($light-text, 0.9);
+                transition: all 0.2s ease;
+                cursor: pointer;
+
+                i {
+                    color: transparentize($light-text, 0.3);
+                    font-size: 1.2em;
+                    transition: all 0.2s ease;
+                }
+
+                &:hover {
+                    background-color: transparentize($light-text, 0.8);
+                    
+                    i {
+                        color: $light-text;
+                    }
+                }
+            }
+        }
+
+        .collumns {
+            display: flex;
+            flex-direction: row;
+            padding: 0 $small-gap;
+
+            > * {
+                width: 25%;
+                font-size: 0.8em;
+            }
+        }
+
+        .association-list {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: $small-gap;
+
+            .association {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: $small-gap;
+                border-radius: $small-gap;
+                background-color: $dark-back;
+                transition: all 0.2s ease;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                
+                > h3 {
+                    font-size: 1.2em;
+                    width: 25%;
+                    color: transparentize($light-text, 0.3);
+                    transition: all 0.2s ease;
+
+                    &.green {
+                        color: transparentize($green, 0.3);
+                    }
+
+                    &.red {
+                        color: transparentize($red, 0.3);
+                    }
+                }
+
+                i {
+                    font-size: 1.4em;
+                    position: absolute;
+                    right: $small-gap;
+                    margin-bottom: -2px;
+                    color: transparentize($light-text, 0.3);
+                    transition: all 0.2s ease;
+                }
+
+                &:hover {
+                    background-color: lighten($dark-back, 1%);
+
+                    h3 {
+                        color: $light-text;
+
+                        &.green {
+                            color: $green;
+                        }
+
+                        &.red {
+                            color: $red;
+                        }
+                    }
+
+                    i {
+                        color: $light-text;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .right {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: $medium-gap;
+
+        .banca {
+            background-color: $main-back;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            padding: $medium-gap;
+            border-radius: $medium-gap;
+        }
+
+        .cash {
+            background-color: $main-back;
+            flex-grow: 2;
+            display: flex;
+            flex-direction: column;
+            padding: $medium-gap;
+            border-radius: $medium-gap;
+        }
+    }
+}

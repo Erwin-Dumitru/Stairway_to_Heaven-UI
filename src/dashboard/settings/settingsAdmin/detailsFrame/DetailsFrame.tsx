@@ -9,6 +9,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
     const [admin, setAdmin] = useState("");
     const [association, setAssociation] = useState("");
     const [address, setAddress] = useState("");
+    const [county, setCounty] = useState("");
     const [city, setCity] = useState("");
     const [name, setName] = useState("");
     const [blockNumber, setBlockNumber] = useState("");
@@ -23,6 +24,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
 
             if (dataStructure.addresses[selectedElement[0]]) {
                 setAddress(dataStructure.addresses[selectedElement[0]].address);
+                setCounty(dataStructure.addresses[selectedElement[0]].county);
                 setCity(dataStructure.addresses[selectedElement[0]].city);
                 setName(dataStructure.addresses[selectedElement[0]].name);
 
@@ -102,7 +104,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                     <div>
                         <h4>Județ</h4>
                         <div className="inputDetailsSelect">
-                            <select name="judet" id="judet">
+                            <select name="judet" id="judet" value={county} onChange={(e) => setCity(e.target.value)}>
                                 <option value="TM">Timiș</option>
                                 <option value="AR">Arad</option>
                                 <option value="CJ">Cluj</option>
@@ -116,11 +118,11 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                     <div>
                         <h4>Oraș</h4>
                         <div className="inputDetailsSelect">
-                            <select name="city" id="city">
-                                <option value="TM">Timișoara</option>
-                                <option value="AR">Arad</option>
-                                <option value="CJ">Cluj</option>
-                                <option value="BH">Oradea</option>
+                            <select name="city" id="city" value={city} onChange={(e) => setCity(e.target.value)}>
+                                <option value="Timișoara">Timișoara</option>
+                                <option value="Arad">Arad</option>
+                                <option value="Cluj-Napoca">Cluj-Napoca</option>
+                                <option value="Oradea">Oradea</option>
                             </select>
 
                             <i className="ri-arrow-down-s-line"></i>

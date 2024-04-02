@@ -166,7 +166,7 @@ button.save:hover {
     padding: 0;
     font-size: 1.2em;
     font-weight: 300;
-    line-height: 100%;
+    line-height: 130%;
     transition: all 0.2s ease;
 }
 
@@ -181,9 +181,47 @@ button.save:hover {
     /* border-right: #acacac40 solid 1px; */
     box-sizing: border-box;
     overflow: hidden;
+
+    h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        // padding-right: 18px;
+    }
+
+    .buttons {
+        // position: absolute;
+        margin-right: -3px;
+        display: flex;
+        
+        .button {
+            height: 25px;
+            width: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25%;
+            transition: all 0.2s ease;
+            opacity: 0;
+            pointer-events: none;
+            // background-color: var(--mainBack);
+
+            &.active {
+                opacity: 1;
+                pointer-events: auto;
+
+                &:hover i {
+                    color: #acacac;
+                }
+            }
+        }
+    }
 }
 
 .associationTitle {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
     width: calc(100% - 12px);
     box-sizing: border-box;
     align-items: center;
@@ -254,11 +292,11 @@ button.save:hover {
 }
 
 .addressTitle {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: var(--smallGap);
     padding: calc(var(--smallGap) / 2 + var(--smallGap));
     padding-bottom: calc(var(--smallGap));
     border-radius: calc(var(--mediumGap) - 2px) calc(var(--mediumGap) - 2px) 0 0;
@@ -280,6 +318,18 @@ button.save:hover {
     margin-top: calc(var(--smallGap) / 2);
     /* margin-top: 0; */
     transition: all 0.2s ease-in-out;
+
+    .button {
+        background-color: var(--mainBack);
+        z-index: 2;
+    }
+
+    .arrow-down {
+        position: absolute;
+        right: calc(var(--smallGap));
+        margin-bottom: -1.5px;
+        z-index: 1;
+    }
 }
 
 .stairs {
@@ -313,6 +363,7 @@ button.save:hover {
 }
 
 .stair {
+    position: relative;
     display: flex;
     flex-direction: column;
     overflow: hidden;

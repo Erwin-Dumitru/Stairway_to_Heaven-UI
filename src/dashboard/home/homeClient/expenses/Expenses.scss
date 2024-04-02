@@ -1,0 +1,48 @@
+.expenses {
+    background-color: var(--mainBack);
+    /* flex-grow: 3; */
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--mediumGap);
+    /* padding: calc(var(--mediumGap) + var(--mediumGap) / 2) calc(var(--mediumGap) + var(--mediumGap) / 2) var(--mediumGap) var(--mediumGap); */
+    padding: var(--mediumGap);
+}
+
+.graphMenu {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0 0 var(--mediumGap) 0;
+    align-items: start;
+    /* background-color: #000000; */
+}
+
+.graphMenu .range {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.range h3 {
+    padding: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.range h3.active {
+    background-color: #acacac20;
+}

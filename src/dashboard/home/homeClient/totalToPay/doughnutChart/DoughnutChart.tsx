@@ -1,5 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useRef } from "react";
-import { useHover } from "@uidotdev/usehooks";
+import { useState, useEffect, useRef } from "react";
 import { Doughnut } from "react-chartjs-2";
 import {
     Chart as ChartJS,
@@ -55,8 +54,8 @@ const DoughnutChart = () => {
                 // borderColor: "transparent",
                 borderColor: mainColor,
                 hoverBorderColor: mainColor,
-                borderWidth: 0,
-                // borderRadius: 2000,
+                borderWidth: 3,
+                borderRadius: 2000,
                 // borderRadius: 13,
                 // spacing: 10,
                 circumference: 180,
@@ -107,10 +106,6 @@ const DoughnutChart = () => {
     return (
         <div className="halfChart">
             <Doughnut data={chartData} options={options} plugins={plugins} />
-            {/* <div className="totalText">
-                <span>Total</span>
-                <h4>127.64</h4>
-            </div> */}
             
             <div className="halfChatText">
                 <span>{chartText}</span>

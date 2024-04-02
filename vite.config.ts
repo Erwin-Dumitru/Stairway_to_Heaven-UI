@@ -36,3 +36,4 @@ export default defineConfig({
   // base: '/Users/tristandumitru/Documents/Site/AdminBlocFront_1/bloc-front/src',
   // base: './',
 })
+

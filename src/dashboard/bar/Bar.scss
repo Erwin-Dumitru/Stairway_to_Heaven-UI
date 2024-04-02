@@ -1,3 +1,5 @@
+@import '/src/variables.scss';
+
 $width: 200px;
 $height: 387px;
 
@@ -83,10 +85,10 @@ $height: 387px;
         }
     
         &.green {
-            color: #07d407ac;
+            color: transparentize($green, 0.3);
     
             &:hover {
-                color: #07d407;
+                color: $green;
             }
         }
     
@@ -97,7 +99,7 @@ $height: 387px;
             top: calc(var(--smallGap) / 1.5);
             width: 5px;
             height: 5px;
-            background-color: #ff2c10ca;
+            background-color: $red;
             border-radius: 50%;
         }
 
