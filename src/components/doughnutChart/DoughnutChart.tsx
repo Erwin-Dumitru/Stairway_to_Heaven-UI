@@ -15,7 +15,7 @@ ChartJS.register(
     Legend,
 );
 
-const DoughnutChart = () => {
+function DoughnutChart({data}: {data: {label: string, value: number}[]}) {
     const chartRef = useRef<HTMLDivElement>(null);
     const mainColor = getComputedStyle(document.documentElement)
         .getPropertyValue('--mainBack')
@@ -25,20 +25,63 @@ const DoughnutChart = () => {
         if (chartRef.current) {
             chartRef.current.style.height = `${chartRef.current.offsetWidth * 1}px`;
         }
+
+        window.addEventListener("resize", () => {
+            if (chartRef.current) {
+                chartRef.current.style.height = `${chartRef.current.offsetWidth * 1}px`;
+            }
+        });
+
+        return () => {
+            window.removeEventListener("resize", () => {
+                if (chartRef.current) {
+                    chartRef.current.style.height = `${chartRef.current.offsetWidth * 1}px`;
+                }
+            });
+        };
     }, []);
 
+    let total = 0.0;
+    for (let i = 0; i < data.length; i++) {
+        total += data[i].value;
+    }
+    // Add space after the thousands separator
+    let total_string = total.toFixed(2);
+    for (let i = total_string.length - 6; i > 0; i -= 3) {
+        total_string = total_string.slice(0, i) + " " + total_string.slice(i);
+    }
+
+
     const [chartText, setChartText] = useState("Total");
-    const [chartPercent, setChartPercent] = useState("12 173.42");
+    const [chartPercent, setChartPercent] = useState(total_string);
+
+    data.sort((a, b) => b.value - a.value);
+
+    if (data.length > 5) {
+        let other = 0;
+
+        for (let i = 4; i < data.length; i++) {
+            other += data[i].value;
+        }
+        
+        data = data.slice(0, 4);
+        data.push({label: "Altele", value: other});
+    }
+
+    const labels = data.map((item) => item.label);
+    const values = data.map((item) => item.value);
     
     const chartData = {
-        labels: ["Apa rece", "Apa calda", "Salubritate"],
+        labels: labels,
         datasets: [
             {
-                data: [12, 19, 3],
+                data: values,
                 backgroundColor: [
                     "rgb(154, 208, 194)",
                     "rgb(45, 149, 150)",
-                    "rgb(38, 80, 115)",
+                    "rgb(20, 78, 94)",
+                    "rgb(15, 49, 76)",
+                    "rgb(4, 31, 53)",
                 ],
                 // hoverBackgroundColor: [
                 //     "rgb(154, 208, 194)",
@@ -46,16 +89,18 @@ const DoughnutChart = () => {
                 //     "rgb(38, 80, 115)",
                 // ],
                 // borderColor: [
-                //     "rgba(255, 99, 132, 1)",
-                //     "rgba(54, 162, 235, 1)",
-                //     "rgba(255, 206, 86, 1)",
+                //     "rgb(154, 208, 194)",
+                //     "rgb(45, 149, 150)",
+                //     "rgb(20, 78, 94)",
+                //     "rgb(15, 49, 76)",
+                //     "rgb(4, 31, 53)",
                 // ],
-                borderAlign: "inner" as const,
+                // borderAlign: "inner" as const,
                 // borderColor: "transparent",
-                borderColor: mainColor,
-                hoverBorderColor: mainColor,
-                borderWidth: 3,
-                borderRadius: 2000,
+                // borderColor: mainColor,
+                // hoverBorderColor: mainColor,
+                borderWidth: 0,
+                // borderRadius: 2000,
                 // borderRadius: 13,
                 // spacing: 10,
                 circumference: 180,

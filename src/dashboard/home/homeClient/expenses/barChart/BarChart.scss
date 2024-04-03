@@ -3,14 +3,6 @@
     height: 100%;
 }
 
-.halfChart {
-    position: relative; /* Make the parent container positioned relative */
-    display: flex; /* Make the parent container a flex container */
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
-    height: 100%; /* Set the height to 100% to take up all available space */
-}
-
 .totalText {
     /* background-color: #0002; */
     position: absolute;
@@ -47,18 +39,6 @@
     /* align-items: top; */
     height: 50%;
     width: 100%;
-}
-
-.halfChartText {
-    width: 75%;
-    height: 150%;
-    border-radius: 50%;
-    background: #343434;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    transform: translateY(-50%);
-    transition: all 0.25s;
 }
 
 .halfChart .inactive {
