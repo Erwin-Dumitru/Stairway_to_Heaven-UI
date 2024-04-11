@@ -1,64 +1,60 @@
+import { useEffect, useState } from 'react';
+import { Counter, SubmitCounter } from '@/components/Interfaces';
+import Meter from './meter/Meter';
 import './Meters.scss'
 
-interface Meters {
-    name: string,
-    place: string,
-    last_index: string
-}
+export default function Meters({meters}: {meters: Counter[]}) {
+    const [submitValue, setSubmitValue] = useState<SubmitCounter[]>( // SubmitCounter = { id: string; value: string; }
+        meters.map(meter => (
+            { id: meter.id, value: '' }
+        )
+    ));
 
-export default function Meters() {
-    const meters: Meters[] = [ // TODO: Replace with API call
-        {
-            name: 'Apă Rece',
-            place: 'Bucătărie',
-            last_index: '9874'
-        },
-        {
-            name: 'Apă Rece',
-            place: 'Baie',
-            last_index: '0523'
-        },
-        {
-            name: 'Apă Caldă',
-            place: 'Bucătărie',
-            last_index: '4637'
-        },
-        {
-            name: 'Apă Caldă',
-            place: 'Baie',
-            last_index: '4320'
-        }
-    ]
+    // useEffect(() => {
+    //     meters.forEach((meter) => {
+    //         var newSubmitValue = {
+    //             id: meter.id,
+    //             value: ''
+    //         }
+    //         setSubmitValue(prevSubmitValue => [...prevSubmitValue, newSubmitValue]);
+    //     })
+    // }, [meters]);
+
+    const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        // TODO: Validate the data before sending it to the server
+
+        // TODO: Send the data to the server
+        console.log(submitValue);
+
+        // Or send the data to the server separately
+        // submitValue.forEach((submit) => {
+        //     console.log(submit);
+        // });
+
+        // Reset the form after submitting
+        setSubmitValue(meters.map(meter => ({ id: meter.id, value: '' })));
+    };
 
     return (
-        <div className="meters">
+        <form className="meters" onSubmit={submitHandler}>
             <div className="metersTitle">
                 <h2>Meters</h2>
+
+                <button className="metersButton" type="submit">
+                    Send
+                    <i className="ri-send-plane-fill"></i>
+                </button>
             </div>
 
-            <div className="metersField">
-                <RenderMeters meters={meters} />
+            <div className="metersList">
+                {meters.map((meter, index) => {
+                    return (
+                        <Meter key={index} meter={meter} submitValue={submitValue} setSubmitValue={setSubmitValue} />
+                    );
+                })}
             </div>
-        </div>
+        </form>
     )
-}
-
-function RenderMeters({meters}: {meters: Meters[]}) {
-    // TODO: Add meters.last_index to the element
-
-    return meters.map((meter, index) => {
-        return (
-            <form key={index}>
-                <label>
-                    {meter.name} <br />
-                    <span>{meter.place}</span>
-                </label>
-
-                <div className="metersFieldInput">
-                    <input type="number" placeholder="New value" />
-                    <button><i className="ri-upload-line"></i></button>
-                </div>
-            </form>
-        )
-    })
 }

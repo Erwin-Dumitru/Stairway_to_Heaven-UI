@@ -231,7 +231,7 @@ function CreateAssociation() {
         setDataStructure(prevDataStructure => {
             let newDataStructure = {...prevDataStructure};
             if (selectedElement[0] === -1) {
-                newDataStructure.addresses.push({address: "New address", city: "New city", name: "New address", blocks: []});
+                // newDataStructure.addresses.push({address: "New address", city: "New city", name: "New address", blocks: []});
             } else if (selectedElement[1] === -1) {
                 newDataStructure.addresses[selectedElement[0]].blocks.push({block: "New block", stairs: []});
             } else if (selectedElement[2] === -1) {

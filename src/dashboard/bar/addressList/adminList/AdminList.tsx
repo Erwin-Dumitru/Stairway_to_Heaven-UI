@@ -1,15 +1,25 @@
 import { useEffect, useState } from 'react';
-import { association } from '@/components/Interfaces';
+import { Association } from '@/components/Interfaces';
 import removeAccents from 'remove-accents';
 
-export default function AdminList(props: any) {
-    const [shownData, setShownData] = useState<association[] | undefined>(props.adminData);
+interface Props {
+    active: boolean;
+    setIsAdmin: any;
+    openAddress: boolean;
+    setOpenAddress: any;
+    administration: {id: string, name: string} | undefined;
+    setCurrentAddress: any;
+    adminData: Association[] | undefined;
+}
+
+export default function AdminList({active, setIsAdmin, openAddress, setOpenAddress, administration, setCurrentAddress, adminData}: Props) {
+    const [shownData, setShownData] = useState<Association[] | undefined>(adminData);
     const [search, setSearch] = useState('');
 
     useEffect(() => {
-        if (!props.adminData) return;
+        if (!adminData) return;
 
-        setShownData(props.adminData.filter((address: association) => {
+        setShownData(adminData.filter((address: Association) => {
             let searchArray = removeAccents(search.toLowerCase()).split(' ');
             let nameArray = removeAccents(address.name.toLowerCase()).split(' ');
             let cityArray = removeAccents(address.city.toLowerCase()).split(' ');
@@ -25,23 +35,24 @@ export default function AdminList(props: any) {
                 }) || address.countyCode.toLowerCase().includes(word);
             });
         }));
-    }, [search, props.adminData]);
+    }, [search, adminData]);
 
     return (
-        <div className={`adminList ${props.active ? 'active' : ''} ${props.openAddress ? 'open' : ''}`}>
+        <div className={`adminList ${active ? 'active' : ''} ${openAddress ? 'open' : ''}`}>
             <div className="title">
-                <div className="backButton" onClick={() => { props.setIsAdmin(false); }}>
+                <div className="backButton" onClick={() => { setIsAdmin(false); }}>
                     <i className="ri-arrow-left-s-line"></i>
                 </div>
                 
                 <div className="addressElement" onClick={() => {
-                    props.setCurrentAddress({
-                        name: props.administration,
+                    setCurrentAddress({
+                        id: administration ? administration.id : '',
+                        name: administration ? administration.name : '',
                         type: "admin"
                     });
-                    props.setOpenAddress(false);
+                    setOpenAddress(false);
                 }}>
-                    { props.administration }
+                    { administration ? administration.name : '' }
                 </div>
             </div>
 
@@ -56,18 +67,19 @@ export default function AdminList(props: any) {
             </div>
 
             <div className="addressListScroll">
-                { shownData && shownData?.length > 0 && shownData.map((address: association, index: number) => (
+                { shownData && shownData?.length > 0 && shownData.map((address: Association, index: number) => (
                     <div key={index} 
                         className={`addressElement 
                             ${address.notifications ? 'notify' : ''} 
                             ${address.done ? 'green' : ''}`
                         }
                         onClick={ () => { // Set the current association
-                            props.setCurrentAddress({
+                            setCurrentAddress({
+                                id: address.id,
                                 name: address.name,
                                 type: "association"
                             });
-                            props.setOpenAddress(false);
+                            setOpenAddress(false);
                         }
                     }>
                         <div className="addressName">

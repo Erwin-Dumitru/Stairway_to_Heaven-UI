@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import facebookLogo from "@/assets/facebook.svg";
+import googleLogo from "@/assets/google.svg";
 import './Login.scss'
 
 function Login() {
@@ -56,22 +58,13 @@ function Login() {
 
                 <div className="loginSocial">
                     <div className="strike"><span>Or with</span></div>
-                    
-                    {/* <a href="./login/">
-                        <img src="../assets/facebook.svg" alt="Facebook" />
-                        Sign in with Facebook
-                    </a>
-                    <a href="./login/">
-                        <img src="../assets/google.svg" alt="Google" />
-                        Sign in with Google
-                    </a> */}
 
                     <Link to="/login">
-                        <img src="/src/assets/facebook.svg" alt="Facebook" />
+                        <img src={facebookLogo} alt="Facebook" />
                         Sign in with Facebook
                     </Link>
                     <Link to="/login">
-                        <img src="/src/assets/google.svg" alt="Google" />
+                        <img src={googleLogo} alt="Google" />
                         Sign in with Google
                     </Link>
                 </div>

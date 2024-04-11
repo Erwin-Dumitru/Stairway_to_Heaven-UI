@@ -1,34 +1,44 @@
 import { useState } from 'react';
-import { Address, association } from '@/components/Interfaces';
+import { Address, Association } from '@/components/Interfaces';
 import AdminList from './adminList/AdminList';
 
-export default function AdressList(props: any) {
-    const [isAdmin, setIsAdmin] = useState(false);
-    const [administration, setAdministration] = useState<any>('');
-    const [adminData, setAdminData] = useState<association[] | undefined>();
+interface Props {
+    openAddress: boolean;
+    setOpenAddress: any;
+    addressContext: any;
+}
 
-    if (!props.addressContext) return null;
+export default function AdressList({openAddress, setOpenAddress, addressContext}: Props) {
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [administration, setAdministration] = useState<any>();
+    const [adminData, setAdminData] = useState<Association[] | undefined>();
+
+    if (!addressContext) return null;
 
     function clientClick(address: Address) {
-        props.addressContext.setCurrentAddress({
+        addressContext.setCurrentAddress({
+            id: address.id,
             name: address.name,
             type: "client"
         });
-        props.setOpenAddress(false);
+        setOpenAddress(false);
     }
 
     function adminClick(address: Address) {
         setIsAdmin(true);
-        setAdministration(address.name);
+        setAdministration({
+            id: address.id,
+            name: address.name
+        });
         setAdminData(address.administrations);
     }
 
     return (
-        <div className={`dropdown ${props.openAddress ? 'active' : ''}`}>
+        <div className={`dropdown ${openAddress ? 'active' : ''}`}>
             <div className="dropdownWrapper">
-                <div className={`addressList ${isAdmin ? '' : 'active'} ${props.openAddress ? 'open' : ''}`}>
+                <div className={`addressList ${isAdmin ? '' : 'active'} ${openAddress ? 'open' : ''}`}>
                     <div className="addressListScroll">
-                        { props.addressContext.addresses.map((address: Address, index: number) => (
+                        { addressContext.addresses.map((address: Address, index: number) => (
                             <div key={index} className={`addressElement ${address.notifications ? 'notify' : ''}`} onClick={() => {
                                     address.administrations ? adminClick(address) : clientClick(address);
                                 }}>
@@ -42,10 +52,10 @@ export default function AdressList(props: any) {
                 <AdminList
                     active={isAdmin}
                     setIsAdmin={setIsAdmin}
-                    openAddress={props.openAddress}
-                    setOpenAddress={props.setOpenAddress}
+                    openAddress={openAddress}
+                    setOpenAddress={setOpenAddress}
                     administration={administration}
-                    setCurrentAddress={props.addressContext.setCurrentAddress}
+                    setCurrentAddress={addressContext.setCurrentAddress}
                     adminData={adminData}
                 />
             </div>

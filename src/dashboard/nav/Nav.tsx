@@ -2,6 +2,7 @@
 // import { AiOutlinePieChart } from "react-icons/ri";
 // import Link from "@/components/Link";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import logo from "@/assets/xStairs-Logo.svg";
 import "./Nav.scss";
 
 interface CustomLinkProps {
@@ -28,7 +29,7 @@ function Nav() {
         <div className="nav">
 
             <Link to="/" className="imgNav">
-                <img src="/src/assets/xStairs-Logo.svg" alt="Bloc Logo" />
+                <img src={logo} alt="Bloc Logo" />
             </Link>
 
             <div className="navLinks">

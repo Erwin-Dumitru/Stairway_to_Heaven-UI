@@ -1,0 +1,200 @@
+@import '/src/_variables.scss';
+
+.admin-stats {
+    background-color: var(--mainBack);
+    width: 70%;
+    display: flex;
+    gap: $medium-gap;
+    padding: $medium-gap;
+    border-radius: $medium-gap;
+
+    .first {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        gap: $medium-gap;
+
+        .container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            // justify-content: space-between;
+            gap: $small-gap;
+            border-radius: $medium-gap;
+            padding: $medium-gap;
+            background-color: $dark-back;
+            overflow: hidden;
+            box-sizing: border-box;
+            // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+
+            &.profit, &.closed-months {
+                flex-grow: 0;
+                gap: $medium-gap;
+
+                // .value {
+                //     color: transparentize($light-text, 0.3);
+                // }
+            }
+
+            h3 {
+                font-size: 1.2em;
+                line-height: 1;
+                color: transparentize($light-text, 0.6);
+                white-space: nowrap;
+            }
+
+            .up {
+                position: relative;
+                // flex-grow: 1;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: $medium-gap;
+                // margin-bottom: auto;
+
+                h2 {
+                    font-size: 2.3em;
+                    font-weight: 600;
+                    line-height: 1;
+                    color: transparentize($light-text, 0.3);
+                    white-space: nowrap;
+                }
+
+                span {
+                    // font-size: 1.2em;
+                    color: transparentize($light-text, 0.6);
+                    white-space: nowrap;
+                }
+
+                .left {
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: calc($small-gap / 2);
+                }
+
+                .chart {
+                    height: 62.25px;
+                    // height: 100%;
+                    aspect-ratio: 1;
+
+                    canvas {
+                        width: 100% !important;
+                        height: 100% !important;
+                    }
+                }
+            };
+
+            .middle {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: row;
+                gap: $small-gap;
+                justify-content: space-between;
+                // align-items: center;
+                height: min-content;
+
+                .left {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $small-gap;
+
+                    .stat {
+                        display: flex;
+                        flex-direction: column;
+                        gap: calc($small-gap / 2);
+                        // align-items: center;
+
+                        h4 {
+                            color: transparentize($light-text, 0.6);
+                            font-size: 0.9em;
+                        }
+
+                        h2 {
+                            color: transparentize($light-text, 0.3);
+                            font-size: 1.4em;
+                        }
+
+                        // .chart {
+                        //     height: 62.25px;
+                        //     aspect-ratio: 1;
+
+                        //     canvas {
+                        //         width: 100% !important;
+                        //         height: 100% !important;
+                        //     }
+                        // }
+                    }
+                }
+
+                .bar-stat {
+                    height: calc((1.4em + 0.9em) * 3.5 + $small-gap * 2);
+                    display: flex;
+                    flex-direction: column;
+                    width: $large-gap;
+                    width: 62.25px;
+                    border-radius: $small-gap;
+                    overflow: hidden;
+                    background-color: $color-2-dark-20-transparent;
+
+                    .progress {
+                        width: 100%;
+                        box-shadow: 0 0px 20px 10px rgba(0, 0, 0, 0.1);
+                        border-radius: $small-gap $small-gap 0 0;
+                        margin-top: -$small-gap;
+                        
+                        &#a {
+                            background-color: $main-color-4;
+                        }
+
+                        &#b {
+                            background-color: $main-color-3;
+                        }
+
+                        &#c {
+                            background-color: $main-color-2;
+                        }
+                    }
+                }
+            }
+
+            .down {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                h3 {
+                    color: transparentize($light-text, 0.6);
+                }
+
+                .text {
+                    display: flex;
+                    flex-direction: row;
+                    gap: $small-gap;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    h3 {
+                        font-size: 0.8em;
+                        color: transparentize($light-text, 0.6);
+                    }
+                }
+
+                .bar {
+                    height: 7px;
+                    background-color: transparentize($main-color-2, 0.8);
+                    border-radius: 10px;
+                    position: relative;
+                    overflow: hidden;
+                    
+                    .progress {
+                        height: 100%;
+                        background-color: rgb(45, 149, 150);
+                        border-radius: 10px;
+                        transition: all 0.2s ease;
+                    }
+                }
+            }
+        }
+    }
+}

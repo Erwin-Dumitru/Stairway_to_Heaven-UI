@@ -3,7 +3,7 @@ export interface Stair {
     name: string;
 }
   
-export interface association {
+export interface Association {
     id: string;
     name: string;
     done: boolean;
@@ -12,12 +12,12 @@ export interface association {
     countyCode: string;
     city: string;
 }
-  
+
 export interface Address {
     id: string;
     name: string;
     notifications?: number;
-    administrations?: association[];
+    administrations?: Association[];
 }
 
 export interface SelectedAddress {
@@ -31,4 +31,16 @@ export interface AddressContextType {
     setAddresses: React.Dispatch<React.SetStateAction<Address[]>>;
     currentAddress: SelectedAddress;
     setCurrentAddress: React.Dispatch<React.SetStateAction<SelectedAddress>>;
+}
+
+export interface Counter {
+    id: string;
+    name: string;
+    location?: string;
+    oldValue: string;
+}
+
+export interface SubmitCounter {
+    id: string;
+    value: string;
 }

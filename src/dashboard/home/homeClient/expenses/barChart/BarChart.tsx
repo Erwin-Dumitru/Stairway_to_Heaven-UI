@@ -1,6 +1,7 @@
 import { Bar } from "react-chartjs-2";
 // import { Line } from "react-chartjs-2";
 import expensesPerMonth from "@/data/expensesPerMonth.json";
+// import chroma from "chroma-js";
 import "./BarChart.scss";
 import {
     Chart as ChartJS,
@@ -43,6 +44,30 @@ function mixColor(maxValue: number = 100, darkeningFactor: number = 0) {
         return `rgb(${r}, ${g}, ${b})`;
     };
 }
+
+// function mixColor(maxValue: number = 100, darkeningFactor: number = 0) {
+//     return (ctx: any) => {
+//         const bodyStyle = getComputedStyle(document.body);
+//         const color1 = bodyStyle.getPropertyValue('--darkColor').trim();
+//         const color2 = bodyStyle.getPropertyValue('--mainColor').trim();
+//         const factor = ctx.parsed.y / maxValue;
+
+//         if (color1 && color2) {
+//             // const r = Math.round( ((color2.r - color1.r) * factor + color1.r) * (1 - darkeningFactor) );
+//             // const g = Math.round( ((color2.g - color1.g) * factor + color1.g) * (1 - darkeningFactor) );
+//             // const b = Math.round( ((color2.b - color1.b) * factor + color1.b) * (1 - darkeningFactor) );
+
+//             const r = Math.round(chroma.mix(color1, color2, factor).rgb()[0] * (1 - darkeningFactor));
+//             const g = Math.round(chroma.mix(color1, color2, factor).rgb()[1] * (1 - darkeningFactor));
+//             const b = Math.round(chroma.mix(color1, color2, factor).rgb()[2] * (1 - darkeningFactor));
+
+//             return `rgb(${r}, ${g}, ${b})`;
+//         }
+
+//         // Return a default color if color1 or color2 is null
+//         return 'rgb(0, 0, 0)';
+//     };
+// }
 
 function BarChart({period}: {period: number}) {
     const labels = expensesPerMonth.map((expense) => {

@@ -1,0 +1,162 @@
+@import '/src/variables';
+
+$animation-speed: 0.5s;
+$animation-speed-small: 0.3s;
+
+@keyframes show {
+    0% {
+        // opacity: 0;
+        transform: translateY(120%);
+    }
+    100% {
+        // opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes showBack {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+    }
+    
+}
+
+@keyframes hide {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(120%);
+    }
+}
+
+@keyframes hideBack {
+    0% {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0);
+    }
+}
+
+.modal {
+    // width: 100vw;
+    // height: 100vh;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    padding: $large-gap;
+    padding: 0;
+    background-color: transparent;
+
+    &[open] {
+        -webkit-animation: show $animation-speed ease normal;
+        animation: show $animation-speed ease normal;
+
+        &::backdrop {
+            -webkit-animation: showBack $animation-speed ease normal;
+            animation: showBack $animation-speed ease normal;
+        }
+    }
+
+    &.isClosing {
+        -webkit-animation: hide $animation-speed ease normal;
+        animation: hide $animation-speed ease normal;
+
+        &::backdrop {
+            -webkit-animation: hideBack $animation-speed ease normal;
+            animation: hideBack $animation-speed ease normal;
+        }
+    }
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        height: calc(100vh - 3 * $large-gap);
+        width: calc(100vw - 3 * $large-gap);
+        box-sizing: border-box;
+        display: flex;
+        padding: $medium-gap;
+        border-radius: $medium-gap;
+        background-color: $dark-back;
+        transition: all 0.2s ease;
+    }
+}
+
+@keyframes small-show {
+    0% {
+        opacity: 0;
+        filter: blur(5px);
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+
+@keyframes small-hide {
+    0% {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        filter: blur(5px);
+        transform: scale(0.8);
+    }
+}
+
+.small-modal {
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    padding: 0;
+    background-color: transparent;
+
+    &[open] {
+        -webkit-animation: small-show $animation-speed-small ease normal;
+        animation: small-show $animation-speed-small ease normal;
+
+        &::backdrop {
+            -webkit-animation: showBack $animation-speed-small ease normal;
+            animation: showBack $animation-speed-small ease normal;
+        }
+    }
+
+    &.isClosing {
+        -webkit-animation: small-hide $animation-speed-small ease normal;
+        animation: small-hide $animation-speed-small ease normal;
+
+        &::backdrop {
+            -webkit-animation: hideBack $animation-speed-small ease normal;
+            animation: hideBack $animation-speed-small ease normal;
+        }
+    }
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        box-sizing: border-box;
+        display: flex;
+        padding: $medium-gap;
+        border-radius: $medium-gap;
+        background-color: $main-back;
+        transition: all 0.2s ease;
+    }
+}

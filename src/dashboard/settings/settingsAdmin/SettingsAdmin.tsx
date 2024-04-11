@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import DataStructure from "@/data/dataStructure.json";
 import DetailsFrame from "./detailsFrame/DetailsFrame";
 import "./SettingsAdmin.scss";
-import { count } from "console";
+// import { count } from "console";
 // import "./CreateAssociation.scss"
 // import "../Dialog.scss"
 
@@ -179,11 +179,11 @@ function SettingsAdmin() {
         setSelected(selectedElement[0] === -1);
     }, [selectedElement]);
 
-    function saveClickHandle() {
-        console.log(dataStructure);
+    // function saveClickHandle() {
+    //     console.log(dataStructure);
 
-        // TODO: save dataStructure to file/API
-    }
+    //     // TODO: save dataStructure to file/API
+    // }
 
     function removeClickHandle() {
         setDataStructure(prevDataStructure => {

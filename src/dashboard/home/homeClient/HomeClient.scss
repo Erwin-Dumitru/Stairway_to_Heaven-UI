@@ -5,6 +5,8 @@
 //     gap: var(--mediumGap);
 // }
 
+@import '/src/variables.scss';
+
 .home .right {
     /* background-color: black; */
     /* flex-grow: 1; */
@@ -16,7 +18,7 @@
     gap: var(--mediumGap);
 }
 
-.totalToPay, .meters {
+.totalToPay{
     background-color: var(--mainBack);
     /* flex: 1; */
     width: 100%;
@@ -30,77 +32,68 @@
     box-sizing: border-box;
     padding-bottom: 0;
     overflow: hidden;
-}
 
-.meters {
-    padding-right: calc(var(--mediumGap) - 7px);
-    flex: 1;
+    position: relative;
+    justify-content: start;
+    // padding-bottom: var(--smallGap);
+    gap: var(--largeGap);
+    transition: all 0.2s ease;
 
-    i {
-        font-size: 1.4em;
+    .totalToPayTitle {
+        color: #acacac;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: start;
+
+        .totalToPayButton {
+            position: absolute;
+            top: $medium-gap;
+            right: $medium-gap;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: calc(var(--smallGap) / 2) calc(var(--smallGap));
+            border-radius: var(--smallGap);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: $main-color-1 solid 2px;
+            // border: #eee solid 2px;
+            // background-color: #eee;
+            background-color: $main-color-3;
+        
+            font-size: 1em;
+            font-weight: 600;
+            color: #eee;
+            // color: $main-color-3;
+        
+            i {
+                font-size: 1.2em;
+                color: #eee;
+                transition: all 0.2s ease;
+            }
+        
+            &:hover {
+                background-color: #eee;
+                color: $main-color-3;
+                border-color: $main-color-1;
+        
+                i {
+                    color: $main-color-3;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
     }
-}
-
-.totalToPayTitle, .metersTitle {
-    color: #acacac;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: start;
 }
 
 // .totalToPayTitle i {
 //     font-size: 1.2em;
 //     color: var(--darkColor);
 // }
-
-.totalToPay {
-    position: relative;
-    justify-content: start;
-    // padding-bottom: var(--smallGap);
-    gap: var(--largeGap);
-    transition: all 0.25s ease;
-}
-
-.totalToPayButton {
-    position: absolute;
-    top: calc(var(--smallGap) * 1.5);
-    right: calc(var(--smallGap) * 1.5);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: calc(var(--smallGap) / 2) var(--smallGap);
-    border-radius: var(--smallGap);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border: var(--darkColor) solid 2px;
-    background-color: #eee;
-    // background-color: var(--lightColor);
-
-    font-size: 1em;
-    font-weight: 600;
-    color: #333;
-    color: var(--darkColor);
-
-    i {
-        font-size: 1.2em;
-        color: var(--darkColor);
-        transition: all 0.2s ease;
-    }
-
-    &:hover {
-        // background-color: #eeee;
-        border-color: var(--mainColor);
-        color: var(--mainColor);
-
-        i {
-            color: var(--mainColor);
-        }
-    }
-}
 
 .totalToPayValue {
     background-color: black;
@@ -133,92 +126,4 @@
 .halfChatText span {
     font-size: 0.5em;
     font-weight: 400;
-}
-
-.metersField {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    gap: calc(var(--mediumGap) / 2);
-    overflow-y: scroll;
-    margin: 0 0 var(--mediumGap) 0;
-}
-
-form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    /* gap: var(--mediumGap); */
-    width: calc(100% - var(--mediumGap) - 7px);
-    padding: calc(var(--smallGap));
-    /* background-color: var(--darkBack); */
-    border-radius: var(--smallGap);
-    border: #acacac40 solid 1px;
-}
-
-label {
-    font: 500 1em 'Roboto', sans-serif;
-    color: #acacac;
-}
-
-span {
-    margin: 0;
-    padding: 0;
-    font-size: 0.7em;
-    font-weight: 500;
-    color: #acacac80;
-    /* line-height: 70%; */
-}
-
-.metersFieldInput {
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
-    align-items: center;
-    /* gap: var(--mediumGap); */
-    /* width: 100%; */
-    height: 100%;
-}
-
-.metersFieldInput input {
-    width: calc(100px - 1 * var(--smallGap));
-    height: 100%;
-    background-color: transparent;
-    font: 500 1em 'Roboto', sans-serif;
-    color: #acacac;
-    padding: 0 0 0 var(--smallGap);
-    margin: 0;
-    border: #acacac40 solid 1px;
-    border-right: none;
-    border-radius: calc(var(--smallGap) / 1) 0 0 calc(var(--smallGap) / 1);
-    outline: none;
-}
-
-.metersFieldInput button {
-    /* width: 100px; */
-    height: calc(100% + 2px);
-    background-color: transparent;
-    border: none;
-    font: 500 0.8em 'Roboto', sans-serif;
-    color: #acacac;
-    padding: 0 var(--smallGap);
-    margin: 0;
-    border: #acacac40 solid 1px;
-    border-left: none;
-    border-radius: 0 calc(var(--smallGap) / 1) calc(var(--smallGap) / 1) 0;
-    outline: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.metersFieldInput button:hover {
-    background-color: #acacac10;
-}
-
-.metersFieldInput button:focus-within {
-    outline: none;
-    background-color: #00000010;
 }

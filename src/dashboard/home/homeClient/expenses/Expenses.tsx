@@ -23,7 +23,7 @@ export default function Expenses() {
         <div className="expenses">
             <div className="graphMenu">
                 <h2>Expenses</h2>
-                <RenderPeriod periods={periods} period={period} setPeriod={setPeriod} />
+                <Periods periods={periods} period={period} setPeriod={setPeriod} />
             </div>
 
             <BarChart period={Number(periods[period])} />
@@ -31,7 +31,7 @@ export default function Expenses() {
     )
 }
 
-function RenderPeriod(props: any) {
+function Periods(props: any) {
     return (
         <div className="range">
             {Object.keys(props.periods).map((key, index) => {

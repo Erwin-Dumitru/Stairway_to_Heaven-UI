@@ -17,9 +17,9 @@ ChartJS.register(
 
 function DoughnutChart({data}: {data: {label: string, value: number}[]}) {
     const chartRef = useRef<HTMLDivElement>(null);
-    const mainColor = getComputedStyle(document.documentElement)
-        .getPropertyValue('--mainBack')
-        .trim(); // trim is used to remove spaces from the start and end
+    // const mainColor = getComputedStyle(document.documentElement)
+    //     .getPropertyValue('--mainBack')
+    //     .trim(); // trim is used to remove spaces from the start and end
 
     useEffect(() => {
         if (chartRef.current) {

@@ -1,11 +1,6 @@
 $small-gap: 12.5px;
 $medium-gap: 25px;
 $large-gap: 50px;
-$light-color: #9ad0c2;
-$main-color: #2d9596;
-$main-color-dark: #237879;
-$dark-color: #265073;
-$light-color: #9ad0c2;
 $light-back: #f9f9f9;
 $main-back: #252525;
 $dark-back: #171717;
@@ -13,3 +8,14 @@ $light-text: #acacac;
 
 $green: #1db61d;
 $red: #ff3021;
+$yellow: #c5a938;
+
+$main-color-1: rgb(154, 208, 194);
+$main-color-2: rgb(45, 149, 150);
+$main-color-3: rgb(20, 78, 94);
+$main-color-4: rgb(15, 49, 76);
+$main-color-5: rgb(4, 31, 53);
+
+// $color-2-dark-20: rgba(45, 149, 150, 0.2);
+$color-2-dark-20: mix($main-color-2, $dark-back, 20%);
+$color-2-dark-20-transparent: transparentize($color-2-dark-20, 0.6);

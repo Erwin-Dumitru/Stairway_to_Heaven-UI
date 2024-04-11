@@ -4,15 +4,17 @@ import HomeClient from './homeClient/HomeClient';
 import { AddressContext } from '@/components/Context';
 
 function Home() {
+
     return (
         <AddressContext.Consumer>
             {(context) => {
                 return (() => {
-                    if (context && context.currentAddress.type === "client") {
+                    let type = context ? context.currentAddress ? context.currentAddress.type : '' : '';
+                    if (type === "client") {
                         return <HomeClient />;
-                    } else if (context && context.currentAddress.type === "admin") {
+                    } else if (type === "admin") {
                         return <HomeAdmin />;
-                    } else if (context && context.currentAddress.type === "association") {
+                    } else if (type === "association") {
                         return <HomeAssoc />;
                     }
                 })();

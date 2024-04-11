@@ -57,6 +57,8 @@
 //   }
 // }
 
+@import '/src/_variables.scss';
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -76,17 +78,26 @@
   -webkit-text-size-adjust: 100%;
 
   /* Custom */
-  --smallGap: 12.5px;
-  --mediumGap: 25px;
-  --largeGap: 50px;
-  --lightColor: #9ad0c2;
-  --mainColor: #2d9596;
-  --mainColorDark: #237879;
-  --darkColor: #265073;
-  --lightBack: #f9f9f9;
-  --mainBack: #252525;
-  --darkBack: #171717;
-  --lightText: #acacac;
+  --smallGap: #{$small-gap};
+  --mediumGap: #{$medium-gap};
+  --largeGap: #{$large-gap};
+
+  --lightColor: #{$main-color-1};
+  --mainColor: #{$main-color-2};
+  --mainColorDark: #{$main-color-3};
+  --darkColor: #{$main-color-4};
+  --color5: #{$main-color-5};
+  
+  --lightBack: #{$light-back};
+  --mainBack: #{$main-back};
+  --darkBack: #{$dark-back};
+  --lightText: #{$light-text};
+
+  --green: #{$green};
+  --red: #{$red};
+
+  --color2Dark20: #{$color-2-dark-20};
+  --color2Dark20Transparent: #{$color-2-dark-20-transparent};
 
 }
 

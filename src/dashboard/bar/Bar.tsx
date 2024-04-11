@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AddressContext } from "@/components/Context";
 import AdressList from "./addressList/AddressList";
+import userProfile from "@/assets/User-2.svg";
 import "./Bar.scss";
 
 export default function Bar() {
@@ -53,7 +54,7 @@ export default function Bar() {
                 {(context) => (
                     <div className="addressSelector" ref={addressRef}>
                         <div className="1currentAddress addressElement" onClick={() => { setOpenAddress(!openAddress); }}>
-                            { context ? context.currentAddress.name : '' }
+                            { context ? (context.currentAddress ? context.currentAddress.name : '') : '' }
                             <i className="ri-arrow-down-s-line"></i>
                         </div>
             
@@ -67,7 +68,7 @@ export default function Bar() {
             </div>
 
             <Link to="/" className="imgNav" id="profileImg">
-                <img src="/src/assets/User-2.svg" alt="Bloc Logo" />
+                <img src={userProfile} alt="User Profile" />
             </Link>
         </div>
     );

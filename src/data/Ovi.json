@@ -1,0 +1,57 @@
+{
+    "apartments": [
+      {
+        "id": "67708aec-d216-46a7-952b-08dc51ba328e",
+        "name": "Aparament 17",
+        "role": "Owner",
+        "counters": [
+          {
+            "id": "28b80456-875b-48e4-945f-08dc51be44be",
+            "name": "Apa Rece",
+            "location": "Bucatarie",
+            "newValue": "255.55",
+            "oldValue": "123.4"
+          },
+          {
+            "id": "586729a3-4a0a-4c01-9460-08dc51be44be",
+            "name": "Apa Calda",
+            "location": "Baie",
+            "newValue": "255.55",
+            "oldValue": "123.4"
+          },
+          {
+            "id": "220784f9-2bfc-40e0-9461-08dc51be44be",
+            "name": "Apa Rece",
+            "location": "Bucatarie",
+            "newValue": "75",
+            "oldValue": "50"
+          }
+        ],
+        "expenses": [
+          {
+            "id": "35883b53-78c2-46be-2346-08dc51be4604",
+            "dateTime": "2024-03-31T23:08:03.2464131",
+            "amount": 250
+          },
+          {
+            "id": "b5177b65-b404-48d3-2347-08dc51be4604",
+            "dateTime": "2024-02-29T23:08:03.5501416",
+            "amount": 150
+          },
+          {
+            "id": "875fec42-9559-46a7-2348-08dc51be4604",
+            "dateTime": "2024-01-31T23:08:03.7785212",
+            "amount": 100
+          }
+        ]
+      },
+      {
+        "id": "8ceb7c4f-2e5d-4a96-952c-08dc51ba328e",
+        "name": "Aparament 16",
+        "role": "Renter",
+        "counters": [],
+        "expenses": []
+      }
+    ],
+    "administrations": []
+  }

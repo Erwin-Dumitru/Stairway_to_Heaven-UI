@@ -37,7 +37,7 @@ export default function TotalToPay() {
         <div className="totalToPay">
             <div className="totalToPayTitle">
                 <h2>Invoice Total</h2>
-                
+
                 <button className="totalToPayButton">
                     Pay
                     <i className="ri-arrow-right-line"></i>

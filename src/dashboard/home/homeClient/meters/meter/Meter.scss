@@ -1,0 +1,82 @@
+@import '/src/variables.scss';
+
+.meter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--smallGap);
+    width: 100%;
+    box-sizing: border-box;
+    padding: calc(var(--smallGap));
+    background-color: var(--darkBack);
+    border-radius: var(--smallGap);
+
+    > label {
+        height: 37px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font: 500 1em 'Roboto', sans-serif;
+        color: #acacac;
+
+        &.noLocation {
+            justify-content: center;
+        }
+
+        span {
+            margin: 0;
+            padding: 0;
+            font-size: 0.7em;
+            font-weight: 500;
+            color: #acacac80;
+        }
+    }
+
+    .metersFieldInput {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+
+        input {
+            width: calc(100px - 1 * var(--smallGap));
+            height: calc(100% - 4px);
+            // background-color: var(--mainBack);
+            background-color: transparent;
+            font: 500 1em 'Roboto', sans-serif;
+            color: #acacac;
+            padding: 0 0 0 var(--smallGap);
+            margin: 0;
+            // border: #acacac40 solid 1px;
+            border: 2px solid #acacac40;
+            border-radius: calc(var(--smallGap) / 2);
+            outline: none;
+        }
+
+        .placeholder-label {
+            position: absolute;
+            left: calc($small-gap - 1px);
+            top: 50%;
+            transform: translateY(calc(-50% - 0.5px));
+            background-color: $dark-back;
+            transition: all 0.2s ease;
+            padding: 0 3px;
+            pointer-events: none;
+            color: transparentize($light-text, 0.5);
+            font-size: 1em;
+            font-weight: 500;
+            line-height: 1;
+            box-shadow: 0 0 2px 1px $dark-back;
+            // box-shadow: 0 0 2px 1px white;
+        }
+
+        input:focus ~ .placeholder-label,
+        input.not-empty ~ .placeholder-label {
+            top: 0;
+            transform: translateY(-50%);
+            font-size: 0.7em;
+        }
+    }
+}
