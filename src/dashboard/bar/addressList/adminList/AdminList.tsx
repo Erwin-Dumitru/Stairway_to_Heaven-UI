@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Association } from '@/components/Interfaces';
 import removeAccents from 'remove-accents';
 
 interface Props {
@@ -75,6 +74,7 @@ export default function AdminList({active, setIsAdmin, openAddress, setOpenAddre
                         }
                         onClick={ () => { // Set the current association
                             setCurrentAddress({
+                                parent: administration?.id,
                                 id: address.id,
                                 name: address.name,
                                 type: "association"

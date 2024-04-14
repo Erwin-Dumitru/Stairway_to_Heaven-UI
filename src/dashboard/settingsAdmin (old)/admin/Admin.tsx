@@ -228,19 +228,23 @@ function CreateAssociation() {
     }
 
     function addClickHandle() {
-        setDataStructure(prevDataStructure => {
-            let newDataStructure = {...prevDataStructure};
-            if (selectedElement[0] === -1) {
-                // newDataStructure.addresses.push({address: "New address", city: "New city", name: "New address", blocks: []});
-            } else if (selectedElement[1] === -1) {
-                newDataStructure.addresses[selectedElement[0]].blocks.push({block: "New block", stairs: []});
-            } else if (selectedElement[2] === -1) {
-                newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs.push({stair: "New stair", apartments: []});
-            } else {
-                newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.push({apartment: "New apartment"});
-            }
-            return newDataStructure;
-        });
+        // setDataStructure(prevDataStructure => {
+        //     let newDataStructure = {...prevDataStructure};
+        //     if (selectedElement[0] === -1) {
+        //         // newDataStructure.addresses.push({address: "New address", city: "New city", name: "New address", blocks: []});
+        //     } else if (selectedElement[1] === -1) {
+        //         newDataStructure.addresses[selectedElement[0]].blocks.push({
+        //             id: '1', // TODO: generate unique id
+        //             block: "New block", 
+        //             stairs: []
+        //         });
+        //     } else if (selectedElement[2] === -1) {
+        //         newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs.push({stair: "New stair", apartments: []});
+        //     } else {
+        //         newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.push({apartment: "New apartment"});
+        //     }
+        //     return newDataStructure;
+        // });
     }
 
     return (

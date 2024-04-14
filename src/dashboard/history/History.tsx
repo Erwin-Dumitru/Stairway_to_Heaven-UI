@@ -9,11 +9,11 @@ function History() {
         <AddressContext.Consumer>
             {(context) => {
                 return (() => {
-                    if (context && context.currentAddress.type === "client") {
+                    if (context && context.currentAddress?.type === "client") {
                         return <HistoryClient />;
-                    } else if (context && context.currentAddress.type === "association") {
+                    } else if (context && context.currentAddress?.type === "association") {
                         return <HistoryAssoc />;
-                    } else if (context && context.currentAddress.type === "admin") {
+                    } else if (context && context.currentAddress?.type === "admin") {
                         return <HistoryAdmin />;
                     }
                 })();

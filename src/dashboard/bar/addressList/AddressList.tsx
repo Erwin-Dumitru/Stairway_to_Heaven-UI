@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Address, Association } from '@/components/Interfaces';
 import AdminList from './adminList/AdminList';
 
 interface Props {
@@ -15,7 +14,7 @@ export default function AdressList({openAddress, setOpenAddress, addressContext}
 
     if (!addressContext) return null;
 
-    function clientClick(address: Address) {
+    function clientClick(address: (Apartment | Administration)) {
         addressContext.setCurrentAddress({
             id: address.id,
             name: address.name,
@@ -24,13 +23,13 @@ export default function AdressList({openAddress, setOpenAddress, addressContext}
         setOpenAddress(false);
     }
 
-    function adminClick(address: Address) {
+    function adminClick(address: (Apartment | Administration)) {
         setIsAdmin(true);
         setAdministration({
             id: address.id,
             name: address.name
         });
-        setAdminData(address.administrations);
+        setAdminData((address as Administration).associations);
     }
 
     return (
@@ -38,14 +37,18 @@ export default function AdressList({openAddress, setOpenAddress, addressContext}
             <div className="dropdownWrapper">
                 <div className={`addressList ${isAdmin ? '' : 'active'} ${openAddress ? 'open' : ''}`}>
                     <div className="addressListScroll">
-                        { addressContext.addresses.map((address: Address, index: number) => (
-                            <div key={index} className={`addressElement ${address.notifications ? 'notify' : ''}`} onClick={() => {
-                                    address.administrations ? adminClick(address) : clientClick(address);
-                                }}>
-                                { address.name }
-                                { address.administrations ? <i className="ri-arrow-right-s-line"></i> : null}
-                            </div>
-                        ))}
+                    { addressContext && addressContext.addresses && addressContext.addresses.map((address: (Apartment | Administration), index: number) => {
+                            let isAdministration = (address as Administration).associations;
+
+                            return (
+                                <div key={index} className={`addressElement ${address.notifications ? 'notify' : ''}`} onClick={() => {
+                                        isAdministration ? adminClick(address) : clientClick(address);
+                                    }}>
+                                    { address.name }
+                                    { isAdministration ? <i className="ri-arrow-right-s-line"></i> : null}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
 

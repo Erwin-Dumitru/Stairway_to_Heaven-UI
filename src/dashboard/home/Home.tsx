@@ -11,7 +11,7 @@ function Home() {
                 return (() => {
                     let type = context ? context.currentAddress ? context.currentAddress.type : '' : '';
                     if (type === "client") {
-                        return <HomeClient />;
+                        return <HomeClient data={context?.homeApartmentData} />;
                     } else if (type === "admin") {
                         return <HomeAdmin />;
                     } else if (type === "association") {

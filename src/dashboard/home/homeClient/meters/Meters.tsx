@@ -1,24 +1,21 @@
 import { useEffect, useState } from 'react';
-import { Counter, SubmitCounter } from '@/components/Interfaces';
 import Meter from './meter/Meter';
 import './Meters.scss'
 
 export default function Meters({meters}: {meters: Counter[]}) {
-    const [submitValue, setSubmitValue] = useState<SubmitCounter[]>( // SubmitCounter = { id: string; value: string; }
-        meters.map(meter => (
-            { id: meter.id, value: '' }
-        )
-    ));
+    const [submitValue, setSubmitValue] = useState<SendCounter[]>([]);
 
-    // useEffect(() => {
-    //     meters.forEach((meter) => {
-    //         var newSubmitValue = {
-    //             id: meter.id,
-    //             value: ''
-    //         }
-    //         setSubmitValue(prevSubmitValue => [...prevSubmitValue, newSubmitValue]);
-    //     })
-    // }, [meters]);
+    useEffect(() => {
+        setSubmitValue([]);
+
+        meters.forEach((meter) => {
+            var newSubmitValue = {
+                id: meter.id,
+                value: ''
+            }
+            setSubmitValue(prevSubmitValue => [...prevSubmitValue, newSubmitValue]);
+        })
+    }, [meters]);
 
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();

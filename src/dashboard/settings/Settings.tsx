@@ -9,12 +9,11 @@ function Settings() {
         <AddressContext.Consumer>
             {(context) => {
                 return (() => {
-                    if (context && context.currentAddress.type === "admin") {
-                        return <SettingsAdmin />;
-                    } else if (context && context.currentAddress.type === "association") {
+                    if (context && context.currentAddress?.type === "admin") {
+                        return <SettingsAdmin administrationID={context.currentAddress?.id} />;
+                    } else if (context && context.currentAddress?.type === "association") {
                         return <SettingsAssoc />;
-                    } else if (context && context.currentAddress.type === "client") {
-                        return <SettingsAdmin />;
+                    } else if (context && context.currentAddress?.type === "client") {
                         return <SettingsClient />;
                     }
                 })();

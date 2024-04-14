@@ -65,7 +65,7 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
                             type="text" 
                             key="Admin"
                             placeholder="Admin" 
-                            value={admin} 
+                            value={admin}
                             onChange={(e) => setAdmin(e.target.value)} 
                         />
                     </div>
