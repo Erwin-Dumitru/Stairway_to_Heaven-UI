@@ -22,20 +22,20 @@ function DetailsFrame({selectedElement}: {selectedElement: any[]}) {
             setAdmin(dataStructure.administrator);
             setAssociation(dataStructure.name);
 
-            if (dataStructure.addresses[selectedElement[0]]) {
-                setAddress(dataStructure.addresses[selectedElement[0]].address);
-                setCounty(dataStructure.addresses[selectedElement[0]].county);
-                setCity(dataStructure.addresses[selectedElement[0]].city);
-                setName(dataStructure.addresses[selectedElement[0]].name);
+            if (dataStructure.associations[selectedElement[0]]) {
+                setAddress(dataStructure.associations[selectedElement[0]].address);
+                setCounty(dataStructure.associations[selectedElement[0]].county);
+                setCity(dataStructure.associations[selectedElement[0]].city);
+                setName(dataStructure.associations[selectedElement[0]].name);
 
-                if (dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]]) {
-                    setBlockNumber(dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].block);
+                if (dataStructure.associations[selectedElement[0]].blocks[selectedElement[1]]) {
+                    setBlockNumber(dataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].name);
 
-                    if (dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]]) {
-                        setStairNumber(dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].stair);
+                    if (dataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]]) {
+                        setStairNumber(dataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].name);
                         
-                        if (dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments[selectedElement[3]]) {
-                            setApartmentNumber(dataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments[selectedElement[3]].apartment);
+                        if (dataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments[selectedElement[3]]) {
+                            setApartmentNumber(dataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments[selectedElement[3]].name);
                         }
                     }
                 }

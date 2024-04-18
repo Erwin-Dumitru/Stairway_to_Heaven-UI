@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import Apartment from './apartment/Apartment';
 import './Stair.scss';
 
-export default function Stair({elementAddress, title, apartments, selectedElement, setSelectedElement, addClickHandle, removeClickHandle}: {elementAddress: number[], title: any, apartments: any[], selectedElement: any[], setSelectedElement: any, addClickHandle: any, removeClickHandle: any}) {
+export default function Stair({elementAddress, name, apartments, selectedElement, setSelectedElement, addClickHandle, removeClickHandle}: {elementAddress: number[], name: string, apartments: any[], selectedElement: any[], setSelectedElement: any, addClickHandle: any, removeClickHandle: any}) {
     const [active, setActive] = useState(false);
     const [selected, setSelected] = useState(false);
 
@@ -14,7 +14,7 @@ export default function Stair({elementAddress, title, apartments, selectedElemen
     return (
         <div className="stair">
             <div className={`stairTitle ${selected ? 'active' : ''}`} onClick={() => setSelectedElement(elementAddress)}>
-                <h3>{`Scara ${title}`}</h3>
+                <h3>{`Scara ${name}`}</h3>
 
                 <div className="buttons">
                     <div className={`button ${selected ? 'active' : ''}`} onClick={removeClickHandle}>
@@ -35,7 +35,7 @@ export default function Stair({elementAddress, title, apartments, selectedElemen
                         <Apartment
                             key={index}
                             elementAddress={[elementAddress[0], elementAddress[1], elementAddress[2], index]}
-                            data={data}
+                            name={data.name}
                             selectedElement={selectedElement}
                             setSelectedElement={setSelectedElement}
                             removeClickHandle={removeClickHandle}

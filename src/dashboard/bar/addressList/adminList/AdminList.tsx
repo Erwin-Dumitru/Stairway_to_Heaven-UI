@@ -36,6 +36,33 @@ export default function AdminList({active, setIsAdmin, openAddress, setOpenAddre
         }));
     }, [search, adminData]);
 
+    const clickAdmin = (administration: Administration) => {
+        // if (window.location.pathname !== '/dashboard') {
+        //     window.location.href = '/dashboard';
+        // }
+
+        setCurrentAddress({
+            id: administration ? administration.id : '',
+            name: administration ? administration.name : '',
+            type: "admin"
+        });
+        setOpenAddress(false);
+    }
+
+    const clickAssociations = (association: Association) => {
+        // if (window.location.pathname !== '/dashboard') {
+        //     window.location.href = '/dashboard';
+        // }
+        
+        setCurrentAddress({
+            parent: administration?.id,
+            id: association.id,
+            name: association.name,
+            type: "association"
+        });
+        setOpenAddress(false);
+    }
+
     return (
         <div className={`adminList ${active ? 'active' : ''} ${openAddress ? 'open' : ''}`}>
             <div className="title">
@@ -44,12 +71,7 @@ export default function AdminList({active, setIsAdmin, openAddress, setOpenAddre
                 </div>
                 
                 <div className="addressElement" onClick={() => {
-                    setCurrentAddress({
-                        id: administration ? administration.id : '',
-                        name: administration ? administration.name : '',
-                        type: "admin"
-                    });
-                    setOpenAddress(false);
+                    clickAdmin(administration as Administration);
                 }}>
                     { administration ? administration.name : '' }
                 </div>
@@ -73,13 +95,7 @@ export default function AdminList({active, setIsAdmin, openAddress, setOpenAddre
                             ${address.done ? 'green' : ''}`
                         }
                         onClick={ () => { // Set the current association
-                            setCurrentAddress({
-                                parent: administration?.id,
-                                id: address.id,
-                                name: address.name,
-                                type: "association"
-                            });
-                            setOpenAddress(false);
+                            clickAssociations(address);
                         }
                     }>
                         <div className="addressName">

@@ -212,15 +212,15 @@ function CreateAssociation() {
                 if (selectedElement[1] !== -1) {
                     if (selectedElement[2] !== -1) {
                         if (selectedElement[3] !== -1) {
-                            newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.splice(selectedElement[3], 1);
+                            newDataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.splice(selectedElement[3], 1);
                         } else {
-                            newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs.splice(selectedElement[2], 1);
+                            newDataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs.splice(selectedElement[2], 1);
                         }
                     } else {
-                        newDataStructure.addresses[selectedElement[0]].blocks.splice(selectedElement[1], 1);
+                        newDataStructure.associations[selectedElement[0]].blocks.splice(selectedElement[1], 1);
                     }
                 } else {
-                    newDataStructure.addresses.splice(selectedElement[0], 1);
+                    newDataStructure.associations.splice(selectedElement[0], 1);
                 }
             }
             return newDataStructure;
@@ -257,7 +257,7 @@ function CreateAssociation() {
 
                 <div className="blocuri">
                     <div className="contentDiv">
-                        { dataStructure.addresses.map((data: any, index: any) => { return (
+                        { dataStructure.associations.map((data: any, index: any) => { return (
                             <Address
                                 key={index}
                                 elementAddress={[index, -1, -1, -1]}

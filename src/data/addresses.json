@@ -12,7 +12,7 @@
         "id": "3",
         "name": "Administrație",
         "notifications": 2,
-        "administrations": [
+        "associations": [
             {
                 "id": "1",
                 "name": "Asociația 1",

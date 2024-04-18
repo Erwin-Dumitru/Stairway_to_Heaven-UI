@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { AddressContext } from "@/components/Context";
 import AdressList from "./addressList/AddressList";
-import userProfile from "@/assets/User-2.svg";
+import Notifications from "./notifications/Notifications";
+import Profile from "./profile/Profile";
 import "./Bar.scss";
 
 export default function Bar() {
     const [openAddress, setOpenAddress] = useState(false);
+    const notifyRef = useRef<HTMLDialogElement>(null);
 
     let addressRef = useRef<HTMLDivElement>(null);
 
@@ -63,13 +65,12 @@ export default function Bar() {
                 )}
             </AddressContext.Consumer>
 
-            <div className="notifications">
+            <div className="notifications-icon" onClick={() => { if (notifyRef.current) notifyRef.current.showModal(); }}>
                 <i className="ri-notification-3-line"></i>
             </div>
+            <Notifications notifyRef={notifyRef}/>
 
-            <Link to="/" className="imgNav" id="profileImg">
-                <img src={userProfile} alt="User Profile" />
-            </Link>
+            <Profile />
         </div>
     );
 }

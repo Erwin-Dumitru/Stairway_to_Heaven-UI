@@ -7,7 +7,7 @@ const sleep = (delay: number) => {
     })
 }
 
-axios.defaults.baseURL = 'https://localhost:7075/api';
+axios.defaults.baseURL = 'http://154.62.109.140:7278/api';
 
 axios.interceptors.request.use(config => {
     const token = store.userStore.token;
@@ -15,28 +15,32 @@ axios.interceptors.request.use(config => {
     return config;
 });
 
-// axios.interceptors.response.use(async response => {
-//     await sleep(1000);
-//     return response;
-// }, (error: AxiosError) => {
-//     const { data, status } = error.response!;
-//     switch (status) {
-//         case 400:
-//             console.error('BAD REQUEST');
-//             break;
-//         case 401:
-//             console.error("UNAUTHORIZED");
-//             break;
-//         case 404:
-//             console.error("NOT FOUND");
-//             break;
-//         case 500:
-//             console.error("SERVER ERROR");
-//             break;
-//     }
+axios.interceptors.response.use(async response => {
+    await sleep(1000);
+    return response;
+}, (error: AxiosError) => {
+    const { data, status } = error.response!;
+    switch (status) {
+        case 400:
+            console.log('BAD REQUEST')
+            console.log(data);
+            break;
+        case 401:
+            console.log('UNAUTHORIZED')
+            console.log(data);
+            break;
+        case 404:
+            console.log('NOT FOUND')
+            console.log(data);
+            break;
+        case 500:
+            console.log('SERVER ERROR')
+            console.log(data);
+            break;
+    }
 
-//     return Promise.reject(error);
-// });
+    return Promise.reject(error);
+});
 
 const responeBody = (response: AxiosResponse) => response.data;
 
@@ -87,7 +91,7 @@ const AdminSettings = {
             return {
                 id: association.id,
                 name: association.name,
-                apartments: []
+                buidings: []
             }
         });
 

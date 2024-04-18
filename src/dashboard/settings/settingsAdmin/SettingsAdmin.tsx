@@ -2,35 +2,44 @@ import { useState, useEffect } from "react";
 import DetailsFrame from "./detailsFrame/DetailsFrame";
 import Association from "./association/Association";
 import DataStructure from "@/data/dataStructure.json";
+import SavePopUp from "./savePopUp/SavePopUp";
 import "./SettingsAdmin.scss";
 import agent from "@/api/agent";
+import { set } from "mobx";
 
 interface DataStructure {
     id?: string;
     administrator?: string;
     name: string;
-    associations: {
-        id?: string;
-        address?: string;
-        county?: string;
-        city?: string;
-        name: string;
-        blocks: {
-            id?: string;
-            name: string;
-            stairs: {
-                id?: string;
-                name: string;
-                apartments: {
-                    id?: string;
-                    name: string;
-                }[];
-            }[];
-        }[];
-    }[];
+    associations: Association[];
+}
+
+interface Association {
+    id?: string;
+    name: string;
+    blocks: Bloc[];
+}
+
+interface Bloc {
+    id?: string;
+    name: string;
+    stairs: Stair[];
+}
+
+interface Stair {
+    id?: string;
+    name: string;
+    apartments: Apartment[];
+}
+
+interface Apartment {
+    id?: string;
+    name: string;
 }
 
 function SettingsAdmin({administrationID}: {administrationID: string} ) {
+    const [lastStructureAction, setLastStructureAction] = useState('create');
+    const [modifyMode, setModifyMode] = useState<boolean>(false);
     const [APIData, setAPIData] = useState<any>(null);
 
     const [dataStructure, setDataStructure] = useState<DataStructure>();
@@ -38,14 +47,77 @@ function SettingsAdmin({administrationID}: {administrationID: string} ) {
     const [selected, setSelected] = useState(false);
 
     useEffect(() => {
-        const administrationStructure = agent.AdminSettings.getAdministrationStructure(administrationID);
-        administrationStructure.then((data) => {
-            setDataStructure(data);
-        });
+        // const administrationStructure = agent.AdminSettings.getAdministrationStructure(administrationID);
+        // administrationStructure.then((data) => {
+        //     setDataStructure(data);
+        // });
+
+        const fetchData = async () => {
+            // const data = await agent.AdminSettings.getAdministrationStructure(administrationID);
+            // setAPIData(data);
+            // setDataStructure(data);
+
+            setAPIData(DataStructure);
+            setDataStructure(DataStructure);
+        }
+
+        fetchData();
     }, [administrationID]);
 
     useEffect(() => {
+        setSelectedElement((prevSelectedElement) => {
+            if (!prevSelectedElement) return [-1, -1, -1, -1];
+            if (!dataStructure) return prevSelectedElement;
+
+            let lenghts = [
+                dataStructure.associations.length,
+                dataStructure.associations[prevSelectedElement[0]]?.blocks.length,
+                dataStructure.associations[prevSelectedElement[0]]?.blocks[prevSelectedElement[1]]?.stairs.length,
+                dataStructure.associations[prevSelectedElement[0]]?.blocks[prevSelectedElement[1]]?.stairs[prevSelectedElement[2]]?.apartments.length
+            ];
+
+            if (lastStructureAction === 'add') {
+                if (prevSelectedElement[0] === -1) return [lenghts[0] - 1, -1, -1, -1];
+
+                if (prevSelectedElement[1] === -1) return [prevSelectedElement[0], lenghts[1] - 1, -1, -1];
+
+                if (prevSelectedElement[2] === -1) return [prevSelectedElement[0], prevSelectedElement[1], lenghts[2] - 1, -1];
+
+                return [prevSelectedElement[0], prevSelectedElement[1], prevSelectedElement[2], lenghts[3] - 1]; 
+            } else if (lastStructureAction === 'delete') {
+                console.log('delete');
+
+                if (prevSelectedElement[0] === -1) return [-1, -1, -1, -1];
+                let prev = [...prevSelectedElement];
+
+                let index = 0;
+                if (prevSelectedElement[2] === -1) index = 1;
+                else if (prevSelectedElement[3] === -1) index = 2;
+                else index = 3;
+
+                if (lenghts[index] === 0) {
+                    prev[index] = -1;
+                    return prev;
+                } else if (prev[index] === lenghts[index]) {
+                    prev[index] -= 1;
+                    return prev;
+                } else {
+                    return prev;
+                }
+            } else return [-1, -1, -1, -1];
+        });
+        
+        // if dataStructure is different from APIData, then setModifyMode to true
+        if (JSON.stringify(dataStructure) !== JSON.stringify(APIData)) {
+            setModifyMode(true);
+        } else {
+            setModifyMode(false);
+        }
+    }, [dataStructure]);
+
+    useEffect(() => {
         setSelected(selectedElement[0] === -1);
+        console.log(selectedElement);
     }, [selectedElement]);
 
     function saveClickHandle() {
@@ -55,67 +127,71 @@ function SettingsAdmin({administrationID}: {administrationID: string} ) {
     }
 
     function resetHandle() {
-        setDataStructure(DataStructure);
+        setLastStructureAction('create');
+        setDataStructure(APIData);
     }
 
     function removeClickHandle() {
         setDataStructure(prevDataStructure => {
-            if (!prevDataStructure) return prevDataStructure;
+            setLastStructureAction('delete');
 
-            let newDataStructure = {...prevDataStructure};
+            if (!prevDataStructure) return prevDataStructure;
+    
+            let newDataStructure = JSON.parse(JSON.stringify(prevDataStructure));
             if (selectedElement[0] !== -1) {
-                if (selectedElement[1] !== -1) {
-                    if (selectedElement[2] !== -1) {
-                        if (selectedElement[3] !== -1) {
-                            newDataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.splice(selectedElement[3], 1);
-                        } else {
-                            newDataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs.splice(selectedElement[2], 1);
-                        }
-                    } else {
-                        newDataStructure.associations[selectedElement[0]].blocks.splice(selectedElement[1], 1);
-                    }
+                if (selectedElement[1] === -1) {
+                    // Remove selected association
+                    newDataStructure.associations = newDataStructure.associations.filter((_: any, index: number) => index !== selectedElement[0]);
+                } else if (selectedElement[2] === -1) {
+                    // Remove selected block
+                    newDataStructure.associations[selectedElement[0]].blocks = newDataStructure.associations[selectedElement[0]].blocks.filter((_: any, index: number) => index !== selectedElement[1]);
+                } else if (selectedElement[3] === -1) {
+                    // Remove selected stair
+                    newDataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs = newDataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs.filter((_: any, index: number) => index !== selectedElement[2]);
                 } else {
-                    newDataStructure.associations.splice(selectedElement[0], 1);
+                    // Remove selected apartment
+                    newDataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments = newDataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.filter((_: any, index: number) => index !== selectedElement[3]);
                 }
             }
+    
             return newDataStructure;
         });
     }
 
     function addClickHandle() {
-        var newElement = {
-            address: "New",
-            county: '',
-            city: '',
+        var newApartment = {
+            name: "New"
+        };
+
+        var newStair = {
             name: "New",
-            blocks: [
-                {
-                    block: "New",
-                    stairs: [
-                        {
-                            stair: "New",
-                            apartments: [
-                                {
-                                    apartment: "New"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
+            apartments: [ newApartment ]
+        };
+
+        var newBlock = {
+            name: "New",
+            stairs: [ newStair ]
+        };
+
+        var newAssociation = {
+            name: "New",
+            blocks: [ newBlock ]
         };
 
         setDataStructure(prevDataStructure => {
+            setLastStructureAction('add');
+
             let newDataStructure = JSON.parse(JSON.stringify(prevDataStructure));
             if (selectedElement[0] === -1) {
-                newDataStructure.addresses.push(newElement);
+                newDataStructure.associations.push(newAssociation);
             } else if (selectedElement[1] === -1) {
-                newDataStructure.addresses[selectedElement[0]].blocks.push(newElement.blocks[0]);
+                newDataStructure.associations[selectedElement[0]].blocks.push(newBlock);
             } else if (selectedElement[2] === -1) {
-                newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs.push(newElement.blocks[0].stairs[0]);
+                newDataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs.push(newStair);
             } else {
-                newDataStructure.addresses[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.push(newElement.blocks[0].stairs[0].apartments[0]);
+                newDataStructure.associations[selectedElement[0]].blocks[selectedElement[1]].stairs[selectedElement[2]].apartments.push(newApartment);
             }
+
             return newDataStructure;
         });
     }
@@ -170,26 +246,9 @@ function SettingsAdmin({administrationID}: {administrationID: string} ) {
                         </div> */}
                     </div>
                                 
-                    {/* <DetailsFrame selectedElement={selectedElement} /> */}
+                    <DetailsFrame selectedElement={selectedElement} />
 
-                    <div className="save-popup-container active">
-                        <div className="save-popup">
-                            <div className="text">
-                                <i className="ri-information-line"></i>
-                                <h3>Unsaved changes</h3>
-                            </div>
-
-                            <div className="buttons">
-                                <button onClick={resetHandle}>
-                                    Reset
-                                </button>
-
-                                <button onClick={saveClickHandle}>
-                                    Save
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <SavePopUp open={modifyMode} saveClickHandle={saveClickHandle} resetHandle={resetHandle} />
                 </div>
             </div>
         </div>

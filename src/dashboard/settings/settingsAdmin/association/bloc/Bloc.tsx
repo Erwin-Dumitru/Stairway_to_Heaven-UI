@@ -32,10 +32,10 @@ export default function Bloc({elementAddress, title, stairs, selectedElement, se
             <div className={`wrapper ${active ? 'active' : ''}`}>
                 <div className={`stairs ${active ? 'active' : ''}`}>
                     {stairs.map((data: any, index: any) => { return (
-                        <Stair 
+                        <Stair
                             key={index} 
                             elementAddress={[elementAddress[0], elementAddress[1], index, -1]}
-                            title={data.stair} 
+                            name={data.name} 
                             apartments={data.apartments} 
                             selectedElement={selectedElement} 
                             setSelectedElement={setSelectedElement}

@@ -11,11 +11,17 @@ if (rootElement) {
   const root = createRoot(rootElement);
 
   root.render(
-    <React.StrictMode>
-      {/* <BrowserRouter basename={basename}> */}
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   );
+
+  // root.render(
+  //   <React.StrictMode>
+  //     {/* <BrowserRouter basename={basename}> */}
+  //     <BrowserRouter>
+  //       <App />
+  //     </BrowserRouter>
+  //   </React.StrictMode>
+  // );
 }

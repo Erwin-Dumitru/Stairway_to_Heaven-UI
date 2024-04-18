@@ -1,0 +1,91 @@
+@import '/src/variables.scss';
+
+.profile {
+    position: relative;
+
+    .default {
+        background-color: $main-color-1;
+    }
+
+    .dropdown {
+        position: absolute;
+        width: 250px;
+        top: 100%;
+        right: 0;
+        color: $light-text;
+        background-color: #333;
+        display: flex;
+        flex-direction: column;
+        // gap: $small-gap;
+        // padding: $small-gap;
+        border-radius: calc($small-gap * 1.5);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+        z-index: 1;
+        overflow: hidden;
+
+        filter: blur(5px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.2s ease-in-out;
+
+        &.open {
+            top: calc(100% + $small-gap);
+            filter: blur(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .profile-nav {
+            display: flex;
+            gap: $small-gap;
+            padding: $small-gap;
+            border-bottom: 1px solid transparentize($light-text, 0.7);
+
+            .img-nav {
+                cursor: default;
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                h3 {
+                    font-size: 1.4em;
+                }
+
+                span {
+                    font-size: 0.9em;
+                    color: transparentize($light-text, 0.5);
+                }
+            }
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+
+            > * {
+                height: 44.2px;
+                display: flex;
+                gap: $small-gap;
+                align-items: center;
+                padding: 0 $small-gap;
+                transition: all 0.2s ease;
+
+                h3, i {
+                    font-size: 1.1em;
+                    color: transparentize($light-text, 0.2);
+                }
+
+                &:hover {
+                    background-color: transparentize($light-text, 0.9);
+
+                    h3, i {
+                        color: $light-text;
+                    }
+                }
+            }
+        }
+    }
+}

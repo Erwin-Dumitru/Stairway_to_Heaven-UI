@@ -1,0 +1,219 @@
+@import '/src/variables.scss';
+
+.raports {
+    background-color: var(--mainBack);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: $medium-gap;
+    padding: $medium-gap;
+    border-radius: $medium-gap;
+    // overflow: hidden;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+
+        .select {
+            position: relative;
+            width: 35%;
+            min-width: 110px;
+            max-width: 140px;
+
+            h3 {
+                margin: 0;
+                padding: 0;
+                font-size: 1.2em;
+                line-height: 1;
+                color: transparentize($light-text, 0.3);
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                transition: all 0.2s ease;
+            }
+
+            .selected {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                
+                height: calc($small-gap * 3);
+                padding: 0 $small-gap;
+                border-radius: $small-gap;
+                background-color: transparentize($light-text, 0.9);
+                border: 1px solid transparentize($light-text, 0.8);
+                color: $light-text;
+                transition: all 0.2s ease;
+                cursor: pointer;
+                
+                i {
+                    font-size: 1.4em;
+                    color: transparentize($light-text, 0.3);
+                    transition: all 0.2s ease;
+                    margin-right: -5px;
+                    margin-bottom: -2px;
+                    transition: all 0.2s ease;
+                }
+
+                &:hover {
+                    background-color: transparentize($light-text, 0.8);
+
+                    i, h3 {
+                        color: $light-text;
+                    }
+                }
+            }
+
+
+            .dropdown {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                gap: calc($small-gap / 2);
+                width: calc(100%);
+                padding: calc($small-gap / 2);
+                top: 100%;
+                left: calc($small-gap / -2 - 1px);
+                z-index: 100;
+                background-color: $main-back;
+                border-radius: calc($small-gap * 1.5);
+                border: 1px solid transparentize($light-text, 0.8);
+                color: $light-text;
+                transition: all 0.2s ease;
+                overflow: hidden;
+
+                transition: all 0.2s ease;
+                opacity: 0;
+                pointer-events: none;
+
+                .item {
+                    display: flex;
+                    align-items: center;
+                    height: calc($small-gap * 3 - 2px);
+                    padding: 0 $small-gap;
+                    border-radius: $small-gap;
+                    border: 1px solid transparentize($light-text, 0.8);
+                    background-color: transparentize($light-text, 0.9);
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        background-color: transparentize($light-text, 0.8);
+
+                        h3 {
+                            color: $light-text;
+                        }
+                    }
+                }
+
+                &.open {
+                    opacity: 1;
+                    pointer-events: all;
+                    top: calc(100% + $small-gap / 2);
+                }
+            }
+        }
+
+        .switch {
+            width: 222px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 39.5px;
+            border-radius: $small-gap;
+            overflow: hidden;
+            background-color: $dark-back;
+            // gap: 1px;
+
+            .item {
+                z-index: 2;
+                width: 110px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-items: center;
+                padding: 0 $small-gap;
+                cursor: pointer;
+                
+                h3 {
+                    color: transparentize($light-text, 0.3);
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    transition: all 0.2s ease;
+                }
+
+                &:hover {
+                    h3 {
+                        color: $light-text;
+                    }
+                }
+            }
+
+            .background {
+                z-index: 1;
+                position: absolute;
+                left: 3px;
+                top: 3px;
+                width: calc(50% - 4px);
+                height: calc(100% - 6px);
+                background-color: $main-back;
+                border-radius: calc($small-gap - 3px);
+                transition: all 0.2s ease;
+                pointer-events: none;
+
+                &.right {
+                    transform: translateX(calc(100% + 2px));
+                }
+            }
+        }
+
+        .buttons {
+            display: flex;
+            gap: $small-gap;
+
+            .button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 37.5px;
+                padding: 0 $small-gap;
+                border-radius: $small-gap;
+                border: 1px solid transparentize($light-text, 0.8);
+                background-color: transparentize($light-text, 0.9);
+                color: transparentize($light-text, 0.3);
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                &.elipsis {
+                    aspect-ratio: 1;
+                    width: 37.5px;
+                    padding: 0;
+
+                    h3 {
+                        font-size: 1.6em;
+                        margin-top: -5px;
+                    }
+                }
+
+                h3 {
+                    font-size: 1.2rem;
+                    line-height: 1;
+                    color: transparentize($light-text, 0.3);
+                    transition: all 0.2s ease;
+                    margin-top: 1px;
+                }
+
+                &:hover {
+                    background-color: transparentize($light-text, 0.9);
+                    color: $light-text;
+
+                    h3 {
+                        color: $light-text;
+                    }
+                }
+            }
+        }
+    }
+}

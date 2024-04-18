@@ -15,6 +15,10 @@ export default function AdressList({openAddress, setOpenAddress, addressContext}
     if (!addressContext) return null;
 
     function clientClick(address: (Apartment | Administration)) {
+        // if (window.location.pathname !== '/dashboard') {
+        //     window.location.href = '/dashboard';
+        // }
+        
         addressContext.setCurrentAddress({
             id: address.id,
             name: address.name,

@@ -1,0 +1,227 @@
+@import '/src/variables.scss';
+
+$animation-speed: 0.5s;
+$animation-speed-small: 0.3s;
+$transparent: transparentize(black, 0.7);
+
+@keyframes show1 {
+    0% {
+        // opacity: 0;
+        transform: translateX(370px);
+    }
+    100% {
+        // opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes showBack1 {
+    0% {
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+    100% {
+        background-color: $transparent;
+        backdrop-filter: blur(5px);
+    }
+    
+}
+
+@keyframes hide1 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(370px);
+    }
+}
+
+@keyframes hideBack1 {
+    0% {
+        background-color: $transparent;
+        backdrop-filter: blur(5px);
+    }
+    100% {
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+}
+
+.notifications {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    padding: $large-gap;
+    padding: 0;
+    background-color: transparent;
+
+    &[open] {
+        -webkit-animation: show1 $animation-speed ease normal;
+        animation: show1 $animation-speed ease normal;
+
+        &::backdrop {
+            -webkit-animation: showBack1 $animation-speed ease normal;
+            animation: showBack1 $animation-speed ease normal;
+        }
+    }
+
+    &.isClosing {
+        -webkit-animation: hide1 $animation-speed ease normal;
+        animation: hide1 $animation-speed ease normal;
+
+        &::backdrop {
+            -webkit-animation: hideBack1 $animation-speed ease normal;
+            animation: hideBack1 $animation-speed ease normal;
+        }
+    }
+
+    &::backdrop {
+        background-color: $transparent;
+        backdrop-filter: blur(5px);
+    }
+    
+    .notifications-panel {
+        width: 100%;
+        max-width: 300px;
+        height: calc(100% - $small-gap * 4);
+        display: flex;
+        flex-direction: column;
+        gap: $small-gap;
+        padding: $small-gap;
+        margin: $small-gap;
+        margin-left: auto;
+        border-radius: calc($medium-gap * 1.5);
+        background-color: $main-back;
+
+        text-decoration: none;
+        color: #acacac;
+        font-size: 1.5em;
+        font-weight: 500;
+
+        .top {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: $small-gap 0;
+
+            h2 {
+                font-size: 1.2em;
+                font-weight: 500;
+            }
+
+            .close-button {
+                position: absolute;
+                left: calc($small-gap / 2);
+                height: 100%;
+                aspect-ratio: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                i {
+                    margin-bottom: -2px;
+                    font-size: 1.1em;
+                    color: $light-text;
+                    transition: all 0.2s ease;
+                }
+
+                &:hover i {
+                    color: #eee;
+                }
+            }
+        }
+
+        .notification {
+            position: relative;
+            display: flex;
+            align-items: center;
+            border-radius: $medium-gap;
+            background-color: transparentize($dark-back, 0.5);
+            overflow: hidden;
+            cursor: pointer;
+
+            &:hover {
+                .notification-front {
+                    transform: translateX(calc(-50px - $small-gap));
+                }
+            }
+
+            .notification-front {
+                display: flex;
+                gap: $small-gap;
+                padding: $small-gap;
+                border-radius: $medium-gap;
+                background-color: $dark-back;
+                transition: all 0.2s ease;
+                z-index: 2;
+
+                &:hover {
+                    background-color: $main-color-3;
+
+                    .notification-content h3 {
+                        color: #eee;
+                    }
+
+                    .notification-content p {
+                        color: $light-text;
+                    }
+                }
+
+                .icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 50px;
+                    aspect-ratio: 1;
+                    font-size: 1.4em;
+                    background-color: $main-back;
+                    color: $light-text;
+                    border-radius: $small-gap;
+                }
+
+                .notification-content {
+                    display: flex;
+                    flex-direction: column;
+
+                    h3 {
+                        font-size: 0.8em;
+                        color: $light-text;
+                        transition: all 0.2s ease;
+                    }
+
+                    p {
+                        font-size: 0.6em;
+                        color: transparentize($light-text, 0.5);
+                        transition: all 0.2s ease;
+                    }
+                }
+            }
+
+            .delete {
+                z-index: 1;
+                position: absolute;
+                right: 0;
+                height: 100%;
+                width: calc(50px + $small-gap + $medium-gap);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                i {
+                    font-size: 1.2em;
+                    color: $light-text;
+                    transition: all 0.2s ease;
+                    transform: translateX($small-gap);
+                }
+
+                &:hover i {
+                    color: #eee;
+                }
+            }
+        }
+    }
+}

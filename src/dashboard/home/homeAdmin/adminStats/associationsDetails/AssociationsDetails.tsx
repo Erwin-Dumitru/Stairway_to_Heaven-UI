@@ -36,7 +36,7 @@ export default function AssociationsDetails() {
 
     return (
         <div className="associations-details">
-                <div className="top">
+            <div className="top">
                 <div className="search">
                     <i className="ri-search-line"></i>
                     <input type="text" placeholder="Caută" value={search} onChange={(e) => setSearch(e.target.value)} />

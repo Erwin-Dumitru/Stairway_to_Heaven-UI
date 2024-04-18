@@ -7,15 +7,20 @@
     gap: $medium-gap;
     padding: $medium-gap;
     border-radius: $medium-gap;
+    overflow: hidden;
 
     .first {
-        width: 35%;
+        width: 340px;
         display: flex;
         flex-direction: column;
         gap: $medium-gap;
+        overflow-y: scroll;
+
+        margin-right: -12px;
+        padding-right: 5px;
 
         .container {
-            flex-grow: 1;
+            // flex-grow: 1;
             display: flex;
             flex-direction: column;
             // justify-content: space-between;
@@ -23,7 +28,7 @@
             border-radius: $medium-gap;
             padding: $medium-gap;
             background-color: $dark-back;
-            overflow: hidden;
+            // overflow: hidden;
             box-sizing: border-box;
             // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
@@ -86,7 +91,7 @@
             };
 
             .middle {
-                flex-grow: 1;
+                // flex-grow: 1;
                 display: flex;
                 flex-direction: row;
                 gap: $small-gap;

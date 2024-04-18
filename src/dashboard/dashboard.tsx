@@ -127,6 +127,8 @@ function App() {
       } catch (error) {
         localStorage.removeItem("selectedAddress");
         console.error("Error parsing selected address: ", error);
+        // refresh the page to get the default address
+        // window.location.reload();
       }
     }
   
@@ -174,6 +176,11 @@ function App() {
         let apartment = homeInfo?.apartments.find((apartment) => apartment.id === currentAddress.id);
         setHomeApartmentData(apartment);
       }
+
+      // redirect to the home page
+      // if (window.location.pathname !== "/dashboard/") {
+      //   window.location.href = "/dashboard/";
+      // }
     }
   }, [currentAddress]);
 

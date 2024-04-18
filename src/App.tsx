@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './home/Home';
-import Login from './login/Login';
-import Signup from './login/signup/Signup';
+import Login from './authentication/login/Login';
+import Signup from './authentication/signup/Signup';
 import Dashboard from './dashboard/Dashboard';
-import NotFound from './notFound/NotFound';
+import NotFound from './errorPages/notFound/NotFound';
 import './App.scss';
 
 function App() {

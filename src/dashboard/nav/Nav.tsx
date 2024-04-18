@@ -28,7 +28,7 @@ function Nav() {
     return (
         <div className="nav">
 
-            <Link to="/" className="imgNav">
+            <Link to="/" className="img-nav">
                 <img src={logo} alt="Bloc Logo" />
             </Link>
 

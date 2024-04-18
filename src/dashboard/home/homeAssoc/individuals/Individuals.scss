@@ -1,0 +1,228 @@
+@import '/src/variables.scss';
+
+.individuals {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $small-gap;
+    padding: $medium-gap;
+    border-radius: $medium-gap;
+    background-color: $main-back;
+    overflow: hidden;
+    
+    .top {
+        display: flex;
+        flex-direction: row;
+        gap: $small-gap;
+
+        .search {
+            position: relative;
+            display: flex;
+            width: 65%;
+    
+            > i {
+                position: absolute;
+                left: $small-gap;
+                top: 50%;
+                transform: translateY(-50%);
+                color: transparentize($light-text, 0.3);
+                font-size: 1.4em;
+                pointer-events: none;
+            }
+    
+            input {
+                // flex-grow: 1;
+                width: 100%;
+                height: calc($small-gap * 3 - 2px);
+                padding-left: calc($small-gap * 3.5);
+                border-radius: $small-gap;
+                background-color: transparentize($light-text, 0.9);
+                border: 1px solid transparentize($light-text, 0.8);
+                color: $light-text;
+                transition: all 0.2s ease;
+                font-size: 1.2em;
+                line-height: 1.2;
+    
+                &:focus {
+                    outline: none;
+                    border-color: transparentize($light-text, 0.6);
+                }
+            }
+    
+            &.hide {
+                display: none;
+            }
+        }
+
+        .select {
+            position: relative;
+            width: 35%;
+            min-width: 110px;
+
+            h3 {
+                margin: 0;
+                padding: 0;
+                font-size: 1.2em;
+                line-height: 1;
+                color: transparentize($light-text, 0.3);
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                transition: all 0.2s ease;
+            }
+
+            .selected {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                
+                height: calc($small-gap * 3);
+                padding: 0 $small-gap;
+                border-radius: $small-gap;
+                background-color: transparentize($light-text, 0.9);
+                border: 1px solid transparentize($light-text, 0.8);
+                color: $light-text;
+                transition: all 0.2s ease;
+                cursor: pointer;
+                
+                i {
+                    font-size: 1.4em;
+                    color: transparentize($light-text, 0.3);
+                    transition: all 0.2s ease;
+                    margin-right: -5px;
+                    margin-bottom: -2px;
+                    transition: all 0.2s ease;
+                }
+
+                &:hover {
+                    background-color: transparentize($light-text, 0.8);
+
+                    i, h3 {
+                        color: $light-text;
+                    }
+                }
+            }
+
+
+            .dropdown {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                gap: calc($small-gap / 2);
+                width: calc(100%);
+                padding: calc($small-gap / 2);
+                top: 100%;
+                left: calc($small-gap / -2 - 1px);
+                z-index: 100;
+                background-color: $main-back;
+                border-radius: calc($small-gap * 1.5);
+                border: 1px solid transparentize($light-text, 0.8);
+                color: $light-text;
+                transition: all 0.2s ease;
+                overflow: hidden;
+
+                transition: all 0.2s ease;
+                opacity: 0;
+                pointer-events: none;
+
+                .item {
+                    display: flex;
+                    align-items: center;
+                    height: calc($small-gap * 3 - 2px);
+                    padding: 0 $small-gap;
+                    border-radius: $small-gap;
+                    border: 1px solid transparentize($light-text, 0.8);
+                    background-color: transparentize($light-text, 0.9);
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        background-color: transparentize($light-text, 0.8);
+
+                        h3 {
+                            color: $light-text;
+                        }
+                    }
+                }
+
+                &.open {
+                    opacity: 1;
+                    pointer-events: all;
+                    top: calc(100% + $small-gap / 2);
+                }
+            }
+        }
+    }
+
+    .list {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: $small-gap;
+        overflow-y: scroll;
+        padding-right: 5px;
+        margin-right: -12px;
+
+        .apartment {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            // justify-content: space-between;
+            gap: $small-gap;
+            padding: $small-gap;
+            border-radius: $small-gap;
+            background-color: $dark-back;
+            transition: all 0.2s ease;
+            cursor: pointer;
+
+            h3 {
+                font-size: 1.2em;
+                color: transparentize($light-text, 0.3);
+                transition: all 0.2s ease;
+                text-overflow: ellipsis;
+
+                &.green {
+                    color: transparentize($green, 0.3);
+                }
+
+                &.red {
+                    color: transparentize($red, 0.3);
+                }
+
+                &.name {
+                    margin-right: auto;
+                }
+            }
+
+            i {
+                font-size: 1.4em;
+                // position: absolute;
+                right: $small-gap;
+                margin: -10px 0;
+                color: transparentize($light-text, 0.3);
+                transition: all 0.2s ease;
+            }
+
+            &:hover {
+                background-color: lighten($dark-back, 1%);
+
+                h3 {
+                    color: $light-text;
+
+                    &.green {
+                        color: $green;
+                    }
+
+                    &.red {
+                        color: $red;
+                    }
+                }
+
+                i {
+                    color: $light-text;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Apartment.scss';
 
-export default function Apartment({elementAddress, data, selectedElement, setSelectedElement, removeClickHandle}: {elementAddress: number[], data: any, selectedElement: any[], setSelectedElement: any, removeClickHandle: any}) {
+export default function Apartment({elementAddress, name, selectedElement, setSelectedElement, removeClickHandle}: {elementAddress: number[], name: any, selectedElement: any[], setSelectedElement: any, removeClickHandle: any}) {
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ export default function Apartment({elementAddress, data, selectedElement, setSel
     return (
         <div className="apartment">
             <div className={`apartmentTitle ${active ? 'active' : ''}`} onClick={() => setSelectedElement(elementAddress)}>
-                <h3>{`Apartament ${data.apartment}`}</h3>
+                <h3>{`Apartament ${name}`}</h3>
 
                 <div className="buttons">
                     <div className={`button ${active ? 'active' : ''}`} onClick={removeClickHandle}>

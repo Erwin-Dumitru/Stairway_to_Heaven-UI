@@ -8,7 +8,7 @@
     // padding: 25px;
 }
 
-.imgNav {
+.img-nav {
     background-color: white;
     display: flex;
     align-items: center;
@@ -17,18 +17,13 @@
     width: 0px;
     border-radius: 25px;
     padding: 25px;
-}
+    cursor: pointer;
 
-.imgNav img {
-    height: 30px;
-    width: 30px;
-    margin: 0;
-}
-
-#profileImg {
-    /* background-color: rgba(91, 181, 162, 1); */
-    /* background-color: rgb(45, 149, 150); */
-    background-color: #9ad0c2;
+    img {
+        height: 30px;
+        width: 30px;
+        margin: 0;
+    }
 }
 
 .navLinks {
