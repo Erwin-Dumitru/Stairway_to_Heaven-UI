@@ -1,7 +1,7 @@
 @import '/src/variables.scss';
 
 .raports-expenses {
-    // width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: $small-gap;
@@ -24,6 +24,7 @@
 
         .expense {
             min-height: 44.2px;
+            max-height: 44.2px;
             display: flex;
             // justify-content: space-between;
             align-items: center;
@@ -40,6 +41,7 @@
 
                 h3 {
                     font-weight: 600;
+                    color: $light-text !important;
                 }
             }
 
@@ -57,26 +59,99 @@
                 border-bottom-right-radius: $small-gap;
             }
 
-            h3 {
+            .field {
                 width: 25%;
-                font-size: 1.2em;
-                font-weight: 500;
-                line-height: 1;
-                padding: 10px 2px;
-                margin: -10px 2px;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                transition: all 0.2s ease;
-                color: transparentize($light-text, 0.3);
-                padding-right: $small-gap;
+                display: flex;
+                align-items: center;
+                gap: calc($small-gap / 2);
 
-                // &.total {
-                //     // width: calc(25% - 15px);
-                //     width: 10%;
-                //     text-align: end;
-                //     // color: red;
-                // }
+                h3 {
+                    font-size: 1.2em;
+                    font-weight: 500;
+                    line-height: 1;
+                    padding: 10px 2px;
+                    margin: -10px 2px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    transition: all 0.2s ease;
+                    color: transparentize($light-text, 0.3);
+                    padding-right: $small-gap;
+                }
+                
+                .type {
+                    height: 23px;
+                    aspect-ratio: 1;
+                    margin-left: calc($small-gap / 2);
+
+                    img {
+                        filter: invert(0.6);
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+
+                input {
+                    width: 100%;
+                    max-width: 110px;
+                    height: 29.16px;
+                    padding: 0 5px;
+                    border: none;
+                    border-bottom: 1px solid transparentize($light-text, 0.8);
+                    // border-radius: calc($small-gap / 2);
+                    // background-color: transparentize($light-text, 0.95);
+                    background-color: transparent;
+                    color: $light-text;
+                    font-size: 1.2em;
+                    font-weight: 500;
+                    transition: all 0.2s ease;
+
+                    &:focus {
+                        border-color: transparentize($light-text, 0.4);
+                        outline: none;
+                    }
+                }
+            }
+
+            .selector {
+                position: relative;
+
+                .dropdown {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    max-height: 200px;
+                    overflow-y: auto;
+                    border: 1px solid transparentize($light-text, 0.8);
+                    border-radius: $small-gap;
+                    background-color: $dark-back;
+                    color: $light-text;
+                    z-index: 1;
+                    transition: all 0.2s ease;
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(-10px);
+                    pointer-events: none;
+
+                    &.active {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translateY(0);
+                        pointer-events: all;
+                    }
+
+                    .option {
+                        padding: 5px 10px;
+                        transition: all 0.2s ease;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: transparentize($light-text, 0.9);
+                        }
+                    }
+                }
             }
 
             input {
