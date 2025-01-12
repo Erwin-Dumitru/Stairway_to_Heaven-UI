@@ -36,36 +36,6 @@ export default function Individuals() {
             name: 'Ap. 4',
             amount: 400,
             groups: [groups[0], groups[1], groups[2]]
-        },
-        {
-            name: 'Ap. 5',
-            amount: 500,
-            groups: [groups[0], groups[1]]
-        },
-        {
-            name: 'Ap. 6',
-            amount: 600,
-            groups: [groups[0], groups[2]]
-        },
-        {
-            name: 'Ap. 7',
-            amount: 700,
-            groups: [groups[1], groups[2]]
-        },
-        {
-            name: 'Ap. 8',
-            amount: 800,
-            groups: [groups[0], groups[1], groups[2]]
-        },
-        {
-            name: 'Ap. 9',
-            amount: 900,
-            groups: [groups[0], groups[1]]
-        },
-        {
-            name: 'Ap. 10',
-            amount: 1000,
-            groups: [groups[0], groups[2]]
         }
     ];
 

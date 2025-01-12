@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import SmallDoughnutChart from '@/components/smallDoughnutChart/SmallDoughnutChart';
+// import { useState } from 'react';
+// import SmallDoughnutChart from '@/components/smallDoughnutChart/SmallDoughnutChart';
 import './CashModal.scss';
 
-export default function CashModal(dialogRef: any) {
-    const [selector, setSelector] = useState('current');
+export default function CashModal(_dialogRef: any) {
+    // const [selector, setSelector] = useState('current');
 
     const data = [
         {

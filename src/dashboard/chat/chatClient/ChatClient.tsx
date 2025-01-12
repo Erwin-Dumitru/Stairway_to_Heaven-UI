@@ -78,12 +78,14 @@ function ChatClient() {
                 </div>
 
                 <div className="messages">
-                    <Message message="Bă! Ai chef să mai mergem la Cluj?" time="12:00" isMine={true} />
+                    <Message message="Salut! 🤗" time="12:00" isMine={true} />
+                    <Message message="Ce faci?" time="12:00" isMine={false} />
+                    {/* <Message message="Bă! Ai chef să mai mergem la Cluj?" time="12:00" isMine={true} />
                     <Message message="Și mie ce-mi iese?" time="12:00" isMine={false} />
                     <Message message="Poate dai și tu de o gagică, ceva" time="12:01" isMine={true} />
                     <Message message="Am destule" time="12:01" isMine={false} />
                     <Message message="Da' ce vrei?" time="12:01" isMine={true} />
-                    <Message message="51%? 🥺" time="12:02" isMine={false} />
+                    <Message message="51%? 🥺" time="12:02" isMine={false} /> */}
                 </div>
 
                 <div className="chatFooter">

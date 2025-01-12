@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AddressContext } from "@/components/Context";
 import addressesData from "@/data/addresses.json";
-import agent from "@/api/agent";
+// import agent from "@/api/agent";
 
 import Nav from "./nav/Nav";
 import Bar from "./bar/Bar";
@@ -119,7 +119,7 @@ function App() {
     let storedAddress = localStorage.getItem("selectedAddress");
     console.log("Stored address: ");
     console.log(storedAddress);
-    let selectedAddress;
+    let selectedAddress: any;
   
     if (storedAddress) {
       try {
@@ -213,41 +213,47 @@ function App() {
 }
 
 async function getInfo(props: any) {
-  const homeInfo = await agent.Home.getHomeData("69f04c73-4ec5-401e-a265-103847edc1e3").catch((error) => {
-    console.log(error);
-    props.setAddresses(addressesData); // Use the data from the JSON file if the API call fails
-  });
+  // TODO: Get the data from the API
 
-  if (homeInfo) {
-    props.setHomeInfo(homeInfo);
+  // Get the data from the JSON 
+  props.setAddresses(addressesData);
+  return;
 
-    let APIAddresses: (Apartment | Administration)[] = homeInfo.apartments.map((address) => {
-      return {
-        id: address.id,
-        name: address.name
-      };
-    });
+  // const homeInfo = await agent.Home.getHomeData("69f04c73-4ec5-401e-a265-103847edc1e3").catch((error) => {
+  //   console.log(error);
+  //   props.setAddresses(addressesData); // Use the data from the JSON file if the API call fails
+  // });
 
-    APIAddresses = APIAddresses.concat(homeInfo.administrations.map((address) => {
-      return {
-        id: address.id,
-        name: address.name,
-        associations: address.associations.map((association) => {
-          return {
-            id: association.id,
-            name: association.name,
-            done: false,
-            notifications: 0,
-            county: "Cluj",
-            countyCode: "CJ",
-            city: "Cluj-Napoca"
-          };
-        })
-      };
-    }));
+  // if (homeInfo) {
+  //   props.setHomeInfo(homeInfo);
 
-    props.setAddresses(APIAddresses);
-  }
+  //   let APIAddresses: (Apartment | Administration)[] = homeInfo.apartments.map((address) => {
+  //     return {
+  //       id: address.id,
+  //       name: address.name
+  //     };
+  //   });
+
+  //   APIAddresses = APIAddresses.concat(homeInfo.administrations.map((address) => {
+  //     return {
+  //       id: address.id,
+  //       name: address.name,
+  //       associations: address.associations.map((association) => {
+  //         return {
+  //           id: association.id,
+  //           name: association.name,
+  //           done: false,
+  //           notifications: 0,
+  //           county: "Cluj",
+  //           countyCode: "CJ",
+  //           city: "Cluj-Napoca"
+  //         };
+  //       })
+  //     };
+  //   }));
+
+  //   props.setAddresses(APIAddresses);
+  // }
 }
 
 export default App;

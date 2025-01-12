@@ -23,9 +23,11 @@
         
 
         .expense {
-            min-height: 44.2px;
-            max-height: 44.2px;
+            // max-height: 44.2px;
+            // min-height: 44.2px;
+            height: 44.2px;
             display: flex;
+            gap: calc($small-gap / 2);
             // justify-content: space-between;
             align-items: center;
             padding: 0 $small-gap;
@@ -38,6 +40,7 @@
             &.header {
                 background-color: transparentize($light-text, 0.9);
                 border-bottom: 2px solid transparentize($light-text, 0.9);
+                height: 42.2px;
 
                 h3 {
                     font-weight: 600;
@@ -60,10 +63,16 @@
             }
 
             .field {
-                width: 25%;
+                // width: 25%;
+                flex: 1;
                 display: flex;
                 align-items: center;
                 gap: calc($small-gap / 2);
+                overflow: hidden;
+
+                &.overflow {
+                    overflow: visible;
+                }
 
                 h3 {
                     font-size: 1.2em;
@@ -76,7 +85,6 @@
                     text-overflow: ellipsis;
                     transition: all 0.2s ease;
                     color: transparentize($light-text, 0.3);
-                    padding-right: $small-gap;
                 }
                 
                 .type {
@@ -102,7 +110,8 @@
                     // border-radius: calc($small-gap / 2);
                     // background-color: transparentize($light-text, 0.95);
                     background-color: transparent;
-                    color: $light-text;
+                    color: transparentize($light-text, 0.3);
+                    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
                     font-size: 1.2em;
                     font-weight: 500;
                     transition: all 0.2s ease;
@@ -154,10 +163,11 @@
                 }
             }
 
-            input {
-                aspect-ratio: 1;
-                margin-right: $small-gap;
-            }
+            // input.checkbox {
+            //     // width: 1em;
+            //     // aspect-ratio: 1;
+            //     // margin-right: $small-gap;
+            // }
 
             .add {
                 display: flex;

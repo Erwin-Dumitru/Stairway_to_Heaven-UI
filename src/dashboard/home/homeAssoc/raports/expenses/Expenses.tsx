@@ -1,4 +1,5 @@
 import './Expenses.scss';
+import ApartmentsSelector from './apartmentsSelector/ApartmentsSelector';
 import Counter from '@/assets/Counter.png';
 import Distribution from '@/assets/Distribution.png';
 
@@ -38,7 +39,9 @@ export default function Expenses({ data, stair, show }: { data: DataType[], stai
 
             <div className="expenses-list">
                 <div className='expense header'>
-                    <input type="checkbox" />
+                    <div className="checkbox">
+                        <input type="checkbox" />
+                    </div>
                     {/* <div className="type"></div> */}
                     {/* <h3>Tip</h3> */}
 
@@ -71,7 +74,11 @@ export default function Expenses({ data, stair, show }: { data: DataType[], stai
                     return (
                         <div className={`expense ${index % 2 === 0 ? 'even' : 'odd'}`} 
                             key={index}>
-                            <input type="checkbox" />
+                            
+                            <div className="checkbox">
+                                <input type="checkbox" />
+                            </div>
+
                             <div className="field">
                                 <div className="type">
                                     <img src={expense.kind === 'Contorizat' ? Counter : Distribution} alt="type" />
@@ -80,7 +87,7 @@ export default function Expenses({ data, stair, show }: { data: DataType[], stai
                                 <h3>{expense.name}</h3>
                             </div>
 
-                            <div className="field selector">
+                            {/* <div className="field selector">
                                 <div className="selected">
                                     <h3>15/48</h3>
                                 </div>
@@ -102,6 +109,10 @@ export default function Expenses({ data, stair, show }: { data: DataType[], stai
                                         </div>
                                     </div>
                                 </div>
+                            </div> */}
+
+                            <div className="field overflow">
+                                <ApartmentsSelector />
                             </div>
                             
                             <div className="field">

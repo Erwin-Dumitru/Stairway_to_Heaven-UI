@@ -112,13 +112,13 @@ const AdminSettings = {
     },
 }
 
-const AdministratorSettings = {
+// const AdministratorSettings = {
 
-}
+// }
 
-const EmployeeSettings = {
+// const EmployeeSettings = {
     
-}
+// }
 
 const agent = {
     Auth,

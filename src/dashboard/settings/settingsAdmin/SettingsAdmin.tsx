@@ -4,8 +4,8 @@ import Association from "./association/Association";
 import DataStructure from "@/data/dataStructure.json";
 import SavePopUp from "./savePopUp/SavePopUp";
 import "./SettingsAdmin.scss";
-import agent from "@/api/agent";
-import { set } from "mobx";
+// import agent from "@/api/agent";
+// import { set } from "mobx";
 
 interface DataStructure {
     id?: string;
